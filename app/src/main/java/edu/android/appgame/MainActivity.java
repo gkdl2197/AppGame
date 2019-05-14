@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-    }
+    } // end onCreate()
 
     @Override
     public void onBackPressed() {
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
+    } // end onNavigationItemSelected()
 
     public void onClickBtnTest(View view) {
         Intent intent = new Intent(this, TestActivity.class);
@@ -118,5 +118,6 @@ public class MainActivity extends AppCompatActivity
         Intent intent = new Intent (this, GameActivity.class);
         startActivity(intent);
     } // end onClickBtnGame
+
 } // end class MainActivity
 
