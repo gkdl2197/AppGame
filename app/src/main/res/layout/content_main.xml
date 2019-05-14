@@ -37,6 +37,7 @@
 
     <Button
         android:id="@+id/btnTest"
+        android:onClick="onClickBtnTest"
         android:layout_width="230dp"
         android:layout_height="60dp"
         android:layout_marginStart="84dp"
@@ -50,6 +51,7 @@
 
     <Button
         android:id="@+id/btnGame"
+        android:onClick="onClickBtnGame"
         android:layout_width="230dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"

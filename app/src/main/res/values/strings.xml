@@ -8,8 +8,8 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_gallery">검사 하기 </string>
-    <string name="menu_slideshow">게임 하기</string>
+    <string name="menu_test">검사 하기 </string>
+    <string name="menu_game">게임 하기</string>
     <string name="menu_tools">예방 방법</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
