@@ -11,7 +11,7 @@ public class LoadingActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
         startLoading();
-    }
+    } // end onCreate()
 
     private void startLoading() {
 
@@ -23,5 +23,5 @@ public class LoadingActivity extends Activity {
                 finish();
             }
         }, 2000);
-    }
-}
+    } // end startLoading()
+} // end class LoadingActivity

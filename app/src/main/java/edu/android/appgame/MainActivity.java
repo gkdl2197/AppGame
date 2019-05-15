@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-    }
+    } // end onCreate()
 
     @Override
     public void onBackPressed() {
@@ -87,10 +87,14 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_home) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_test) {
+            Intent intent = new Intent(this, TestActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_game) {
+            Intent intent = new Intent (this, GameActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_tools) {
 
         } else if (id == R.id.nav_share) {
@@ -102,5 +106,18 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-}
+    } // end onNavigationItemSelected()
+
+    public void onClickBtnTest(View view) {
+        Intent intent = new Intent(this, TestActivity.class);
+        startActivity(intent);
+    } // end onClickBtnTest()
+
+
+    public void onClickBtnGame(View view) {
+        Intent intent = new Intent (this, GameActivity.class);
+        startActivity(intent);
+    } // end onClickBtnGame
+
+} // end class MainActivity
+
