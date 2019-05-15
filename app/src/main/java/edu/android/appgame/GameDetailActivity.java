@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import static edu.android.appgame.MainActivity.KEY_GAME_INDEX;
+
 public class GameDetailActivity extends AppCompatActivity {
 
     private int position;
@@ -17,7 +19,12 @@ public class GameDetailActivity extends AppCompatActivity {
             Intent intent = getIntent();
             position = intent.getIntExtra(KEY_GAME_INDEX, 0);
 
+            GameDetailFragment fragment = GameDetailFragment.newFragment(position);
 
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.container, fragment)
+                    .commit();
         }
 
     } // end onCreate()
