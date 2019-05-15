@@ -21,19 +21,16 @@ import edu.android.appgame.controller.GameDao;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    public static final String KEY_GAME_INDEX = "game_index";
-    private RecyclerView recyclerView;
-    private GameDao dao = GameDao.getInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // 로딩화면 구현
         Intent intent = new Intent(this, LoadingActivity.class);
         startActivity(intent);
-
-
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -52,6 +49,9 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+
+
     } // end onCreate()
 
     @Override

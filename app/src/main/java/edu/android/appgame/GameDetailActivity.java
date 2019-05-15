@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import static edu.android.appgame.MainActivity.KEY_GAME_INDEX;
+import static edu.android.appgame.GameActivity.KEY_GAME_INDEX;
 
 public class GameDetailActivity extends AppCompatActivity {
 
