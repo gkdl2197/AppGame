@@ -12,7 +12,7 @@ public class GameDao {
 
     private static GameDao instance = null;
 
-    private static GameDao getInstance() {
+    public static GameDao getInstance() {
         if (instance == null ){
             instance = new GameDao();
         }
