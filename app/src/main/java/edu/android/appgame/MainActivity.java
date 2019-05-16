@@ -1,9 +1,12 @@
 package edu.android.appgame;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
@@ -20,7 +23,7 @@ import edu.android.appgame.controller.GameDao;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+        final Context context =this;
 
 
     @Override
@@ -116,8 +119,35 @@ public class MainActivity extends AppCompatActivity
     } // end onNavigationItemSelected()
 
     public void onClickBtnTest(View view) {
-        Intent intent = new Intent(this, TestActivity.class);
-        startActivity(intent);
+        final Intent intent = new Intent(this, TestActivity.class);
+        // 검사 시작 전 경고창 띄우기
+        switch (view.getId()) {
+            case R.id.btnTest:
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+                alertDialogBuilder.setTitle("치매 검사 시작");
+                alertDialogBuilder.setMessage("검사 시작하시겠습니까? (이 검사는 100% 정확하지 않은 검사이므로 결과에 너무 의존하지 마십시오)")
+                        .setCancelable(false)
+                        .setPositiveButton("시작하기", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                startActivity(intent);
+                            }
+                        })
+                        .setNegativeButton("안하기", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        });
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+                break;
+            default:
+                break;
+        }
+
+
     } // end onClickBtnTest()
 
 
@@ -126,5 +156,9 @@ public class MainActivity extends AppCompatActivity
         startActivity(intent);
     } // end onClickBtnGame
 
+    public void onClickBtnLogin(View view) {
+        Intent intent = new Intent (this, LoginActivity.class);
+        startActivity(intent);
+    }
 } // end class MainActivity
 
