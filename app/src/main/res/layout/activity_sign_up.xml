@@ -9,8 +9,8 @@
 
     <TextView
         android:id="@+id/textSignup"
-        android:layout_width="148dp"
-        android:layout_height="57dp"
+        android:layout_width="140dp"
+        android:layout_height="38dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
@@ -19,18 +19,17 @@
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="216dp"
-        android:layout_height="204dp"
+        android:layout_width="225dp"
+        android:layout_height="156dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.564"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textSignup"
         app:srcCompat="@drawable/networking" />
@@ -51,7 +50,7 @@
         <EditText
             android:id="@+id/editId"
 
-            android:layout_width="396dp"
+            android:layout_width="388dp"
             android:layout_height="54dp"
             android:layout_marginStart="8dp"
 
@@ -66,7 +65,7 @@
 
         <EditText
             android:id="@+id/editPass"
-            android:layout_width="396dp"
+            android:layout_width="388dp"
             android:layout_height="57dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
@@ -79,7 +78,7 @@
 
         <EditText
             android:id="@+id/editPassTest"
-            android:layout_width="396dp"
+            android:layout_width="388dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
@@ -93,8 +92,8 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="396dp"
-        android:layout_height="238dp"
+        android:layout_width="388dp"
+        android:layout_height="236dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
@@ -102,15 +101,15 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.0">
 
         <EditText
             android:id="@+id/editName"
-            android:layout_width="match_parent"
-            android:layout_height="51dp"
+            android:layout_width="388dp"
+            android:layout_height="54dp"
             android:background="#FCFCFC"
             android:backgroundTint="#FCFCFC"
             android:ems="10"
@@ -168,9 +167,8 @@
 
         <Button
             android:id="@+id/btnSignUp"
-            android:layout_width="396dp"
+            android:layout_width="388dp"
             android:layout_height="58dp"
-            android:layout_margin="2dp"
             android:background="#3247BE"
             android:text="회원가입"
             android:textColor="#FCFCFC"
