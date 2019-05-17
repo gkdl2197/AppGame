@@ -1,10 +1,10 @@
-package edu.android.appgame.controller;
+package edu.android.appgame.Game;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import edu.android.appgame.R;
-import edu.android.appgame.model.Game;
+import edu.android.appgame.Game.Game;
 
 public class GameDao {
 

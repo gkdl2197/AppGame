@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "659367462742",
+    "firebase_url": "https://appgame-f4bdd.firebaseio.com",
+    "project_id": "appgame-f4bdd",
+    "storage_bucket": "appgame-f4bdd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659367462742:android:7de22b5cddc075f4",
+        "android_client_info": {
+          "package_name": "edu.android.appgame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659367462742-gbsniib605l15ebnvaue5mdue7hd51vf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.android.appgame",
+            "certificate_hash": "6d28a3bf5b7152f3298f2dbf6543289d999c3789"
+          }
+        },
+        {
+          "client_id": "659367462742-u0oq8hlchouqpqdsfqev7uc6n84up5mh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCP2hA_W6urBHMrUSLriAV-hRg7RrAdK9Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659367462742-u0oq8hlchouqpqdsfqev7uc6n84up5mh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

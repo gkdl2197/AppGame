@@ -14,8 +14,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import edu.android.appgame.controller.GameDao;
-import edu.android.appgame.model.Game;
+import edu.android.appgame.Game.GameDao;
+import edu.android.appgame.Game.Game;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -29,6 +29,10 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+
+
+
 
         recyclerView = findViewById(R.id.mRecyclerview);
 

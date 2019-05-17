@@ -1,4 +1,4 @@
-package edu.android.appgame.model;
+package edu.android.appgame.Game;
 
 public class Game {
 
