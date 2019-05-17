@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity
     } // end onNavigationItemSelected()
 
     public void onClickBtnTest(View view) {
-        final Intent intent = new Intent(this, TestActivity.class);
+        final Intent intent = new Intent(this, TestSelectActivity.class);
         // 검사 시작 전 경고창 띄우기
         switch (view.getId()) {
             case R.id.btnTest:

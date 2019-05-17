@@ -8,61 +8,61 @@
     tools:context=".TestSelectActivity">
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="336dp"
-        android:layout_height="114dp"
+        android:id="@+id/btnDementia"
+        android:layout_width="288dp"
+        android:layout_height="90dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="132dp"
         android:layout_marginEnd="8dp"
         android:backgroundTint="#E9471E"
         android:text="치매 선별 설문지"
         android:textColor="#FAFAFA"
         android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.627"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="334dp"
-        android:layout_height="114dp"
+        android:id="@+id/btnMemory"
+        android:layout_width="288dp"
+        android:layout_height="90dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:backgroundTint="#3AB740"
         android:text="기억감퇴 자각도 검사"
         android:textColor="#EEF0F0"
-        android:textSize="30sp"
+        android:textSize="28sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.639"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/button5"
-        android:layout_width="336dp"
-        android:layout_height="114dp"
+        android:id="@+id/btnGloomy"
+        android:layout_width="288dp"
+        android:layout_height="90dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:backgroundTint="#3F51B5"
         android:text="노인우울척도검사"
         android:textColor="#F3F5F7"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.656"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
-        app:layout_constraintVertical_bias="0.082" />
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textSelect"
         android:layout_width="164dp"
         android:layout_height="51dp"
         android:layout_marginStart="8dp"
@@ -71,12 +71,54 @@
         android:layout_marginBottom="8dp"
         android:gravity="center_vertical|center_horizontal"
         android:text="검사 선택"
-        android:textSize="30sp"
+        android:textSize="33sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/btnDementia"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.63" />
+        app:layout_constraintVertical_bias="0.283" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="91dp"
+        android:layout_height="101dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnGloomy"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.207"
+        app:srcCompat="@drawable/grandmother" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="89dp"
+        android:layout_height="94dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/btnMemory"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:srcCompat="@drawable/photography" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="99dp"
+        android:layout_height="86dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="136dp"
+        android:layout_marginEnd="292dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/test3" />
 </android.support.constraint.ConstraintLayout>

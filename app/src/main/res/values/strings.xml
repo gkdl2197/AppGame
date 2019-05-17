@@ -11,7 +11,7 @@
     <string name="menu_test">검사 하기 </string>
     <string name="menu_game">게임 하기</string>
     <string name="menu_tools">예방 방법</string>
-    <string name="menu_share">Share</string>
+    <string name="menu_result">결과 보기</string>
     <string name="menu_send">Send</string>
 
     <!-- TODO: Remove or change this placeholder text -->
