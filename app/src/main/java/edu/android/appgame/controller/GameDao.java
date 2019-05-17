@@ -28,14 +28,12 @@ public class GameDao {
     }
 
     private void makeDummyData() {
-        gameList.add(new Game("게임1", "게임1입니다", R.drawable.game_game1));
-        gameList.add(new Game("게임2", "게임2입니다", R.drawable.game_game2));
-        gameList.add(new Game("게임3", "게임3입니다", R.drawable.game_game3));
-        gameList.add(new Game("게임4", "게임4입니다", R.drawable.game_game4));
-        gameList.add(new Game("게임5", "게임5입니다", R.drawable.game_game5));
-        gameList.add(new Game("게임6", "게임6입니다", R.drawable.game_game6));
-        gameList.add(new Game("게임7", "게임7입니다", R.drawable.game_game7));
-        gameList.add(new Game("게임8", "게임8입니다", R.drawable.game_game8));
+        gameList.add(new Game("공간지각능력게임", "게임1입니다", R.drawable.game_1));
+        gameList.add(new Game("수리능력게임", "게임2입니다", R.drawable.gaming));
+        gameList.add(new Game("도형지능게임", "게임3입니다", R.drawable.cards));
+        gameList.add(new Game("집중력게임", "게임4입니다", R.drawable.puzzle));
+        gameList.add(new Game("언어능력게임", "게임5입니다", R.drawable.toys));
+
     } // end makeDummyData()
 
 } // end class GameDao

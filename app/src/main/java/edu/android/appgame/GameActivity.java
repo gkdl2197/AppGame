@@ -6,10 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 import edu.android.appgame.controller.GameDao;
 import edu.android.appgame.model.Game;
@@ -18,6 +21,8 @@ public class GameActivity extends AppCompatActivity {
 
     public static final String KEY_GAME_INDEX = "game_index";
     private RecyclerView recyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
     private GameDao dao = GameDao.getInstance();
 
     @Override
@@ -25,8 +30,7 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.mRecyclerview);
 
         recyclerView.setHasFixedSize(true);
 
@@ -42,9 +46,9 @@ public class GameActivity extends AppCompatActivity {
         @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View itemView = getLayoutInflater().inflate(R.layout.game_item, parent, false);
-            ViewHolder holder = new ViewHolder(itemView);
-            return holder;
+            View v= getLayoutInflater().inflate(R.layout.game_item,parent,false);
+            ViewHolder vh= new ViewHolder(v);
+            return vh;
         }
 
         @Override
@@ -76,7 +80,7 @@ public class GameActivity extends AppCompatActivity {
                 super(itemView);
                 imageGame = itemView.findViewById(R.id.imageGame);
                 itemName = itemView.findViewById(R.id.itemName);
-                itemDesc = itemName.findViewById(R.id.itemDesc);
+                itemDesc = itemView.findViewById(R.id.itemDesc);
             }
         }
     }
