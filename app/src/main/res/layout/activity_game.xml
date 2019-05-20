@@ -15,4 +15,25 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="#BDE2F3"
+        android:backgroundTint="#E8F0F5"
+        android:onClick="onClickBtnHome"
+        android:tint="#2E42A5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.976"
+        app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="#C5E9F8"
+        app:srcCompat="@drawable/home"
+        tools:ignore="MissingConstraints" />
 </android.support.constraint.ConstraintLayout>

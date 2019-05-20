@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TestSelectActivity"></activity>
+        <activity android:name=".Game.Sudoku.GameSudoku"></activity>
+        <activity android:name=".TestSelectActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".GameDetailActivity" />
         <activity android:name=".GameActivity" />

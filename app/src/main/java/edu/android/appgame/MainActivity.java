@@ -31,10 +31,12 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // 로딩화면 구현
-        Intent intent = new Intent(this, LoadingActivity.class);
-        startActivity(intent);
-
+        // 첫 실행에만 로딩 뜨도록
+        if(savedInstanceState == null) {
+            // 로딩화면 구현
+            Intent intent = new Intent(this, LoadingActivity.class);
+            startActivity(intent);
+        }
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -159,6 +161,12 @@ public class MainActivity extends AppCompatActivity
     public void onClickBtnLogin(View view) {
         Intent intent = new Intent (this, LoginActivity.class);
         startActivity(intent);
+    }
+
+    public void onClickBtnHome(View view) {
+        Intent intent = new Intent (this, MainActivity.class);
+        startActivity(intent);
+
     }
 } // end class MainActivity
 
