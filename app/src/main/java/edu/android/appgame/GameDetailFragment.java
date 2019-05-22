@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import edu.android.appgame.Game.GameDao;
-import edu.android.appgame.Game.Game;
+import edu.android.appgame.game.GameDao;
+import edu.android.appgame.game.Game;
 
 
 public class GameDetailFragment extends Fragment {
