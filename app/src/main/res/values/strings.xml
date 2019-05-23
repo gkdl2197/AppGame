@@ -16,4 +16,18 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string-array name="text_color">
+        <item>검정</item>
+        <item>파랑</item>
+        <item>빨강</item>
+        <item>하얀</item>
+        <item>초록</item>
+        <item>노랑</item>
+        <item>보라</item>
+        <item>주황</item>
+        <item>기본</item>
+    </string-array>
+
 </resources>
