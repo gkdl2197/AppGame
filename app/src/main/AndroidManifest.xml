@@ -16,6 +16,8 @@
         <activity android:name=".game.game2.ResultActivity"/>
         <activity android:name=".game.game2.Result2Activity"/>
         <activity android:name=".game.game2.Result3Activity"/>
+        <activity android:name=".game.game4.MainGame4Activity"/>
+        <activity android:name=".game.game4.OneActivity"/>
         <activity android:name=".TestSelectActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".GameDetailActivity" />

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import edu.android.appgame.game.game2.MainActivity;
+import edu.android.appgame.game.game4.MainGame4Activity;
 
 import static edu.android.appgame.GameActivity.KEY_GAME_INDEX;
 
@@ -25,6 +26,10 @@ public class GameDetailActivity extends AppCompatActivity {
                 case 1:
                     Intent intent1 = new Intent(this, MainActivity.class);
                     startActivity(intent1);
+                    break;
+                case 3:
+                    Intent intent3 = new Intent(this, MainGame4Activity.class);
+                    startActivity(intent3);
                     break;
             }
 
