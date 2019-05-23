@@ -3,7 +3,7 @@ package edu.android.appgame;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import edu.android.appgame.game.Sudoku.SudokuMain;
+// import edu.android.appgame.game.Sudoku.SudokuMain;
 
 public class TestSelectActivity extends AppCompatActivity {
 
