@@ -13,30 +13,45 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="76dp"
         android:layout_marginEnd="8dp"
         android:gravity="center"
         android:text="점수"
         android:textColor="@android:color/holo_orange_dark"
-        android:textSize="48sp"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/holo_blue_dark"
+        android:onClick="onClickGoToFirst"
+        android:text="처음으로"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textResult" />
+
+    <Button
         android:id="@+id/btnRetry"
         android:layout_width="125dp"
         android:layout_height="45dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="?attr/colorAccent"
         android:text="재시작"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textResult" />
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <Button
         android:id="@+id/btnHome"
@@ -48,6 +63,7 @@
         android:background="@android:color/holo_purple"
         android:text="홈으로"
         android:textSize="32sp"
+        android:onClick="btnHome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnRetry" />

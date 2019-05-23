@@ -16,6 +16,7 @@ public class Result3Activity extends AppCompatActivity {
     private TextView textResult;
     private Button btnRetry;
     SharedPreferences spf = null;
+    private String score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,22 @@ public class Result3Activity extends AppCompatActivity {
 
         int score_cho = getIntent().getIntExtra(SCORE_CHO,0);
         int score = 60 - score_cho;
-        textResult.setText("걸린 시간: " + score + "초");
+
+        String time = "걸린 시간: " + score + "초\n\n";
+        if (score > 0 && score <= 20) {
+            textResult.setText(time + "기억력 점수: " + "A -\n" + "기억력이 매우 뛰어나십니다!");
+            score = 'A';
+        } if (score > 20 && score <= 40) {
+            textResult.setText(time + "기억력 점수: " + "B -\n" + "준수한 기억력을 가지고 계시군요!");
+            score = 'B';
+        } if (score > 40 && score <= 59) {
+            textResult.setText(time + "기억력 점수: " + "C -\n" + "오락가락하실 때가 많으시군요. 신경쓰세요!");
+            score = 'C';
+        } if (score >= 60) {
+            textResult.setText(time + "기억력 점수: " + "D -\n" + "당장 병원으로 가세요!");
+            score = 'D';
+        }
+
 
 //        if(spf.getInt("spfscore",0) < score){ //내점수가 저번 점수보다 크면
 //            spf.edit().putInt("spfscore",score).commit(); //반영의 commit(). 현재상태 저장
@@ -39,11 +55,20 @@ public class Result3Activity extends AppCompatActivity {
         btnRetry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Result3Activity.this, MainActivity.class);
+                Intent intent = new Intent(Result3Activity.this, Main3Activity.class);
                 startActivity(intent);
                 finish();
             }
         });
     }
 
+    public void btnHome(View view) {
+    }
+
+    public void onClickGoToFirst(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+
+    }
 }
