@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CFEAF1"
-    tools:context=".TestSelectActivity">
+    tools:context=".test.TestSelectActivity">
 
     <Button
         android:id="@+id/btnDementia"
@@ -15,6 +15,7 @@
         android:layout_marginEnd="8dp"
         android:backgroundTint="#E9471E"
         android:text="치매 선별 설문지"
+        android:onClick="onClickDementia"
         android:textColor="#FAFAFA"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -33,6 +34,7 @@
         android:layout_marginEnd="8dp"
         android:backgroundTint="#3AB740"
         android:text="기억감퇴 자각도 검사"
+        android:onClick="onClickMemory"
         android:textColor="#EEF0F0"
         android:textSize="28sp"
         android:textStyle="bold"
@@ -51,6 +53,7 @@
         android:layout_marginEnd="8dp"
         android:backgroundTint="#3F51B5"
         android:text="노인우울척도검사"
+        android:onClick="onClickGloomy"
         android:textColor="#F3F5F7"
         android:textSize="30sp"
         android:textStyle="bold"
