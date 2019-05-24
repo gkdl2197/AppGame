@@ -36,10 +36,10 @@ public class TestDementia extends AppCompatActivity implements TextToSpeech.OnIn
     };
 
     private void speech() {
-        String myText1 = editText.getText().toString();
-//        String myText2 = "말하는 스피치 입니다.";
-        myTTS.speak(myText1, TextToSpeech.QUEUE_FLUSH, null);
-//        myTTS.speak(myText2, TextToSpeech.QUEUE_ADD, null);
+//        String myText1 = editText.getText().toString();
+////        String myText2 = "말하는 스피치 입니다.";
+//        myTTS.speak(myText1, TextToSpeech.QUEUE_FLUSH, null);
+////        myTTS.speak(myText2, TextToSpeech.QUEUE_ADD, null);
     }
 
     @Override
