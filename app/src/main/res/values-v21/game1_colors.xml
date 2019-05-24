@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#070707</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="lightBlue50">#E1F5FE</color>
+    <color name="lightBlue100">#B3E5FC</color>
+    <color name="lightBlue200">#81D4FA</color>
+    <color name="lightBlue300">#4FC3F7</color>
+    <color name="lightBlue800">#0277BD</color>
+    <color name="lightBlue900">#01579B</color>
+    <color name="Purple500">#8E24AA</color>
+    <color name="redA700">#D50000</color>
+    <color name="redA100">#FFCDD2</color>
+</resources>
