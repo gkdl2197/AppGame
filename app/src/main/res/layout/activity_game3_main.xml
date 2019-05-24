@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#ffffff"
     android:theme="@style/Theme.AppCompat.NoActionBar"
-    tools:context=".MainGame3Activity">
+    tools:context=".game.game3.MainGame3Activity">
 
     <ImageButton
         android:id="@+id/btnNo"

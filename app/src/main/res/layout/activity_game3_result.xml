@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/game3_result"
-    tools:context=".ResultGame3Activity">
+    tools:context=".game.game3.ResultGame3Activity">
 
     <TextView
         android:id="@+id/textView"
