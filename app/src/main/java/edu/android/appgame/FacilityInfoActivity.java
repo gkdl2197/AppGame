@@ -21,9 +21,7 @@ import java.util.List;
 public class FacilityInfoActivity  extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-//    private FacilityDao dao = FacilityDao.getInstance();
     private List<String[]> facilityList = new ArrayList<>();
-    private int sizeCount = 0;
     private static final String TAG = "tag";
 
 
@@ -97,11 +95,9 @@ public class FacilityInfoActivity  extends AppCompatActivity {
 
             public ViewHolder(@NonNull View itemView) {
                 super(itemView);
-                Log.i(TAG, "2: ");
                 textCenterAddr = itemView.findViewById(R.id.textCenterAddr);
                 textCenterName = itemView.findViewById(R.id.textCenterName);
                 textCenterTel = itemView.findViewById(R.id.textCenterTel);
-                Log.i(TAG, "3: ");
             }
         } // end class ViewHolder
     }
