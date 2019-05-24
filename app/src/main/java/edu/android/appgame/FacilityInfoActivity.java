@@ -21,8 +21,9 @@ import java.util.List;
 public class FacilityInfoActivity  extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private FacilityDao dao = FacilityDao.getInstance();
-    private List<String> facilityList = new ArrayList<>();
+//    private FacilityDao dao = FacilityDao.getInstance();
+    private List<String[]> facilityList = new ArrayList<>();
+    private int sizeCount = 0;
     private static final String TAG = "tag";
 
 
@@ -31,67 +32,59 @@ public class FacilityInfoActivity  extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_facility_info);
 
+        fileDatasize();
+
         recyclerView = findViewById(R.id.recyclerView);
-
         recyclerView.setHasFixedSize(true);
-
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
-        FacilityAdapter adapter = new FacilityAdapter();
 
+        FacilityAdapter adapter = new FacilityAdapter();
         recyclerView.setAdapter(adapter);
 
 
     } // end onCreate(){
 
+    public void fileDatasize() {
+        InputStream in = null;
+        InputStreamReader reader = null;
+        BufferedReader br = null;
+        try {
+            in = getAssets().open("facility_list.txt");
+            reader = new InputStreamReader(in, "UTF-8");
+            br = new BufferedReader(reader);
 
+            String line = br.readLine();
+            while (line != null) {
+                String[] list = line.split(",");
+                facilityList.add(list);
+                line = br.readLine();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                br.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
-    class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHolder> {
+    private class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHolder> {
 
         @NonNull
         @Override
-        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
-            Log.i(TAG, "onCreateViewHolder: 들어옴 ");
-            View itemView = getLayoutInflater().inflate(R.layout.activity_facility_item, parent, false);
-            ViewHolder holder = new ViewHolder(itemView);
-            Log.i(TAG,"return 전");
-            return holder;
+        public FacilityAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int position) {
+            View view = getLayoutInflater().inflate(R.layout.activity_facility_item, viewGroup, false);
+            ViewHolder itemView = new ViewHolder(view);
+            return itemView;
         }
 
         @Override
-        public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {
-            Log.i(TAG, "1: ");
-            InputStream in = null;
-            InputStreamReader reader = null;
-            BufferedReader br = null;
-            try {
-                in = getAssets().open("facility_list.txt");
-                reader = new InputStreamReader(in, "UTF-8");
-                br = new BufferedReader(reader);
-
-                StringBuilder builder = new StringBuilder();
-                String line = br.readLine();
-                Log.i(TAG, "2: " + line);
-                while (line != null) {
-                    String[] list = line.split(",");
-                    viewHolder.textCenterName.setText(list[0]);
-                    viewHolder.textCenterTel.setText(list[1]);
-                    viewHolder.textCenterAddr.setText(list[2]);
-                    Log.i(TAG, "체크: " + viewHolder.textCenterName.getText().toString());
-
-                    facilityList.add(list[0]);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                try {
-                    br.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
-
+        public void onBindViewHolder(@NonNull FacilityAdapter.ViewHolder viewHolder, final int i) {
+                viewHolder.textCenterName.setText(facilityList.get(i)[0]);
+                viewHolder.textCenterTel.setText(facilityList.get(i)[3]);
+                viewHolder.textCenterAddr.setText(facilityList.get(i)[2]);
         }
 
         @Override
@@ -101,6 +94,7 @@ public class FacilityInfoActivity  extends AppCompatActivity {
 
         public class ViewHolder extends RecyclerView.ViewHolder {
             private TextView textCenterName, textCenterAddr, textCenterTel;
+
             public ViewHolder(@NonNull View itemView) {
                 super(itemView);
                 Log.i(TAG, "2: ");
@@ -111,7 +105,5 @@ public class FacilityInfoActivity  extends AppCompatActivity {
             }
         } // end class ViewHolder
     }
-
-
 
 } // end class FacilityInfoActivity
