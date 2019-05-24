@@ -341,19 +341,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 textTime.setText(msg.arg1 + "초");
 
-            if (msg.arg1 <= 0 && SUCCESS_CNT != TOTAL_CARD_NUM / 2) {
-                AlertDialog.Builder alt1 = new AlertDialog.Builder(MainActivity.this);
-                alt1.setMessage("미션 실패! 다시 도전해보세요.")
-                        .setCancelable(false)
-                        .setPositiveButton("닫기", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-
-                                Log.i(TAG, "2");
-                            }
-                        });
-                AlertDialog alt2 = alt1.create();
-                alt2.setTitle("짝 맞추기 실패");
-                alt2.show();
+            if (msg.arg1 <= 0) {
                 Intent intent = new Intent(MainActivity.this, ResultActivity.class);
                 intent.putExtra(SCORE_CHO, scoreCho);
                 startActivity(intent);
@@ -362,7 +350,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Log.i(TAG, "1");
 
                     thread.interrupt();
-
                 }
 
             }

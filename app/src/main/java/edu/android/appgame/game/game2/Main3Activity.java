@@ -343,24 +343,12 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
             public void handleMessage(Message msg) {
 
                 textTime.setText(msg.arg1 + "초");
-                if (msg.arg1 <= 0 && SUCCESS_CNT != TOTAL_CARD_NUM / 2) {
-                    AlertDialog.Builder alt1 = new AlertDialog.Builder(Main3Activity.this);
-                    alt1.setMessage("미션 실패! 다시 도전해보세요.")
-                            .setCancelable(false)
-                            .setPositiveButton("닫기", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-
-                                }
-                            });
-                    AlertDialog alt2 = alt1.create();
-                    alt2.setTitle("짝 맞추기 실패");
-                    alt2.show();
+                if (msg.arg1 <= 0) {
                     Intent intent = new Intent(Main3Activity.this, Result3Activity.class);
                     intent.putExtra(SCORE_CHO, scoreCho);
                     startActivity(intent);
 
                     thread.interrupt();
-
                 }
 
             }
