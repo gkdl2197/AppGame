@@ -1,4 +1,4 @@
-package edu.android.appgame.test;
+package edu.android.appgame.test.test1;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
