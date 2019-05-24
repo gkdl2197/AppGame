@@ -27,14 +27,17 @@ public class GameDetailActivity extends AppCompatActivity {
                 case 1:
                     Intent intent1 = new Intent(this, MainActivity.class);
                     startActivity(intent1);
+                    finish();
                     break;
                 case 2:
                     Intent intent2 = new Intent(this, Main2Game3Activity.class);
                     startActivity(intent2);
+                    finish();
                     break;
                 case 3:
                     Intent intent3 = new Intent(this, MainGame4Activity.class);
                     startActivity(intent3);
+                    finish();
                     break;
 
             }
