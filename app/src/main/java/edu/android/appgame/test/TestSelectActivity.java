@@ -7,7 +7,6 @@ import android.view.View;
 
 import edu.android.appgame.R;
 
-// import edu.android.appgame.game.Sudoku.SudokuMain;
 
 public class TestSelectActivity extends AppCompatActivity {
 
