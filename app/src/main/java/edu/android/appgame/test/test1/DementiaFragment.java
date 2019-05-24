@@ -1,4 +1,4 @@
-package edu.android.appgame.test;
+package edu.android.appgame.test.test1;
 
 import android.content.Context;
 import android.net.Uri;
@@ -7,6 +7,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import edu.android.appgame.R;
 
@@ -21,8 +24,15 @@ import edu.android.appgame.R;
 public class DementiaFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final int[] SURVEYS = {};
+    private static final String INDEX = "INDEX" ;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private TextView textSurvey;
+    private Button btnNever;
+    private Button btnSometimes;
+    private Button btnOften;
+    private int currentIndex;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -59,13 +69,24 @@ public class DementiaFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dementia, container, false);
+        View view = inflater.inflate(R.layout.fragment_dementia, container, false);
+        btnNever = view.findViewById(R.id.btnNever);
+        btnSometimes = view.findViewById(R.id.btnSometimes);
+        btnOften = view.findViewById(R.id.btnOften);
+        if(savedInstanceState != null) {
+            currentIndex = savedInstanceState.getInt(INDEX);
+        }
+        textSurvey.setText(SURVEYS[currentIndex]);
+
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -103,7 +124,33 @@ public class DementiaFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
+        void onInit(int status);
+
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        View view = getView();  // onCreateView()에서 생성한 View 객체
+        Button btnNext = view.findViewById(R.id.btnNextSurvey);
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showNextSurvey();
+            }
+        });
+    }
+
+    private void showNextSurvey() {
+        if(currentIndex < SURVEYS.length -1) {
+            currentIndex++;
+            textSurvey.setText(SURVEYS[currentIndex]);
+        } else{
+            Toast.makeText(getActivity(),"마지막 설문입니다", Toast.LENGTH_SHORT).show();
+
+        }
+
     }
 }
