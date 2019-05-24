@@ -43,6 +43,7 @@
         <activity android:name=".GameDetailActivity" />
         <activity android:name=".GameActivity" />
         <activity android:name=".LoginActivity" />
+        <activity android:name=".FacilityInfoActivity" />
         <activity
             android:name=".GameActivity"
             tools:ignore="DuplicateActivity" />

@@ -8,7 +8,6 @@ import android.view.View;
 import edu.android.appgame.R;
 import edu.android.appgame.test.test1.ExplainDementia;
 
-// import edu.android.appgame.game.Sudoku.SudokuMain;
 
 public class TestSelectActivity extends AppCompatActivity {
 

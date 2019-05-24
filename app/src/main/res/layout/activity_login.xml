@@ -91,6 +91,7 @@
 
     <Button
         android:id="@+id/btnNaver"
+        android:onClick="onClickBtnFacility"
         android:layout_width="388dp"
         android:layout_height="54dp"
         android:layout_marginStart="8dp"
