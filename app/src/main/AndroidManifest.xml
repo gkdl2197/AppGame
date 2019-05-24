@@ -12,6 +12,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".FacilityInfoActivity"/>
         <activity android:name=".test.test1.ToolbarFragment"></activity>
+        <activity android:name=".Prevention.Prevention_1"></activity>
         <activity
             android:name=".test.test1.TestDementia"
             android:label="@string/title_activity_test_dementia" />

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Prevention.Prevention_1">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="395dp"
+        android:layout_height="715dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView11"
+                    android:layout_width="58dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/idea111" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="321dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="치매관련 주요 구조"
+                    android:textColor="#21349E"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="치매 진단을 위해 검사를 받고 있는 사람은 치매가 확진 여부에 대해 알고 싶은지 결정할 수 있어야 합니다. 일반적으로 환자가 치매 진단을 위해 검사를 받는다는 사실을 인지한다면 결과를 알고 싶은지 결정할 수 있습니다. 치매가 있는 사람은 진단에 대해 알고 있는 것이 좋습니다. 하지만 환자가 분명하고 확실하게 진단 결과를 알고 싶어 하지 않는다면 진단 결과를 듣지 않을 권리가 있습니다."
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8"
+                android:text="대뇌 피질과 백질"
+                android:textColor="#21349E"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="뇌는 신경세포와 신경 교세포라고 하는 두 종류의 세포들이 모여 있는 덩어리입니다. 이 중에서 신경세포가 주로 신체활동과 정신활동을 담당하는데, 그 신경세포의 몸체는 주로 뇌의 겉껍질 부분에 모여 있습니다. 그래서 이 부분을 피질(皮質, cortex)이라고 부르고 약간 회색 기운을 띄고 있어서 회백질(grey matter) 이라고도 부릅니다. 반면, 신경세포의 몸체에서 뻗어 나온 가지들은 신경 섬유의 다발을 이루어 뇌의 내부로 향해 있는데, 그 색깔이 희며 반짝 반짝 윤기를 띄고 있어서 백질 (白質, white matter)이라고 불립니다. 대뇌 피질"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:srcCompat="@drawable/brain332" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="※전두엽 피질"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="전두엽은 머리 앞부분, 즉 이마 부위를 중심으로 한 대뇌의 껍질 부분을 말합니다. 이 부분의 신경세포들이 주로 하는 일은 일을 계획하고, 적절하게 실행하고, 또 너무 지나치지 않도록 적당한 제동을 거는 일을 담당합니다. 말하자면 자동차 엔진, 운전대, 브레이크에 해당합니다. 엔진에 해당하는 것은 의욕, 동기, 활력에 해당하며, 운전대에 해당하는 것은 일의 순서와 방법, 판단력과 융통성에 해당하며, 브레이크는 자제력, 충동 조절 등의 역할을 담당합니다."
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="※두정엽 피질"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="두정엽은 머리(頭)의 정수리 부분(頂)이라는 의미로 이름이 붙었습니다. 특히 오른쪽 두정엽은 공간을 파악하는 능력을 가지고 있습니다. 처음 가본 곳에서 방향을 파악하거나, 시계 바늘의 위치를 보고 지금 몇 시 정도 되었는지를 파악하는 능력, 조끼의 어느 구멍으로 팔을 집어넣어야 옷을 제대로 입을 수 있는지 아는 능력 등이 모두 이 두정엽 기능의 공간 파악 기능 때문에 가능한 겁니다. 알츠하이머병에서는 이 두정엽 기능이 비교적 초기부터 저하되는 것으로 알려져 있습니다. 측두엽 피질"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

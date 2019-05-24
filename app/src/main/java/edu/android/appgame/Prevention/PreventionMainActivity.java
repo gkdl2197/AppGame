@@ -1,6 +1,7 @@
 package edu.android.appgame.Prevention;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,8 +14,8 @@ import android.widget.TextView;
 
 import edu.android.appgame.R;
 
-public class PreventionActivity extends AppCompatActivity {
-    public static final String KEY_GAME_INDEX = "game_index";
+public class PreventionMainActivity extends AppCompatActivity {
+    public static final String KEY_PREVENTION_INDEX = "prevention_index";
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -23,6 +24,8 @@ public class PreventionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prevention);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorDarkBlue)));
+        getWindow().setStatusBarColor(getResources().getColor(R.color.colorDarkBlue));
         recyclerView = findViewById(R.id.pRecyclerview);
 
         recyclerView.setHasFixedSize(true);
@@ -79,7 +82,7 @@ public class PreventionActivity extends AppCompatActivity {
 
     private void showPreventionDetail(int position) {
         Intent intent = new Intent(this, PreventionDetail.class);
-        intent.putExtra(KEY_GAME_INDEX, position);
+        intent.putExtra(KEY_PREVENTION_INDEX, position);
         startActivity(intent);
     } // end showGameDetail()
 

@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Name"
-                android:textColor="@color/colorAccent"
+                android:textColor="#0D174D"
                 android:textSize="24sp" />
 
             <TextView
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:text="Desc"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="16dp" />
+                android:textSize="12sp" />
         </LinearLayout>
 
     </LinearLayout>
