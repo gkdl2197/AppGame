@@ -48,6 +48,7 @@ public class MainGame4Activity extends AppCompatActivity {
         Intent intent = new Intent(this, OneActivity.class);
         intent.putExtra(IMAGE_ID, NAME_LIST[index]);
         startActivity(intent);
+        finish();
     } // end startPuzzleGameA()
 
 

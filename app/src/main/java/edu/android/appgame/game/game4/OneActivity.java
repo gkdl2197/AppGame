@@ -1,6 +1,7 @@
 package edu.android.appgame.game.game4;
 
 
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -8,9 +9,11 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.widget.Chronometer;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -30,19 +33,21 @@ import static edu.android.appgame.game.game4.MainGame4Activity.IMAGE_ID;
 
 public class OneActivity extends AppCompatActivity {
 
-    RecyclerView oneViews;
 
-    ImageView correctImageView;
-
-    ImageButton btnRestart;
-
-    OneAdapter adapter;
-    CheckAvailable checkAvailable;
-    Vector<One> mOne;
-
+    private static final String TAG = "tag";
     private static int N ;
-
     private static int[] image = null;
+    private String time;
+
+    private RecyclerView oneViews;
+    private ImageView correctImageView;
+    private ImageButton btnRestart;
+
+    private OneAdapter adapter;
+    private CheckAvailable checkAvailable;
+    private Vector<One> mOne;
+    private Chronometer chronometer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +62,10 @@ public class OneActivity extends AppCompatActivity {
         correctImageView = findViewById(R.id.correctImageView);
         btnRestart = findViewById(R.id.btnRestart);
         oneViews = findViewById(R.id.oneViews);
+
+        chronometer = findViewById(R.id.chronometer);
+
+        chronometer.start();
 
 
         String image_id = getIntent().getStringExtra(IMAGE_ID);
@@ -190,5 +199,20 @@ public class OneActivity extends AppCompatActivity {
 
         }
     }; // itemTouchListener
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        chronometer.stop();
+    }
+
+    public void onClickStopGame(View view) {
+        Intent intent = new Intent(this, MainGame4Activity.class);
+        startActivity(intent);
+        finish();
+        chronometer.stop();
+        time = chronometer.getText().toString();
+        Log.i(TAG,"걸린 시간: " + time);
+    } // end onClickStopGame
 
 } // end class OneActivity
