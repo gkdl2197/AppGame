@@ -18,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
+import edu.android.appgame.Prevention.PreventionActivity;
 import edu.android.appgame.test.TestActivity;
 import edu.android.appgame.test.TestSelectActivity;
 
@@ -107,8 +108,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_game) {
             Intent intent = new Intent (this, GameActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_tools) {
-
+        } else if (id == R.id.nav_prevention) {
+            Intent intent= new Intent(this, PreventionActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {

@@ -8,7 +8,6 @@ import edu.android.appgame.R;
 public class GameDao {
 
     private List<Game> gameList = new ArrayList<>();
-
     private static GameDao instance = null;
 
     public static GameDao getInstance() {
