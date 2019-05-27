@@ -4,23 +4,30 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import edu.android.appgame.R;
+import edu.android.appgame.game.GameDao;
 
 import static edu.android.appgame.game.game3.MainGame3Activity.CORRECT_SCORE;
 import static edu.android.appgame.game.game3.MainGame3Activity.TOTAL_Q;
 
+
 public class ResultGame3Activity extends AppCompatActivity {
 
+    private static final String TAG = "debug";
+    public static final String GAME_COUNT = "game_count";
     private int score;
     private int total;
     private TextView textCount, textTotal;
     private ImageView imageGrade;
     private int grade;
     private String stringGrade;
+    private GameDao dao = GameDao.getInstance(this);
+    private int gameCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +43,7 @@ public class ResultGame3Activity extends AppCompatActivity {
 
         score = getIntent().getIntExtra(CORRECT_SCORE,0);
         total = getIntent().getIntExtra(TOTAL_Q,0);
+        gameCount = getIntent().getIntExtra(GAME_COUNT, 0);
 
         textCount.setText(score+"");
         textTotal.setText(total+"");
@@ -59,6 +67,13 @@ public class ResultGame3Activity extends AppCompatActivity {
         } else {
             imageGrade.setImageResource(R.drawable.game3_alphabet_d);
             stringGrade = "D";
+        }
+
+        try {
+            dao.saveScoreToFileByGames("word",gameCount, stringGrade);
+            Log.i(TAG, "성공");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
     } // end calScore()
