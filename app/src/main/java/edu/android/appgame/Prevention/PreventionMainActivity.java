@@ -24,8 +24,7 @@ public class PreventionMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prevention);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorDarkBlue)));
-        getWindow().setStatusBarColor(getResources().getColor(R.color.colorDarkBlue));
+
         recyclerView = findViewById(R.id.pRecyclerview);
 
         recyclerView.setHasFixedSize(true);

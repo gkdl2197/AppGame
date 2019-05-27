@@ -10,7 +10,7 @@
         android:id="@+id/pRecyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#011483"
+        android:background="#0D4C80"
         android:scrollbars="vertical"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="8dp" />

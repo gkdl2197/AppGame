@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Prevention.Prevention_3">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView18"
+                    android:layout_width="79dp"
+                    android:layout_height="43dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/brai3" />
+
+                <TextView
+                    android:id="@+id/textView23"
+                    android:layout_width="312dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:text="치매의 정의"
+                    android:textColor="#21349E"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="과거에는 치매를 망령, 노망이라고 부르면서 노인이면 당연히 겪게 되는 노화 현상이라고 생각했으나, 최근의 많은 연구를 통해 분명한 뇌 질환으로 인식되고 있습니다. 두통이나 만성 기침 등의 여러 증상들도 그 원인에 따라 치료법이 다르듯, 치매도 그 원인을 밝혀 적절한 치료법을 찾아내는 것이 원칙이므로, 치매에 대한 정확한 진단이 중요합니다."
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView19"
+                    android:layout_width="74dp"
+                    android:layout_height="58dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/brai5" />
+
+                <TextView
+                    android:id="@+id/textView25"
+                    android:layout_width="304dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="8dp"
+                    android:text="치매에 대해 알아야할 5가지"
+                    android:textColor="#21349E"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="영국 치매협회(Alzheimer's Society)는 치매 인식개선을 위하여 다음의 다섯 가지를 강조하고 있습니다."
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text=" 1. 치매는 노화에 따른 자연스러운 현상이 아닙니다. 치매는 노년기에 더 흔히 나타나고, 기억력도 나이가 들어감에 따라 차츰 저하되기 마련입니다. 그러나 치매와 노화에 따른 기억력 저하는 서로 다르며, 치매는 노화에 따른 자연스러운 현상이 아닙니다. 치매가 있을 경우 더 뚜렷하고 분명한 기억력 저하가 나타나며, 기분 변화나 판단력 저하가 동반될 수 있습니다."
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text=" 2.치매는 뇌의 질환으로 인하여 발생합니다. 치매는 여러 증상의 묶음이며, 이 '묶음'에는 기억력을 비롯한 여러 가지 인지기능의 장애가 포함됩니다. 이 증상들은 뇌의 질환으로 인하여 발생합니다. 가장 흔한 질환이 알츠하이머병이며, 그 외의 다양한 질환에 의해 치매가 발생할 수 있습니다."
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textView29"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text=" 3.치매는 기억력 외의 다른 기능에도 영향을 줍니다. 치매의 가장 흔한 증상은 기억력 저하입니다. 많은 경우 가장 먼저 나타나는 증상도 기억력 저하입니다. 그러나 기억력 저하만 나타나는 것은 아닙니다. 기억력 외에 언어나 판단력 등의 인지기능도 저하될 수 있으며, 기분, 성격, 행동에도 영향을 줍니다. 치매가 있을 경우 남들과 소통하며 평소처럼 생활하는 것이 어려워집니다. 하지만 매년 새로운 연구로 치매에 대한 새로운 사실들이 밝혀지면서, 도움을 받을 수 있는 방법도 점차 늘고 있습니다."
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text=" 4.  치매가 있어도 잘 지낼 수 있습니다. 치매가 있으면 희망도 즐거움도 없는 절망스러운 상태에서 살아가야한다고 많은 사람들이 생각합니다. 그러나 그렇지 않습니다. 치매 있어도 만족스러운 직장생활과 사회생활을 유지하는 사람들이 많이 있습니다. 치매가 진행되어도 가족이나 친구들과 함께 취미생활을 즐기면서, 적극적이고 건강한 삶을 지속할 수 있습니다. 치매가 있으면 물론 생활이 이전보다 어려워집니다. 하지만 적절한 도움을 받는다면 많은 것이 가능할 수 있습니다."
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text=" 5. 치매가 있다고 해서 그 사람이 없어지는 것은 아닙니다. 주변의 누군가가 치매로 진단될 경우, 그 사람의 삶도 달라지고, 모습도 달라질 수 있습니다. 평소 생활을 유지하는데 도움이 필요할 수도 있습니다. 그러나 그 사람 본연의 모습이 달라지거나 없어지는 것은 아닙니다. 속에 그 사람이 아직 남아 있습니다."
+                android:textSize="16sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

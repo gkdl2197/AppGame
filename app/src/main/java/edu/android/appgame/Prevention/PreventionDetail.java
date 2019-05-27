@@ -23,16 +23,30 @@ public class PreventionDetail extends AppCompatActivity {
             position = intent.getIntExtra(KEY_PREVENTION_INDEX, 0);
 
             switch (position) {
-                case 1:
+                case 0:
                     Intent intent1 = new Intent(this, Prevention_1.class);
                     startActivity(intent1);
                     finish();
                     break;
+                case 1:
+                    Intent intent2 = new Intent(this, Prevention_2.class);
+                    startActivity(intent2);
+                    finish();
+                    break;
                 case 2:
-
+                    Intent intent3 = new Intent(this, Prevention_3.class);
+                    startActivity(intent3);
+                    finish();
                     break;
                 case 3:
-
+                    Intent intent4 = new Intent(this, Prevention_4.class);
+                    startActivity(intent4);
+                    finish();
+                    break;
+                case 4:
+                    Intent intent5 = new Intent(this, Prevention_5.class);
+                    startActivity(intent5);
+                    finish();
                     break;
 
             }

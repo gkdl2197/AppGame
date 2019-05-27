@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Prevention.Prevention_5">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView21"
+                    android:layout_width="77dp"
+                    android:layout_height="54dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/brai9" />
+
+                <TextView
+                    android:id="@+id/textView33"
+                    android:layout_width="323dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="정상노화와 치매의 차이"
+                    android:textColor="#21349E"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView36"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="나이가 들면서 단어가 예전과 달리 빨리 생각이 나지 않는다거나 약속 등을 깜박하는 경우, 치매가 아닌가 걱정하게 되는 경우가 있습니다. 하지만 치매는 기억력 저하뿐만 아니라 다양한 증상을 동반하며, 노화에 따른 자연스러운 현상도 아닙니다."
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView22"
+                    android:layout_width="74dp"
+                    android:layout_height="52dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/brai1" />
+
+                <TextView
+                    android:id="@+id/textView37"
+                    android:layout_width="322dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="건망증과 치매"
+                    android:textColor="#21349E"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView38"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="건망증의 경우에는 사건이나 경험의 내용 중 일부분을 잘 기억하지 못하는 반면, 치매 환자의 경우에는 그러한 사건이나 경험이 있었다는 사실 자체를 기억하지 못하는 경우가 많습니다.  예를 들어, 할머니가 낮에 오후 7시까지 남편과 함께 저녁을 드시러 오라는 딸의 전화를 받았다고 가정해 봅시다. 할머니가 건망증이 있다면 “몇 시에 오라고 했더라?”하고 다시 딸에게 전화해서 묻게 되겠지만, 만약 치매 환자라면 딸이 그런 전화를 했었다는 사실 자체를 잊어버린 채 남편 저녁을 준비하게 됩니다. 또 건망증의 경우에는 기억나지 않던 부분이 어느 순간 다시 떠오르는 경우가 많지만, 치매 환자에서는 그런 경우가 거의 없습니다. 즉 건망증의 경우에는 기억된 내용을 인출하는데 어려움이 있는 반면, 치매의 경우에는 내용을 저장하는 단계부터 장애가 있는 것입니다. 아울러 치매는 건망증과는 달리 진행성 장애이기 때문에 기억력 장애는 점점 더 심해져 직무 수행이나 가정생활에 영향을 주게 됩니다. 따라서 기억력이 계속 조금씩 나빠진다면 건망증보다는 치매를 의심해 보아야 합니다.  치매는 흔히 알려진 바와는 달리 단순한 기억력만의 장애가 아니라, 지남력이나 언어 능력을 비롯한 인지 기능 전반의 장애이고, 성격 변화와 망상 등을 비롯한 정신행동 증상을 동반하는 경우도 적지 않습니다."
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView23"
+                    android:layout_width="79dp"
+                    android:layout_height="49dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@drawable/brai6" />
+
+                <TextView
+                    android:id="@+id/textView39"
+                    android:layout_width="321dp"
+                    android:layout_height="wrap_content"
+                    android:text="정상 노화와 알츠하이머병의 초기 증상의 구분"
+                    android:textColor="#21349E"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView40"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="정상적으로도 나이가 들면 건망증과 같은 깜빡거리는 증상이 늘어날 수 있습니다. 하지만 정상노화로 인한 건망증은 알츠하이머병 초기에 보이는 증상과는 미세한 차이가 있습니다. "
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/imageView15"
+                android:layout_gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/check2" />
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

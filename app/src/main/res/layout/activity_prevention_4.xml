@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Prevention.Prevention_4">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView20"
+                    android:layout_width="66dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/brai7" />
+
+                <TextView
+                    android:id="@+id/textView34"
+                    android:layout_width="307dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:text="알츠하이머 병"
+                    android:textColor="#21349E"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView35"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="치매의 원인 중 가장 대표적인 알츠하이머병은 뇌세포의 퇴화로 기억력을 비롯한 여러 인지기능이 점진적으로 저하되며 일상생활의 장애가 초래되는 만성뇌질환입니다. 알츠하이머병의 명칭은 1907년 이를 최초로 발견한 독일의사 알로이스 알츠하이머(Alois Alzheimer)의 이름에서 유래합니다. 알츠하이머병은 매우 서서히 발병하여 점진적으로 악화가 진행되는 것이 특징이고, 가장 흔한 치매의 원인으로 전체 치매의 55-70%를 차지합니다. 알츠하이머병의 자연 경과는 상당히 다양하지만, 대략 증상 발현부터 진단까지 2~3년, 진단으로부터 요양시설에 머무르게 되는 기간까지 3~6년, 요양시설에서 사망까지 약 3년 정도로 총 유병기간은 9~12년입니다.  알츠하이머병은 여성이 남성에 비해 평균 2배 정도 더 잘 걸립니다. 이외에 나이가 많을수록, 학력이 낮을수록, 직계 가족 중에 치매 환자가 있는 경우, 심한 머리 손상(예: 교통사고, 낙상)이나 약하지만 반복적으로 머리 손상(예: 권투선수)을 입은 경우, ApoE 유전자형에서 4형의 대립유전자를 가지고 있는 경우 등에 잘 발생합니다."
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/imageView14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ar2" />
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
