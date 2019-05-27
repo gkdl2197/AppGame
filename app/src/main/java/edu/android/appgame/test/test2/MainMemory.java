@@ -7,6 +7,8 @@ import android.support.annotation.NonNull;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import edu.android.appgame.R;
+
 public class MainMemory extends AppCompatActivity {
     private TextView mTextMessage;
 
