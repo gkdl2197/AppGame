@@ -30,4 +30,14 @@
     <color name="amberA400">#FFC400</color>
     <color name="amberA700">#FFAB00</color>
 
+    <color name="lightBlue50">#E1F5FE</color>
+    <color name="lightBlue100">#B3E5FC</color>
+    <color name="lightBlue200">#81D4FA</color>
+    <color name="lightBlue300">#4FC3F7</color>
+    <color name="lightBlue800">#0277BD</color>
+    <color name="lightBlue900">#01579B</color>
+    <color name="Purple500">#8E24AA</color>
+    <color name="redA700">#D50000</color>
+    <color name="redA100">#FFCDD2</color>
+
 </resources>

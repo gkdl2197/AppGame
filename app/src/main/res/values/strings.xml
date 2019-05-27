@@ -18,6 +18,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
+
     <string-array name="text_color">
         <item>검정</item>
         <item>파랑</item>
@@ -49,6 +50,13 @@
     <string name="type_1234">1234</string>
     <string name="type_english">ABCD</string>
     <string name="type_korean">가나다</string>
+
+    <string name="title_stage">STAGE</string>
+    <string name="title_stage1">동식물</string>
+    <string name="title_stage2">사자성어</string>
+    <string name="title_stage3">아이티윌</string>
+    <string name="toast_right">정답</string>
+    <string name="toast_wrong">오답</string>
 
 
 </resources>
