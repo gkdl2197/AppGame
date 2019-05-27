@@ -19,6 +19,7 @@
         android:gravity="center"
         android:hint="정답입력"
         android:textColorHint="@color/colorBlack"
+        android:textColor="@color/colorBlack"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

@@ -25,7 +25,6 @@ public class Main0Activity extends AppCompatActivity {
         animal_best = getIntent().getStringExtra(TEXT_BEST);
         animal_score = getIntent().getStringExtra(TEXT_SCORE);
 
-
     }
 
     public void firstGame(View view) {

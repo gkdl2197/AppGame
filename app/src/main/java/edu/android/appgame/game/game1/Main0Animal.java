@@ -153,9 +153,9 @@ public class Main0Animal extends AppCompatActivity {
     public void onClickGoMain(View view) {
         finish();
         Intent intent = new Intent(this, Main0Activity.class);
-        startActivity(intent);
         intent.putExtra(TEXT_SCORE, textScore.getText().toString());
         intent.putExtra(TEXT_BEST, textBest.getText().toString());
+        startActivity(intent);
         finish();
     }
 } // end class Main0Animal
