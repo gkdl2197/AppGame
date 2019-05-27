@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "659367462742-tv81hbf0piukmep4hgejsb91ft3c7fb8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.android.appgame",
+            "certificate_hash": "019c966a95c2a128159394a56a8b9b606f39bcc2"
+          }
+        },
+        {
           "client_id": "659367462742-gbsniib605l15ebnvaue5mdue7hd51vf.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

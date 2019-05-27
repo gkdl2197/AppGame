@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -17,20 +18,31 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.ImageButton;
 
 import edu.android.appgame.Prevention.PreventionMainActivity;
 import edu.android.appgame.test.TestActivity;
 import edu.android.appgame.test.TestSelectActivity;
+import static edu.android.appgame.LoginActivity.LOGIN;
+import static edu.android.appgame.LoginActivity.LOGIN_ID;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-        final Context context =this;
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    public static String currentMemberId;
+
+    private static final String TAG = "tag";
+    final Context context = this;
+
+
+    private boolean isLogin;
+    private ImageButton btnLoginMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        btnLoginMain = findViewById(R.id.btnLogInMain);
 
         // 첫 실행에만 로딩 뜨도록
         if(savedInstanceState == null) {
@@ -56,6 +68,14 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
+        isLogin = getIntent().getBooleanExtra(LOGIN, false);
+        currentMemberId = getIntent().getStringExtra(LOGIN_ID);
+        Log.i(TAG, "currentMemberId: " + currentMemberId);
+        Log.i(TAG, "isLogin" + isLogin);
+
+        if(isLogin){
+            btnLoginMain.setEnabled(false);
+        }
 
 
     } // end onCreate()

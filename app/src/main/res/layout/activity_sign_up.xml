@@ -72,7 +72,7 @@
             android:background="#FCFCFC"
 
             android:ems="10"
-            android:hint="비밀번호 입력"
+            android:hint="비밀번호 입력(6자리 이상)"
             android:inputType="textPassword"
             tools:ignore="MissingConstraints" />
 
@@ -123,7 +123,8 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/btnMan"
+                android:onClick="onClickMan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -131,7 +132,8 @@
                 android:text="남자" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/btnWoman"
+                android:onClick="onClickWoman"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -162,11 +164,12 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="생년월일을 6자리로 입력하세요"
-                android:inputType="numberPassword" />
+                android:inputType="number" />
         </LinearLayout>
 
         <Button
             android:id="@+id/btnSignUp"
+            android:onClick="onClickSignUp"
             android:layout_width="388dp"
             android:layout_height="58dp"
             android:background="#3247BE"

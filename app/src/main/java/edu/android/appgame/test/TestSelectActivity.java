@@ -7,6 +7,7 @@ import android.view.View;
 
 import edu.android.appgame.R;
 import edu.android.appgame.test.test1.ExplainDementia;
+import edu.android.appgame.test.test2.ExplainMemory;
 
 
 public class TestSelectActivity extends AppCompatActivity {
@@ -25,6 +26,9 @@ public class TestSelectActivity extends AppCompatActivity {
     }
 
     public void onClickMemory(View view) {
+        Intent intent = new Intent(this, ExplainMemory.class);
+        startActivity(intent);
+        finish();
     }
 
     public void onClickGloomy(View view) {
