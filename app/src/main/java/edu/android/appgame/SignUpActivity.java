@@ -1,5 +1,6 @@
 package edu.android.appgame;
 
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -52,6 +53,8 @@ public class SignUpActivity extends AppCompatActivity {
         myRef = database.getReference("Member");
 
         mAuth = FirebaseAuth.getInstance();
+
+
     } // end onCreate()
 
     @Override
@@ -107,6 +110,7 @@ public class SignUpActivity extends AppCompatActivity {
         String password2 = editPassTest.getText().toString();
         String name = editName.getText().toString();
         String birth = editBirthNo.getText().toString();
+
 
         if (password.equals(password2)) {
             // 저장 메소드 호출

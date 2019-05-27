@@ -41,8 +41,10 @@ public class GameActivity extends AppCompatActivity {
     } // end onCreate()
 
     public void onClickBtnHome(View view) {
-        Intent intent = new Intent (this, MainActivity.class);
-        startActivity(intent);
+
+        finish();
+//        Intent intent = new Intent (this, MainActivity.class);
+//        startActivity(intent);
     }
 
     public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder>{

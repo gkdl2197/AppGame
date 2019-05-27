@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -27,15 +26,14 @@ import static edu.android.appgame.LoginActivity.LOGIN;
 import static edu.android.appgame.LoginActivity.LOGIN_ID;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
-    public static String currentMemberId;
-
     private static final String TAG = "tag";
     final Context context = this;
 
+    public static String currentMemberId; // 현재 로그인 되어있는 사용자 아이디
+    private boolean isLogin;    // 현재 로그인 되어있는지 여부
 
-    private boolean isLogin;
     private ImageButton btnLoginMain;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,17 +66,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
+        // 인텐트로 넘어온 값 저장
+        // 로그인 성공 - true / 실패 - false
         isLogin = getIntent().getBooleanExtra(LOGIN, false);
+        // 로그인 시 사용된 아이디 값 현재 사용자 아이디에 저장
         currentMemberId = getIntent().getStringExtra(LOGIN_ID);
-        Log.i(TAG, "currentMemberId: " + currentMemberId);
-        Log.i(TAG, "isLogin" + isLogin);
 
         if(isLogin){
+            // 받아온 로그인 여부가 true 이면, 로그인 버튼 비활성화
             btnLoginMain.setEnabled(false);
-        }
-
-
+        } // end if
     } // end onCreate()
+
+
+
 
     @Override
     public void onBackPressed() {
