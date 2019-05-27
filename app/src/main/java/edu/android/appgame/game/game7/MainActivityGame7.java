@@ -331,6 +331,8 @@ public class MainActivityGame7 extends AppCompatActivity implements View.OnClick
                 if (clickCount == countType * countType) {
                     Log.i(TAG, "clickCount-36 = " + clickCount);
                     stopTimer();
+                    Log.i(TAG, "time = " + chronometer.getText().toString());
+//                    recordBest(chronometer.getText().toString());
                     buttonsEnabled(true);
 
                     TableLayout fr = findViewById(R.id.tableBase);

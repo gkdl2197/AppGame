@@ -21,7 +21,7 @@ public class GameActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private GameDao dao = GameDao.getInstance();
+    private GameDao dao = GameDao.getInstance(this);
     public static Activity GameActivity;
 
     @Override

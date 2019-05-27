@@ -14,7 +14,7 @@ import edu.android.appgame.game.Game;
 
 public class GameDetailFragment extends Fragment {
     private static final String ARG_GAME_INDEX = "arg_game_index";
-    private GameDao dao = GameDao.getInstance();
+    private GameDao dao = GameDao.getInstance(this.getContext());
    private ImageView gameDetailImage;
    private TextView gameDetailName, gameDetailDesc;
 

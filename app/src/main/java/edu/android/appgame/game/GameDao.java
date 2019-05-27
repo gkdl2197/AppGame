@@ -1,5 +1,12 @@
 package edu.android.appgame.game;
 
+import android.content.Context;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+
+import java.io.BufferedWriter;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,13 +15,14 @@ import edu.android.appgame.R;
 public class GameDao {
 
 
-
+    private static final String TAG = "debug";
     private List<Game> gameList = new ArrayList<>();
     private static GameDao instance = null;
+    private Context context;
 
-    public static GameDao getInstance() {
+    public static GameDao getInstance(Context context) {
         if (instance == null ){
-            instance = new GameDao();
+            instance = new GameDao(context);
         }
         return instance;
     }
@@ -23,7 +31,8 @@ public class GameDao {
         return gameList;
     }
 
-    private GameDao(){
+    private GameDao(Context context) {
+        this.context = context/*.getApplicationContext()*/;
         makeDummyData();
     }
 
@@ -37,5 +46,38 @@ public class GameDao {
         gameList.add(new Game("관계순서인지능력게임", "숫자/문자들의 순서관계를 인지함과 동시에 기억의 집중을 통해 유연한 두뇌활동을 향상시킵니다.", R.drawable.potential));
 
     } // end makeDummyData()
+
+    public void saveScoreToFileByGames(String gameName, int gameCount, String gameGrade) {
+        String insert = gameCount + "," + gameGrade;
+        String fileName = gameName + ".txt";
+        Log.i(TAG,"insert: " + insert);
+
+        StringBuilder builder = new StringBuilder();
+        OutputStream out = null;
+        OutputStreamWriter writer = null;
+        BufferedWriter bw = null;
+        try {
+            out = context.openFileOutput(fileName, context.MODE_PRIVATE);
+            Log.i(TAG, "out ");
+            writer = new OutputStreamWriter(out, "UTF-8");
+            Log.i(TAG, "writer ");
+            bw = new BufferedWriter(writer);
+            builder.append("123").append("/");
+            bw.write(builder.toString());
+//            bw.write(insert);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (bw != null) {
+                    bw.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+
+    }// end saveScoreToFileByGames()
 
 } // end class GameDao
