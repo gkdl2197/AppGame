@@ -27,11 +27,7 @@ public class TestDementia extends AppCompatActivity implements DementiaFragment.
                 textFragment = (TextFragment)
                         getSupportFragmentManager().findFragmentById(R.id.container);
             } else {
-                textFragment = new TextFragment();
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .add(R.id.container, textFragment)
-                        .commit();
+
             }
         }
     }

@@ -11,7 +11,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".test.test1.DementiaFragment"></activity>
         <activity android:name=".test.test1.TestDementia" />
         <activity android:name=".test.test1.TextFragment" />

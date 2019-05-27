@@ -44,6 +44,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="자주" />
+
+        <TextView
+            android:id="@+id/textScore"
+            android:layout_width="14dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView" />
     </RadioGroup>
 
     <Button

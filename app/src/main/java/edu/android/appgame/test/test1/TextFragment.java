@@ -1,6 +1,7 @@
 package edu.android.appgame.test.test1;
 
 import android.content.Context;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,10 +17,12 @@ import edu.android.appgame.R;
 
 public class TextFragment extends Fragment {
 
-    private TextView textSurvey;
+    private TextView textSurvey , textScore;
     private Button btnPrev, btnNext;
+    private RadioButton btnNever,btnSometimes,btnOften;
     private static final String KEY_INDEX = "current_index";  //
     private int currentIndex;
+    private int testScore=0;
 
     public TextFragment() {
     }
@@ -52,6 +56,10 @@ public class TextFragment extends Fragment {
         btnPrev = view.findViewById(R.id.btnPrev);
         btnNext = view.findViewById(R.id.btnNext);
         textSurvey = view.findViewById(R.id.textSurvey);
+        btnNever=view.findViewById(R.id.btnNever);
+        btnSometimes=view.findViewById(R.id.btnSometimes);
+        btnOften=view.findViewById(R.id.btnOften);
+        textScore= view.findViewById(R.id.textScore);
         if (savedInstanceState != null) {
             currentIndex = savedInstanceState.getInt(KEY_INDEX);
             changeText();
@@ -86,8 +94,20 @@ public class TextFragment extends Fragment {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+               if( btnNever.isChecked()){
+                   testScore += 0;
+
+               } else if(btnOften.isChecked()) {
+                   testScore += 2;
+
+               } else if(btnSometimes.isChecked()) {
+                   testScore += 1;
+
+               }
+                textScore.setText(testScore+"");
                 showNextText();
-            }
+        }
         });
     }
 
@@ -95,7 +115,11 @@ public class TextFragment extends Fragment {
         if (currentIndex < TEXT_DEMENTIA.length - 1) {
             currentIndex++;
             changeText();
+            btnNever.setChecked(false);
+            btnSometimes.setChecked(false);
+            btnOften.setChecked(false);
         } else {
+            btnNext.setEnabled(false);
             Toast.makeText(getActivity(), "마지막 문제 입니다!", Toast.LENGTH_SHORT).show();
         }
     }
@@ -105,8 +129,13 @@ public class TextFragment extends Fragment {
         if (currentIndex > 0) {
             currentIndex--;
             changeText();
+            btnNever.setChecked(false);
+            btnSometimes.setChecked(false);
+            btnOften.setChecked(false);
         } else {
             Toast.makeText(getActivity(), "첫번째 문제 입니다!", Toast.LENGTH_SHORT).show();
         }
     }
+
+
 }
