@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import edu.android.appgame.game.game1.Main0Activity;
 import edu.android.appgame.game.game2.MainActivity;
 import edu.android.appgame.game.game3.Main2Game3Activity;
 import edu.android.appgame.game.game4.MainGame4Activity;
@@ -26,6 +27,11 @@ public class GameDetailActivity extends AppCompatActivity {
             position = intent.getIntExtra(KEY_GAME_INDEX, 0);
 
             switch (position) {
+                case 0:
+                    Intent intent0 = new Intent(this, Main0Activity.class);
+                    startActivity(intent0);
+                    finish();
+                    break;
                 case 1:
                     Intent intent1 = new Intent(this, MainActivity.class);
                     startActivity(intent1);
