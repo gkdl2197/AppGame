@@ -7,6 +7,7 @@ import android.os.Bundle;
 import edu.android.appgame.game.game2.MainActivity;
 import edu.android.appgame.game.game3.Main2Game3Activity;
 import edu.android.appgame.game.game4.MainGame4Activity;
+import edu.android.appgame.game.game7.MainActivityGame7;
 
 import static edu.android.appgame.GameActivity.KEY_GAME_INDEX;
 
@@ -39,7 +40,11 @@ public class GameDetailActivity extends AppCompatActivity {
                     startActivity(intent3);
                     finish();
                     break;
-
+                case 6:
+                    Intent intent6 = new Intent(this, MainActivityGame7.class);
+                    startActivity(intent6);
+                    finish();
+                    break;
             }
 
 

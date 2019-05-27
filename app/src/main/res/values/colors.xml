@@ -15,4 +15,19 @@
     <color name="colorWhite">#ffffff</color>
     <color name="colorDarkBlue">#024265</color>
 
+    <color name="amber50">#FFF8E1</color>
+    <color name="amber100">#FFECB3</color>
+    <color name="amber200">#FFE082</color>
+    <color name="amber300">#FFD54F</color>
+    <color name="amber400">#FFCA28</color>
+    <color name="amber500">#FFC107</color>
+    <color name="amber600">#FFB300</color>
+    <color name="amber700">#FFA000</color>
+    <color name="amber800">#FF8F00</color>
+    <color name="amber900">#FF6F00</color>
+    <color name="amberA100">#FFE57F</color>
+    <color name="amberA200">#FFD740</color>
+    <color name="amberA400">#FFC400</color>
+    <color name="amberA700">#FFAB00</color>
+
 </resources>

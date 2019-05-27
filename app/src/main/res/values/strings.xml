@@ -36,6 +36,20 @@
     <string name="title_activity_main_memory">MainMemory</string>
     <string name="title_activity_test_dementia">TestDementia</string>
 
+    <string name="app_name7">QuickClick</string>
+    <string name="title_mainhome">메인 홈으로 가기</string>
+    <string name="title_report">게임 결과보기</string>
+    <string name="title_gamehome">게임 홈으로 가기</string>
+    <string name="title_score">SCORE</string>
+    <string name="title_level">LEVEL</string>
+    <string name="title_best">BEST</string>
+    <string name="level_easy">Easy</string>
+    <string name="level_normal">Normal</string>
+    <string name="level_hard">Hard</string>
+    <string name="type_1234">1234</string>
+    <string name="type_english">ABCD</string>
+    <string name="type_korean">가나다</string>
+
 
     <string name="facebook_application_id" translatable="false">YOUR_APP_ID</string>
     <string name="facebook_login_protocol_scheme" translatable="false">fbYOUR_APP_ID</string>

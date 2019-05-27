@@ -31,6 +31,8 @@ public class GameDao {
         gameList.add(new Game("도형지능게임", "점, 선, 면 등을 사용하여 이루어진 도형을 자유롭게 다룰수 있도록 도움을 주는 게임입니다.", R.drawable.cards));
         gameList.add(new Game("집중력게임 ", "모든 원인은 집중력 부족입니다. 집중력을 키워보세요!", R.drawable.puzzle));
         gameList.add(new Game("언어능력게임", "언어는 사회생활을 하는 필수적인 요소입니다. 언어는 중요한 능력입니다.", R.drawable.toys));
+        gameList.add(new Game("게임", "...", R.drawable.toys));
+        gameList.add(new Game("관계순서인지능력게임", "숫자/문자들의 순서관계를 인지함과 동시에 기억의 집중을 통해 유연한 두뇌활동을 향상시킵니다.", R.drawable.potential));
 
     } // end makeDummyData()
 
