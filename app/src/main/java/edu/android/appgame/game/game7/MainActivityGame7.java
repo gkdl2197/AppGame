@@ -23,6 +23,7 @@ import android.widget.Toast;
 import java.util.HashSet;
 import java.util.Random;
 
+import edu.android.appgame.GameActivity;
 import edu.android.appgame.R;
 
 public class MainActivityGame7 extends AppCompatActivity implements View.OnClickListener{
@@ -46,17 +47,20 @@ public class MainActivityGame7 extends AppCompatActivity implements View.OnClick
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
+
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home1:
-                    // TODO
+                    GameActivity gd = (GameActivity) GameActivity.GameActivity;
+                    gd.finish();
+                    finish();
                     return true;
                 case R.id.navigation_dashboard1:
                     // TODO
                     return true;
                 case R.id.navigation_notifications1:
-                    // TODO
+                    finish();
                     return true;
             }
             return false;

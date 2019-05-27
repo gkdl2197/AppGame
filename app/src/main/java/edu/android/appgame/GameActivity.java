@@ -1,5 +1,6 @@
 package edu.android.appgame;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -21,11 +22,13 @@ public class GameActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private GameDao dao = GameDao.getInstance();
+    public static Activity GameActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        GameActivity = GameActivity.this;
         recyclerView = findViewById(R.id.pRecyclerview);
 
         recyclerView.setHasFixedSize(true);

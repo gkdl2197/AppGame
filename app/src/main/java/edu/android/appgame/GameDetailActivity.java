@@ -1,5 +1,6 @@
 package edu.android.appgame;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -57,5 +58,4 @@ public class GameDetailActivity extends AppCompatActivity {
         }
 
     } // end onCreate()
-
 } // end class GameDetailActivity
