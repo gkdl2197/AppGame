@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/textSurvey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView" />
@@ -29,26 +29,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="RadioButton" />
+            android:text="없다" />
 
         <RadioButton
             android:id="@+id/btnSometimes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="RadioButton" />
+            android:text="종종" />
 
         <RadioButton
             android:id="@+id/btnOften"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="RadioButton" />
+            android:text="자주" />
     </RadioGroup>
 
     <Button
-        android:id="@+id/btnNextSurvey"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnPrev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="이전으로" />
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="411dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="8dp"

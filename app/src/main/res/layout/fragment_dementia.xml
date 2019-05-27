@@ -6,7 +6,7 @@
 
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/textSurvey"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />
@@ -40,7 +40,7 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/btnNextSurvey"
+        android:id="@+id/btnNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
