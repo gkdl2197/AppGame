@@ -1,8 +1,8 @@
 package edu.android.appgame.game.game1;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -17,7 +17,7 @@ import java.util.Random;
 
 import edu.android.appgame.R;
 
-public class QuizStart extends AppCompatActivity {
+public class Main0Animal extends AppCompatActivity {
 
     private static final String TAG = "tag";
     public static final String TEXT_SCORE = "text_score";
@@ -54,7 +54,7 @@ public class QuizStart extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game1_anamal);
+        setContentView(R.layout.activity_game1_animal);
 
         textQuiz = findViewById(R.id.textQst);
         textHint = findViewById(R.id.textHint);
@@ -91,7 +91,7 @@ public class QuizStart extends AppCompatActivity {
 //                btnNext.setEnabled(false);
 //                btnCheck.setEnabled(false);
                 Toast.makeText(this, "마지막 문제입니다...!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this,MainActivity.class);
+                Intent intent = new Intent(this, Main0Activity.class);
                 startActivity(intent);
                 finish();
                 break;
@@ -152,13 +152,13 @@ public class QuizStart extends AppCompatActivity {
 
     public void onClickGoMain(View view) {
         finish();
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        Intent intent = new Intent(this, Main0Activity.class);
         intent.putExtra(TEXT_SCORE, textScore.getText().toString());
         intent.putExtra(TEXT_BEST, textBest.getText().toString());
+        startActivity(intent);
         finish();
     }
-} // end class QuizStart
+} // end class Main0Animal
 
 
 

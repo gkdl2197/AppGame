@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/activity_game1_iamge"
-    tools:context=".game.game1.MainItwill">
+    tools:context=".game.game1.Main0Itwill">
 
     <EditText
         android:id="@+id/editInput"
@@ -18,8 +18,9 @@
         android:ems="10"
         android:gravity="center"
         android:hint="정답입력"
-
+        android:textColorHint="@color/colorBlack"
         android:textSize="24sp"
+        android:textColor="@color/colorBlack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,6 +37,7 @@
         android:enabled="false"
         android:onClick="nextGame"
         android:text="다음"
+        android:textColor="@color/colorBlack"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,6 +53,7 @@
         android:background="@drawable/activity_game1_boder"
         android:onClick="onClickResult"
         android:text="정답확인"
+        android:textColor="@color/colorBlack"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -212,6 +215,7 @@
         android:background="@drawable/activity_game1_boder"
         android:text="돌아가기"
         android:textSize="15dp"
+        android:textColor="@color/colorBlack"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
