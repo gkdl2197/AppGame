@@ -10,7 +10,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -18,7 +17,6 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -136,9 +134,7 @@ public class GameDao {
             e.printStackTrace();
         } finally {
             try {
-//                if (bw != null) {
                     bw.close();
-//                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
