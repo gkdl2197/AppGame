@@ -20,11 +20,15 @@ import edu.android.appgame.R;
 public class GameDao {
 
     private static final String TAG = "file_tag";
+    private static final String AVERAGE_FILE_NAME = "allaverage.txt";
 
 
     private List<Game> gameList = new ArrayList<>();
     private static GameDao instance = null;
     private Context context;
+    private List<String> gradeList = new ArrayList<>();
+    private int averageGrade;
+
 
     public int lineCount =0;
 
@@ -55,11 +59,15 @@ public class GameDao {
 
     } // end makeDummyData()
 
+
+    //editId.getText().toString().split("@")[0];
+
+    // 각 게임에서 넘어온 게임 점수 각 게임 파일로 (회차,점수) 저장하기 위한 파일 내용 읽어오기 + 추가
     public void saveScoreToFileByGames(String gameName, String gameGrade) {
         StringBuilder builder = new StringBuilder();
         String fileName = gameName + ".txt";
 
-        int time = 1;
+        int time = 1; // 회차 저장을 위한 변수
 
         InputStream in = null;
         InputStreamReader reader = null;
@@ -74,6 +82,7 @@ public class GameDao {
             while (line != null) {
                 builder.append(line).append("\n");
                 time++;
+                gradeList.add(line.split(",")[1]);
                 line = br.readLine();
 
             }
@@ -81,9 +90,11 @@ public class GameDao {
             String insert = time + "," + gameGrade;
             builder.append(insert).append("\n");
 
-            for(int i=0; i< time; i++){
-                Log.i(TAG,builder.toString());
-            }
+            gradeList.add(gameGrade);
+
+            // TODO 각 게임 점수 평균 값 계산하는 메소드 호출
+            calculateTotalAverageGameScore(gameName);
+
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -94,17 +105,15 @@ public class GameDao {
                 e.printStackTrace();
             }
         }
-
-
         addScoreToPrevFile(builder, fileName);
-
-
 
     }// end saveScoreToFileByGames()
 
+
+    // 각 게임에서 넘어온 게임 점수 각 게임 파일로 (회차,점수) 저장 - 파일에 쓰기
     private void addScoreToPrevFile(StringBuilder scorePlus, String fileName){
 
-//        scorePlus =null;
+//        scorePlus =null; // 파일 속 내용 초기화 하기 위한 코드 (일단)
         OutputStream out = null;
         OutputStreamWriter writer = null;
         BufferedWriter bw = null;
@@ -125,6 +134,64 @@ public class GameDao {
             }
         }
     } // end addScoreToPrevFile()
+
+
+    // 각 게임 총 평균 점수 계산
+    private void calculateTotalAverageGameScore(String gameName){
+        int totalGrade =0;
+        averageGrade =0;
+
+        for(int i = 0; i< gradeList.size(); i++){
+            String grade = gradeList.get(i).toString();
+            Log.i(TAG,"grade:" + grade);
+
+            switch (grade){
+                case "A":
+                    totalGrade += 90;
+                    Log.i(TAG, "totalGrade : " + totalGrade);
+                    break;
+                case "B":
+                    totalGrade += 80;
+                    Log.i(TAG, "totalGrade : " + totalGrade);
+                    break;
+                case "C":
+                    totalGrade +=70;
+                    Log.i(TAG, "totalGrade : " + totalGrade);
+                    break;
+                case "D":
+                    totalGrade += 60;
+                    Log.i(TAG, "totalGrade : " + totalGrade);
+                    break;
+            } // end switch()
+        } // end for()
+
+        Log.i(TAG, "totalGrade : " + totalGrade);
+        averageGrade = (int) (totalGrade/gradeList.size());
+        Log.i(TAG, "averageGrade : " + averageGrade);
+
+        // 평균 파일에 (게임이름, 평균 점수) 로 넣기
+
+        String insert = gameName + "," + averageGrade;
+
+        OutputStream out = null;
+        OutputStreamWriter writer = null;
+        BufferedWriter bw = null;
+        try {
+            out = context.openFileOutput(AVERAGE_FILE_NAME, context.MODE_PRIVATE);
+            writer = new OutputStreamWriter(out, "UTF-8");
+            bw = new BufferedWriter(writer);
+
+            bw.write(insert);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                bw.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    } // end calculateTotalAverageGameScore()
 
 
 
