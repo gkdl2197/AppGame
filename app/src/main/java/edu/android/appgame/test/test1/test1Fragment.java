@@ -44,7 +44,7 @@ public class test1Fragment extends Fragment {
     public static final String TOTAL_SCORE = "total_score";
     private int currentIndex = 0;
     private  static  final  String KEY_INDEX="current_index";
-    private TextView textSurvey3, textResult;
+    private TextView textSurvey3;
     private RadioButton btnNo, btnSometimes, btnOften;
     private Button btnNext;
     private int testScore=0;
@@ -54,17 +54,16 @@ public class test1Fragment extends Fragment {
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container2, Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.activity_test3_fragment,container2,false);
+        View view= inflater.inflate(R.layout.activity_test1_fragment,container2,false);
         textSurvey3= view.findViewById(R.id.textSurvey3);
-        textResult=view.findViewById(R.id.textResult);
         btnNo= view.findViewById(R.id.btnNo);
         btnSometimes=  view.findViewById(R.id.btnSometimes);
         btnOften = view.findViewById(R.id.btnOften);
-        btnNext=  view.findViewById(R.id.buttonNext);
+        btnNext = view.findViewById(R.id.btnNext);
 
         if(savedInstanceState != null){
             currentIndex =savedInstanceState.getInt(KEY_INDEX);
-            chageText();
+            changeText();
         }
 
         textSurvey3.setText(SURVEY_TEXT[0]);
@@ -81,7 +80,7 @@ public class test1Fragment extends Fragment {
     private void showNextText() {
         if(currentIndex<SURVEY_TEXT.length-1){
             currentIndex++;
-            chageText();
+            changeText();
             if(btnNo.isChecked()){
                 btnOften.setChecked(false);
                 btnSometimes.setChecked(false);
@@ -111,13 +110,13 @@ public class test1Fragment extends Fragment {
         }
     }
 
-    private void chageText() {
+    private void changeText() {
         textSurvey3.setText(SURVEY_TEXT[currentIndex]);
     }
     @Override
     public void onStart() {
         super.onStart();
-        View view=getView();
+        View view = getView();
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,7 +127,6 @@ public class test1Fragment extends Fragment {
                 } else if (btnOften.isChecked()) {
                     testScore += 2;
                 }
-                textResult.setText(testScore + " 점");
                 if( btnNo.isChecked() == false && btnSometimes.isChecked() == false && btnOften.isChecked() == false){
                     Toast.makeText(getActivity(), "체크를 하셔야지 다음문제로 넘어가 실수 있습니다.", Toast.LENGTH_SHORT).show();
                 } else if (btnNo.isChecked() || btnSometimes.isChecked() || btnOften.isChecked()){

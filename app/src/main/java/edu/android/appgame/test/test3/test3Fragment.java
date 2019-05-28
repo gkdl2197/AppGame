@@ -57,7 +57,7 @@ public class test3Fragment extends Fragment {
     public static final String TOTAL_SCORE="total_score";
     private int currentIndex = 0;
     private  static  final  String KEY_INDEX="current_index";
-    private TextView textSurvey3,textresult;
+    private TextView textSurvey3, textresult, textWeek;
     private RadioButton radioYes,radioNo;
     private Button btnNext;
     private int testScore=0;
@@ -69,16 +69,15 @@ public class test3Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container2, Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.activity_test3_fragment,container2,false);
         textSurvey3= view.findViewById(R.id.textSurvey3);
-        //   textresult=view.findViewById(R.id.textresult);
-        radioYes= view.findViewById(R.id.radioYes);
-        radioNo=  view.findViewById(R.id.radioNo);
         btnNext=  view.findViewById(R.id.buttonNext);
-
+        radioYes = view.findViewById(R.id.radioYes);
+        radioNo =  view.findViewById(R.id.radioNo);
+        textWeek = view.findViewById(R.id.textWeek);
+        textWeek.setText("최근 일주일 동안의 기분에 대한 질문입니다./n가장 잘 일치하는 답을 한 가지만 골라주세요.");
         if(savedInstanceState != null){
             currentIndex =savedInstanceState.getInt(KEY_INDEX);
             chageText();
         }
-
         textSurvey3.setText(SURVEY_TEXT[0]);
         return  view;
     }
@@ -135,9 +134,8 @@ public class test3Fragment extends Fragment {
                 if(radioYes.isChecked()){
                     testScore += 0;
                 }else if(radioNo.isChecked()){
-                    testScore +=1;
-                }
-                // textresult.setText(testScore+ "");
+                    testScore +=0;
+                }  textresult.setText(testScore+ "");
                 if( radioYes.isChecked() == false && radioNo.isChecked() == false){
                     Toast.makeText(getActivity(), "체크를 하셔야지 다음문제로 넘어가 실수 있습니다.", Toast.LENGTH_SHORT).show();
                 } else if (radioNo.isChecked() || radioYes.isChecked()){

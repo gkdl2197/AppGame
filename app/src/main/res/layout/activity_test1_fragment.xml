@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".test.test3.test3Fragment">
+    tools:context=".test.test1.test1Fragment">
 
     <TextView
         android:id="@+id/textSurvey3"
@@ -56,12 +56,6 @@
             android:layout_weight="1"
             android:text="자주" />
 
-        <TextView
-            android:id="@+id/textResult"
-            android:layout_width="28dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="점수" />
     </RadioGroup>
 
     <Button
