@@ -12,10 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".test.test3.test3Result"></activity>
+        <activity android:name=".test.test1.test1Result"></activity>
+        <activity android:name=".test.test1.test1Fragment" />
+        <activity android:name=".test.test1.test1MainActivity" />
+        <activity android:name=".test.test3.test3Result" />
         <activity android:name=".test.test3.test3MainActivity" />
         <activity android:name=".test.test1.DementiaFragment" />
         <activity android:name=".test.test1.TestDementia" />
@@ -27,7 +27,6 @@
         <activity android:name=".FacilityInfoActivity" /> <!-- <activity android:name=".test.test1.ToolbarFragment" /> -->
         <activity android:name=".Prevention.Prevention_1" />
         <activity android:name=".test.test1.ExplainDementia" />
-
         <activity
             android:name=".game.game2.MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
@@ -72,24 +71,27 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".game.game1.Main0Result"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
-        <activity android:name=".game.game1.Main0Itwill"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".game.game1.Main0Korea"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".game.game1.Main0Animal"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".game.game1.Main0Activity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-
-        </activity>
+        <activity
+            android:name=".game.game1.Main0Result"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".game.game1.Main0Itwill"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".game.game1.Main0Korea"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".game.game1.Main0Animal"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".game.game1.Main0Activity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
     </application>
 
 </manifest>
