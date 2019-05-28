@@ -1,7 +1,6 @@
 package edu.android.appgame.test.test1;
 
 import android.content.Context;
-import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -55,7 +54,7 @@ public class TextFragment extends Fragment {
         View view = inflater.inflate(R.layout.activity_test_dementia, container, false);
         btnPrev = view.findViewById(R.id.btnPrev);
         btnNext = view.findViewById(R.id.btnNext);
-        textSurvey = view.findViewById(R.id.textSurvey);
+        textSurvey = view.findViewById(R.id.textSurvey3);
         btnNever=view.findViewById(R.id.btnNever);
         btnSometimes=view.findViewById(R.id.btnSometimes);
         btnOften=view.findViewById(R.id.btnOften);

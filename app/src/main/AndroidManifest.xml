@@ -15,7 +15,10 @@
 
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".test.test1.DementiaFragment"></activity>
+        <activity android:name=".test.test3.test3Result"></activity>
+        <activity android:name=".test.test3.test3Fragment" />
+        <activity android:name=".test.test3.test3MainActivity" />
+        <activity android:name=".test.test1.DementiaFragment" />
         <activity android:name=".test.test1.TestDementia" />
         <activity android:name=".test.test1.TextFragment" />
         <activity android:name=".Prevention.Prevention_5" />
