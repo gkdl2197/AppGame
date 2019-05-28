@@ -281,6 +281,7 @@ public class MainGame3Activity extends AppCompatActivity {
                                 intent.putExtra(CORRECT_SCORE, count);
                                 intent.putExtra(TOTAL_Q, total);
                                 intent.putExtra(GAME_COUNT, gameCount);
+
                                 startActivity(intent);
 
                                 finish();
@@ -312,6 +313,7 @@ public class MainGame3Activity extends AppCompatActivity {
                                 intent.putExtra(CORRECT_SCORE, count);
                                 intent.putExtra(TOTAL_Q, total);
                                 intent.putExtra(GAME_COUNT, gameCount);
+
                                 startActivity(intent);
 
                                 finish();
