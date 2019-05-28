@@ -9,5 +9,8 @@ public class MapsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-    }
-}
+    } // end onCreate()
+
+
+} // end class MapsActivity
+

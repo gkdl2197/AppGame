@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/amber100"
-    tools:context=".MainActivityGame7">
+    tools:context=".game.game7.MainActivityGame7">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -252,6 +252,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        android:theme="@style/BottomNavigationTheme"
         app:menu="@menu/game7_bottom_nav_menu" />
 
 </android.support.constraint.ConstraintLayout>
