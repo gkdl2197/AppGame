@@ -85,6 +85,7 @@ public class FacilityInfoActivity  extends AppCompatActivity {
                 viewHolder.textCenterAddr.setText(facilityList.get(i)[2]);
         }
 
+
         @Override
         public int getItemCount() {
             return facilityList.size();

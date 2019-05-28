@@ -1,12 +1,17 @@
 package edu.android.appgame.game;
 
 import android.content.Context;
+import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -36,6 +41,7 @@ public class GameDao {
     private Context context;
     private List<String> gradeList = new ArrayList<>(); // 등급들 저장할 리스트
     private int averageGrade; // 평균 등급
+    private final List<Map<String,Object>> gameScoreList = new ArrayList<>();
 
 
     public static GameDao getInstance(Context context) {
@@ -121,7 +127,7 @@ public class GameDao {
     // 각 게임에서 넘어온 게임 점수 각 게임 파일로 (회차,점수) 저장 - 파일에 쓰기
     private void addScoreToPrevFile(StringBuilder scorePlus, String fileName){
 
-//        scorePlus =null; // 파일 속 내용 초기화 하기 위한 코드 (일단)
+       // scorePlus =null; // 파일 속 내용 초기화 하기 위한 코드 (일단)
         OutputStream out = null;
         OutputStreamWriter writer = null;
         BufferedWriter bw = null;
@@ -226,16 +232,68 @@ public class GameDao {
 
     } // end sendToFirebase()
 
-
+    // 게임 점수 저장하기 위한 Map
     @Exclude
     public Map<String, Object> toMap(String gameName, int averageGrade){
         HashMap<String, Object> result = new HashMap<>();
-
         result.put(gameName, averageGrade);
-
-
         return result;
     } // end toMap()
+
+
+
+
+    // 로그인 되어있는 Member의 게임점수를 가져옴 - 그래프 띄우기
+    public void getGameScoreFromFirebase(){
+
+        final Map<String, String> gameScore = new HashMap<>();
+        if(isLogin){
+
+            database = FirebaseDatabase.getInstance();
+            myRef = database.getReference("Member/"+currentMemberId+"/game");
+            Log.i(TAG, myRef.toString());
+
+
+
+            myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                        String key = snapshot.getKey().toString();
+                        String score = snapshot.getValue().toString();
+                        Log.i(TAG,"1");
+                        HashMap<String, Object> result = new HashMap<>();
+
+                        result.put(key, score);
+
+                        gameScoreList.add(result);
+                        Log.i(TAG,"gameScore : " + gameScoreList.toString());
+
+                        for (int i = 0; i < gameScoreList.size(); i++){
+                            Log.i(TAG,"gameScoreList" + gameScoreList.get(i));
+
+                        }
+                    }
+                    // TODO 차트 그리는 메소드 호출
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Log.i(TAG, "Failed to read value", databaseError.toException());
+                }
+            });
+
+
+        } else {
+
+            Toast.makeText(context, "그래프를 확인하려면 로그인이 필요합니다", Toast.LENGTH_SHORT).show();
+
+        }
+
+
+    } // end getGameScoreFromFirebase()
+
 
 
 } // end class GameDao
