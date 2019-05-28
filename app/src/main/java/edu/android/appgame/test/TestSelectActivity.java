@@ -20,9 +20,9 @@ public class TestSelectActivity extends AppCompatActivity {
 
 
     public void onClickDementia(View view) {
-        Intent intent = new Intent(this, ExplainDementia.class);
-        startActivity(intent);
-        finish();
+//        Intent intent = new Intent(this, ExplainDementia.class);
+//        startActivity(intent);
+//        finish();
     }
 
     public void onClickMemory(View view) {

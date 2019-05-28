@@ -15,6 +15,38 @@
       },
       "oauth_client": [
         {
+          "client_id": "659367462742-3m4f4drfhha49k2r16c503nmku0p6en7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.android.appgame",
+            "certificate_hash": "b156192ce7012b6190fbbfa7680bd39e8d5db580"
+          }
+        },
+        {
+          "client_id": "659367462742-8e0nibvu6mk1ccb1d1u32gv3eu27ncns.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.android.appgame",
+            "certificate_hash": "cf798c8f3ca4b9f1e42cd5696ab0a76212a8a58b"
+          }
+        },
+        {
+          "client_id": "659367462742-n2ik9lr76faoujcmiiumbkcn9cku62t9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.android.appgame",
+            "certificate_hash": "cec14c235b5f686d117528eb080bdcedc955ac2c"
+          }
+        },
+        {
+          "client_id": "659367462742-je4sbpn5ptg7f954c88dgk7cufloi0td.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.android.appgame",
+            "certificate_hash": "3afdcdaa2974aa1ce2a5c47d1fbc574b7535021d"
+          }
+        },
+        {
           "client_id": "659367462742-tv81hbf0piukmep4hgejsb91ft3c7fb8.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

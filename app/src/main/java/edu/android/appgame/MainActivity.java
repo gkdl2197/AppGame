@@ -110,6 +110,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent intent = new Intent(this, FacilityInfoActivity.class);
             startActivity(intent);
             return true;
+        } else if(id == R.id.action_chart) {
+            Intent intent = new Intent(this, ChartMainActivity.class);
+            startActivity(intent);
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
