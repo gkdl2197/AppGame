@@ -1,24 +1,32 @@
 package edu.android.appgame.game;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import edu.android.appgame.R;
 
 public class GameDao {
 
+    private static final String TAG = "file_tag";
 
-    private static final String TAG = "debug";
+
     private List<Game> gameList = new ArrayList<>();
     private static GameDao instance = null;
     private Context context;
+
+    public int lineCount =0;
 
     public static GameDao getInstance(Context context) {
         if (instance == null ){
@@ -47,37 +55,77 @@ public class GameDao {
 
     } // end makeDummyData()
 
-    public void saveScoreToFileByGames(String gameName, int gameCount, String gameGrade) {
-        String insert = gameCount + "," + gameGrade;
-        String fileName = gameName + ".txt";
-        Log.i(TAG,"insert: " + insert);
-
+    public void saveScoreToFileByGames(String gameName, String gameGrade) {
         StringBuilder builder = new StringBuilder();
-        OutputStream out = null;
-        OutputStreamWriter writer = null;
-        BufferedWriter bw = null;
+        String fileName = gameName + ".txt";
+
+        int time = 1;
+
+        InputStream in = null;
+        InputStreamReader reader = null;
+        BufferedReader br = null;
+
         try {
-            out = context.openFileOutput(fileName, context.MODE_PRIVATE);
-            Log.i(TAG, "out ");
-            writer = new OutputStreamWriter(out, "UTF-8");
-            Log.i(TAG, "writer ");
-            bw = new BufferedWriter(writer);
-            builder.append("123").append("/");
-            bw.write(builder.toString());
-//            bw.write(insert);
+            in = context.openFileInput(fileName);
+            reader = new InputStreamReader(in, "UTF-8");
+            br = new BufferedReader(reader);
+
+            String line = br.readLine();
+            while (line != null) {
+                builder.append(line).append("\n");
+                time++;
+                line = br.readLine();
+
+            }
+
+            String insert = time + "," + gameGrade;
+            builder.append(insert).append("\n");
+
+            for(int i=0; i< time; i++){
+                Log.i(TAG,builder.toString());
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             try {
-                if (bw != null) {
-                    bw.close();
-                }
-            } catch (Exception e) {
+                br.close();
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
 
 
+        addScoreToPrevFile(builder, fileName);
+
+
+
     }// end saveScoreToFileByGames()
+
+    private void addScoreToPrevFile(StringBuilder scorePlus, String fileName){
+
+//        scorePlus =null;
+        OutputStream out = null;
+        OutputStreamWriter writer = null;
+        BufferedWriter bw = null;
+        try {
+            out = context.openFileOutput(fileName, context.MODE_PRIVATE);
+            writer = new OutputStreamWriter(out, "UTF-8");
+            bw = new BufferedWriter(writer);
+            bw.write(scorePlus.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+//                if (bw != null) {
+                    bw.close();
+//                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    } // end addScoreToPrevFile()
+
+
 
 } // end class GameDao

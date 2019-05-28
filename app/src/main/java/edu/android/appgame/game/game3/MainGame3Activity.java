@@ -13,12 +13,13 @@ import java.util.Random;
 
 import edu.android.appgame.R;
 
-import static edu.android.appgame.game.game3.ResultGame3Activity.GAME_COUNT;
 
 public class MainGame3Activity extends AppCompatActivity {
     private static final String TAG = "tag";
     public static final String CORRECT_SCORE = "correct_score";
     public static final String TOTAL_Q = "total_question";
+    public static final String GAME_COUNT = "game_count";
+
 
     private TextView textFirst, textSecond, textCorrect, textTotal;
     private int[] color_array = {R.color.colorBlack, R.color.colorBlue, R.color.colorRed, R.color.colorWhite,
@@ -27,7 +28,10 @@ public class MainGame3Activity extends AppCompatActivity {
 
     private int count = 0; // 맞힌 갯수
     private int total = 0; // 전체 문제 수
-    private int gameCount =0;
+    private int gameCount = 0;
+
+
+
 
 
     @Override
@@ -278,6 +282,7 @@ public class MainGame3Activity extends AppCompatActivity {
                                 intent.putExtra(TOTAL_Q, total);
                                 intent.putExtra(GAME_COUNT, gameCount);
                                 startActivity(intent);
+
                                 finish();
                             }
                         });
@@ -308,6 +313,7 @@ public class MainGame3Activity extends AppCompatActivity {
                                 intent.putExtra(TOTAL_Q, total);
                                 intent.putExtra(GAME_COUNT, gameCount);
                                 startActivity(intent);
+
                                 finish();
                             }
                         });
