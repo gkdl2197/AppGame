@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import edu.android.appgame.R;
-import edu.android.appgame.test.test1.ExplainDementia;
 import edu.android.appgame.test.test2.ExplainMemory;
+import edu.android.appgame.test.test3.test3MainActivity;
 
 
 public class TestSelectActivity extends AppCompatActivity {
@@ -32,5 +32,8 @@ public class TestSelectActivity extends AppCompatActivity {
     }
 
     public void onClickGloomy(View view) {
+        Intent intext = new Intent (this, test3MainActivity.class);
+        startActivity(intext);
+        finish();
     }
 }
