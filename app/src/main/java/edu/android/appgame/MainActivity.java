@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     final Context context = this;
 
     public static String currentMemberId; // 현재 로그인 되어있는 사용자 아이디
-    private boolean isLogin;    // 현재 로그인 되어있는지 여부
+    public static boolean isLogin;    // 현재 로그인 되어있는지 여부
 
     private ImageButton btnLoginMain;
 
@@ -107,6 +107,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, FacilityInfoActivity.class);
+            startActivity(intent);
             return true;
         }
 

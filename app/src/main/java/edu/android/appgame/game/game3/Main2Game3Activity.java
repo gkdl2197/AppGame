@@ -4,7 +4,11 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+
+import java.util.zip.Inflater;
 
 import edu.android.appgame.R;
 
@@ -20,6 +24,8 @@ public class Main2Game3Activity extends AppCompatActivity {
         getWindow().setStatusBarColor(getResources().getColor(R.color.colorDarkBlue));
 
     }
+
+
 
     public void onClickGameStart(View view) {
 
