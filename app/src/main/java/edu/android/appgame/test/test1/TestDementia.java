@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import edu.android.appgame.R;
 
-public class TestDementia extends AppCompatActivity implements DementiaFragment.RbSelectCallBack {
+public class TestDementia extends AppCompatActivity {
 
     private TextView textNextSurvey;
     private TextFragment textFragment;
@@ -19,6 +19,7 @@ public class TestDementia extends AppCompatActivity implements DementiaFragment.
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_test_dementia);
 
         View view = findViewById(R.id.container);
@@ -26,14 +27,14 @@ public class TestDementia extends AppCompatActivity implements DementiaFragment.
             if (savedInstanceState != null) {
                 textFragment = (TextFragment)
                         getSupportFragmentManager().findFragmentById(R.id.container);
-            } else {
+            }  else {   textFragment = new TextFragment();
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.container, textFragment)
+                        .commit();
 
             }
         }
     }
 
-    @Override
-    public void onRbSelected(int checkedId) {
-
-    }
 }

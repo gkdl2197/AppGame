@@ -24,6 +24,8 @@ public class TextFragment extends Fragment {
     private int currentIndex;
     private int testScore=0;
 
+
+
     public TextFragment() {
     }
 
@@ -64,6 +66,7 @@ public class TextFragment extends Fragment {
             currentIndex = savedInstanceState.getInt(KEY_INDEX);
             changeText();
         }
+
         return view;
     }
 
@@ -95,19 +98,15 @@ public class TextFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-               if( btnNever.isChecked()){
-                   testScore += 0;
-
-               } else if(btnOften.isChecked()) {
-                   testScore += 2;
-
-               } else if(btnSometimes.isChecked()) {
-                   testScore += 1;
-
-               }
-                textScore.setText(testScore+"");
+                if (btnNever.isChecked()) {
+                    testScore += 0;
+                } else if (btnSometimes.isChecked()) {
+                    testScore += 1;
+                } else if (btnOften.isChecked()) {
+                    testScore += 2;
+                }
                 showNextText();
-        }
+            }
         });
     }
 
