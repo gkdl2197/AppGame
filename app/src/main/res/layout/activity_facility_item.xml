@@ -1,32 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="#FAFAFA"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textCenterName"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:textSize="36sp"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
-        android:text="center Name" />
 
-    <TextView
-        android:id="@+id/textCenterTel"
-        android:layout_margin="8dp"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:text="center tel" />
+        android:layout_margin="8dp"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/textCenterAddr"
-        android:layout_margin="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:text="center address" />
+        <ImageView
+            android:id="@+id/imageFacility"
+            android:layout_width="87dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/bridge" />
+
+        <LinearLayout
+            android:layout_width="302dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textCenterName"
+                android:layout_width="231dp"
+                android:layout_height="wrap_content"
+                android:background="#FAFAFA"
+                android:text="center Name"
+                android:textAlignment="center"
+                android:textColor="#11238A"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/textCenterTel"
+                android:layout_width="232dp"
+                android:layout_height="wrap_content"
+                android:background="#FAFAFA"
+                android:text="center tel"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textCenterAddr"
+                android:layout_width="277dp"
+                android:layout_height="56dp"
+                android:background="#FAFAFA"
+                android:text="center address"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
 </LinearLayout>

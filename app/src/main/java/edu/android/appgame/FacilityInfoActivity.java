@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -23,6 +24,7 @@ public class FacilityInfoActivity  extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<String[]> facilityList = new ArrayList<>();
     private static final String TAG = "tag";
+
 
 
     @Override
@@ -83,6 +85,24 @@ public class FacilityInfoActivity  extends AppCompatActivity {
                 viewHolder.textCenterName.setText(facilityList.get(i)[0]);
                 viewHolder.textCenterTel.setText(facilityList.get(i)[3]);
                 viewHolder.textCenterAddr.setText(facilityList.get(i)[2]);
+
+                if(facilityList.get(i)[0].equals("경기도")){
+                    viewHolder.imageFacility.setImageResource(R.drawable.valley);
+                 }if(facilityList.get(i)[0].equals("서울특별시")){
+                viewHolder.imageFacility.setImageResource(R.drawable.cityscape);
+                 }if(facilityList.get(i)[0].equals("충청도")) {
+                viewHolder.imageFacility.setImageResource(R.drawable.indonesia);
+                 }if(facilityList.get(i)[0].equals("강원도")) {
+                viewHolder.imageFacility.setImageResource(R.drawable.river);
+                 }if(facilityList.get(i)[0].equals("경상도")) {
+                viewHolder.imageFacility.setImageResource(R.drawable.bridge);
+            }if(facilityList.get(i)[0].equals("제주특별자치도")) {
+                viewHolder.imageFacility.setImageResource(R.drawable.lemonade);
+            }if(facilityList.get(i)[0].equals("전라도")) {
+                viewHolder.imageFacility.setImageResource(R.drawable.sashimi);
+            }if(facilityList.get(i)[0].equals("중앙치매센터")) {
+                viewHolder.imageFacility.setImageResource(R.drawable.enterprise);
+            }
         }
 
 
@@ -93,12 +113,14 @@ public class FacilityInfoActivity  extends AppCompatActivity {
 
         public class ViewHolder extends RecyclerView.ViewHolder {
             private TextView textCenterName, textCenterAddr, textCenterTel;
+            private ImageView imageFacility;
 
             public ViewHolder(@NonNull View itemView) {
                 super(itemView);
                 textCenterAddr = itemView.findViewById(R.id.textCenterAddr);
                 textCenterName = itemView.findViewById(R.id.textCenterName);
                 textCenterTel = itemView.findViewById(R.id.textCenterTel);
+                imageFacility = itemView.findViewById(R.id.imageFacility);
             }
         } // end class ViewHolder
     }
