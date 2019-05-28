@@ -2,18 +2,26 @@ package edu.android.appgame.game;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Exclude;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import static edu.android.appgame.MainActivity.currentMemberId;
+import static edu.android.appgame.MainActivity.isLogin;
 
 import edu.android.appgame.R;
 
@@ -26,11 +34,9 @@ public class GameDao {
     private List<Game> gameList = new ArrayList<>();
     private static GameDao instance = null;
     private Context context;
-    private List<String> gradeList = new ArrayList<>();
-    private int averageGrade;
+    private List<String> gradeList = new ArrayList<>(); // 등급들 저장할 리스트
+    private int averageGrade; // 평균 등급
 
-
-    public int lineCount =0;
 
     public static GameDao getInstance(Context context) {
         if (instance == null ){
@@ -59,8 +65,10 @@ public class GameDao {
 
     } // end makeDummyData()
 
+    private FirebaseDatabase database;
+    private DatabaseReference myRef;
 
-    //editId.getText().toString().split("@")[0];
+
 
     // 각 게임에서 넘어온 게임 점수 각 게임 파일로 (회차,점수) 저장하기 위한 파일 내용 읽어오기 + 추가
     public void saveScoreToFileByGames(String gameName, String gameGrade) {
@@ -126,9 +134,7 @@ public class GameDao {
             e.printStackTrace();
         } finally {
             try {
-//                if (bw != null) {
                     bw.close();
-//                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -191,8 +197,45 @@ public class GameDao {
                 e.printStackTrace();
             }
         }
+
+        sendToFirebase(gameName, averageGrade);
     } // end calculateTotalAverageGameScore()
 
+
+    // 평균 점수 Firebase에 올리기
+    private void sendToFirebase(String gameName, int averageGrade){
+
+        if(isLogin){
+
+            database = FirebaseDatabase.getInstance();
+            myRef = database.getReference("Member");
+
+            HashMap<String, Object> result = new HashMap<>();
+
+            Map<String, Object> childUpdates = new HashMap<>();
+            Map<String, Object> postValues = toMap(gameName, averageGrade);
+
+            childUpdates.put("/" + currentMemberId + "/game/", postValues );
+            myRef.updateChildren(childUpdates);
+
+            Toast.makeText(context, "성공1212121212", Toast.LENGTH_SHORT).show();
+
+        }else {
+            Toast.makeText(context, "기록을 저장하려면 로그인이 필요합니다", Toast.LENGTH_SHORT).show();
+        }
+
+    } // end sendToFirebase()
+
+
+    @Exclude
+    public Map<String, Object> toMap(String gameName, int averageGrade){
+        HashMap<String, Object> result = new HashMap<>();
+
+        result.put(gameName, averageGrade);
+
+
+        return result;
+    } // end toMap()
 
 
 } // end class GameDao

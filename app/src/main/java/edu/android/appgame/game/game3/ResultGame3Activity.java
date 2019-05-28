@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -54,6 +56,19 @@ public class ResultGame3Activity extends AppCompatActivity {
 
     }// end onCreate()
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.game3_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // TODO 아이템 선택 되었을 때 수행 할 기능
+
+        return super.onOptionsItemSelected(item);
+    }
+
     public void calScore(){
         grade = (score/total)*100;
 
@@ -80,22 +95,19 @@ public class ResultGame3Activity extends AppCompatActivity {
     } // end calScore()
 
     public void onClickHome(View view) {
-
-        //TODO 합치고 나서 게임 홈(리스트)로 가는 코드 작성하기!!!!!!!!!
         Intent intent = new Intent(this, GameActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         this.finish();
-    }
+    } // end onClickHome()
 
 
 
     public void onClickRestart(View view) {
-
         Intent intent = new Intent(this, MainGame3Activity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
         startActivity(intent);
         this.finish();
-    }
+    } // end onClickRestart()
+
 } // end class ResultGame3Activity
