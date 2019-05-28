@@ -22,21 +22,17 @@ public class test3Result extends AppCompatActivity {
         textGuide = findViewById(R.id.textGuide);
         total = getIntent().getIntExtra(TOTAL_SCORE, 0);
 
-        if (total > 0 && total <= 7) {
+        if (total > 0 && total <= 5) {
             textScore.setText("우울증 점수: " + total);
             textGuide.setText("당신은 우울증과 거리가 멉니다. 인생 지금처럼 즐기세요!");
         }
-        if (total > 7 && total <= 14) {
+        if (total > 5 && total <= 9) {
             textScore.setText("우울증 점수: " + total);
             textGuide.setText("우울증에 가깝습니다. 상담 혹은 병원에 찾아가시길 권장합니다.");
         }
-        if (total > 14 && total <= 21) {
+        if (total > 9 && total <= 30) {
             textScore.setText("우울증 점수: " + total);
             textGuide.setText("당신은 분명한 우울증입니다. 반드시 조치를 취하셔야 합니다!");
-        }
-        if (total > 21 && total <= 30) {
-            textScore.setText("우울증 점수: " + total);
-            textGuide.setText("우울증이 심각한 수준입니다.. 위험합니다!");
         }
     }
 
