@@ -389,7 +389,7 @@ public class MainActivityGame7 extends AppCompatActivity implements View.OnClick
 
     private String recordResult(String score) {
         String result = null;
-        
+
 
         return result;
     }

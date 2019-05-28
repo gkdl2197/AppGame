@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="친구와 비교"
+        android:id="@+id/addBuddy"/>
+    <item android:title="결과 값 토글"
+        android:id="@+id/toggleValues"/>
+</menu>
