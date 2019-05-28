@@ -326,13 +326,13 @@ public class MainActivityGame7 extends AppCompatActivity implements View.OnClick
             if (currentValue - prevValue == 1) {
                 prevValue = currentValue;
                 clickCount += 1;
-                Log.i(TAG, "clickCount-1 = " + clickCount);
+//                Log.i(TAG, "clickCount-1 = " + clickCount);
                 showFadeout(view);
-                if (clickCount == countType * countType) {
-                    Log.i(TAG, "clickCount-36 = " + clickCount);
+                if (clickCount == countType * countType) {  // end game
+//                    Log.i(TAG, "clickCount-36 = " + clickCount);
                     stopTimer();
-                    Log.i(TAG, "time = " + chronometer.getText().toString());
-//                    recordBest(chronometer.getText().toString());
+//                    Log.i(TAG, "time = " + chronometer.getText().toString());
+                    recordResult(chronometer.getText().toString());  // To send with score
                     buttonsEnabled(true);
 
                     TableLayout fr = findViewById(R.id.tableBase);
@@ -385,6 +385,13 @@ public class MainActivityGame7 extends AppCompatActivity implements View.OnClick
     private void stopTimer () {
 //        stopTime = chronometer.getBase() - SystemClock.elapsedRealtime();
         chronometer.stop();
+    }
+
+    private String recordResult(String score) {
+        String result = null;
+        
+
+        return result;
     }
 
 }
