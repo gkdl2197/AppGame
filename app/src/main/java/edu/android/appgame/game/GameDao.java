@@ -133,6 +133,16 @@ public class GameDao {
             try {
                 FileOutputStream f = context.openFileOutput(gameName + ".txt", Context.MODE_PRIVATE);
                 f.close();
+                if (gameName.equals("allaverage")) {
+                    StringBuilder initBuilder = new StringBuilder();
+                    initBuilder.append("quiz,").append(0).append("\n")
+                            .append("card,").append(0).append("\n")
+                            .append("word,").append(0).append("\n")
+                            .append("calculate,").append(0).append("\n")
+                            .append("qclick,").append(0);
+                    addScoreToPrevFile(initBuilder, AVERAGE_FILE_NAME);
+                    Log.i("tag", "ddkdkdkdkd = " + initBuilder.toString());
+                }
             } catch (Exception e1) {
                 e1.printStackTrace();
             }
@@ -201,16 +211,13 @@ public class GameDao {
         String fileName = AVERAGE_FILE_NAME.split("\\.")[0];
 
         isInFile(fileName);
-
-        StringBuilder initBuilder = new StringBuilder();
-        initBuilder.append("quiz,").append(0).append("\n")
-                .append("card,").append(0).append("\n")
-                .append("word,").append(0).append("\n")
-                .append("calculate,").append(0).append("\n")
-                .append("qclick,").append(0);
-
-        addScoreToPrevFile(initBuilder, AVERAGE_FILE_NAME);
-
+//        StringBuilder initBuilder = new StringBuilder();
+//        initBuilder.append("quiz,").append(0).append("\n")
+//                .append("card,").append(0).append("\n")
+//                .append("word,").append(0).append("\n")
+//                .append("calculate,").append(0).append("\n")
+//                .append("qclick,").append(0);
+//        addScoreToPrevFile(initBuilder, AVERAGE_FILE_NAME);
         List<String> oldData =readContentsFromTxtFile(AVERAGE_FILE_NAME);
 
         String quiz = oldData.get(0);
@@ -218,26 +225,25 @@ public class GameDao {
         String word = oldData.get(2);
         String calculate = oldData.get(3);
         String qclick = oldData.get(4);
-
         switch (gameName) {
             case "quiz" :
-                quiz = String.format("%s,%s\n", gameName, averageGrade);
+                quiz = String.format("%s,%s", gameName, averageGrade);
                 oldData.set(0, quiz);
                 break;
             case "card" :
-                card = String.format("%s,%s\n", gameName, averageGrade);
+                card = String.format("%s,%s", gameName, averageGrade);
                 oldData.set(1, card);
                 break;
             case "word" :
-                word = String.format("%s,%s\n", gameName, averageGrade);
+                word = String.format("%s,%s", gameName, averageGrade);
                 oldData.set(2, word);
                 break;
             case "calculate" :
-                calculate = String.format("%s,%s\n", gameName, averageGrade);
+                calculate = String.format("%s,%s", gameName, averageGrade);
                 oldData.set(3, calculate);
                 break;
             case "qclick" :
-                qclick = String.format("%s,%s\n", gameName, averageGrade);
+                qclick = String.format("%s,%s", gameName, averageGrade);
                 oldData.set(4, qclick);
                 break;
         }
