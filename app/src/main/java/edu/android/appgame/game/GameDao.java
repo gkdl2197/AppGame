@@ -1,6 +1,7 @@
 package edu.android.appgame.game;
 
 import android.content.Context;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
@@ -16,6 +17,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -25,6 +27,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.ConsoleHandler;
 
 import static edu.android.appgame.MainActivity.currentMemberId;
 import static edu.android.appgame.MainActivity.isLogin;
@@ -43,7 +46,9 @@ public class GameDao {
     private Context context;
     private List<String> gradeList = new ArrayList<>(); // 등급들 저장할 리스트
     private int averageGrade; // 평균 등급
-    private final List<Map<String,Object>> gameScoreList = new ArrayList<>();
+    private List<Map<String,Object>> gameScoreList;
+    private Map<String, Object> childUpdates;
+    private Map<String, Object> postValues;
 
 
     public static GameDao getInstance(Context context) {
@@ -140,7 +145,6 @@ public class GameDao {
                             .append("calculate,").append(0).append("\n")
                             .append("qclick,").append(0);
                     addScoreToPrevFile(initBuilder, AVERAGE_FILE_NAME);
-                    Log.i("tag", "ddkdkdkdkd = " + initBuilder.toString());
                 }
             } catch (Exception e1) {
                 e1.printStackTrace();
@@ -207,18 +211,9 @@ public class GameDao {
         Log.i(TAG, "averageGrade : " + averageGrade);
 
         // TODO 평균 파일에 (게임이름, 평균 점수) 로 넣기
-
-        sendToFirebase(gameName, averageGrade);
         String fileName = AVERAGE_FILE_NAME.split("\\.")[0];
 
         isInFile(fileName);
-//        StringBuilder initBuilder = new StringBuilder();
-//        initBuilder.append("quiz,").append(0).append("\n")
-//                .append("card,").append(0).append("\n")
-//                .append("word,").append(0).append("\n")
-//                .append("calculate,").append(0).append("\n")
-//                .append("qclick,").append(0);
-//        addScoreToPrevFile(initBuilder, AVERAGE_FILE_NAME);
         List<String> oldData =readContentsFromTxtFile(AVERAGE_FILE_NAME);
 
         String quiz = oldData.get(0);
@@ -270,8 +265,8 @@ public class GameDao {
                 e.printStackTrace();
             }
         }
-//        sendToFirebase(fileName, averageGrade);
 
+        sendToFirebase(gameName, averageGrade);
     } // end calculateTotalAverageGameScore()
 
     private List<String> readContentsFromTxtFile(String fileName) {
@@ -309,68 +304,32 @@ public class GameDao {
     // 평균 점수 Firebase에 올리기
     private void sendToFirebase(String gameName, int averageGrade){
 
-        String fileName = AVERAGE_FILE_NAME.split("\\.")[0];
-
-        List<String> oldData =readContentsFromTxtFile(AVERAGE_FILE_NAME);
-
-        int quiz = Integer.parseInt(oldData.get(0).split(",")[1]);
-        int card = Integer.parseInt(oldData.get(1).split(",")[1]);
-        int word = Integer.parseInt(oldData.get(2).split(",")[1]);
-        int calculate = Integer.parseInt(oldData.get(3).split(",")[1]);
-        int qclick = Integer.parseInt(oldData.get(4).split(",")[1]);
-
-//        int quiz =0, card=0, word=0, calculate=0,qclick=0; // 가져오기..
         if(isLogin){
-
             database = FirebaseDatabase.getInstance();
             myRef = database.getReference("Member");
-            switch (gameName) {
-                case "quiz":
-                    quiz = averageGrade;
-                    break;
-                case "card":
-                    card = averageGrade;
-                    break;
-                case "word":
-                    word = averageGrade;
-                    break;
-                case "calculate" :
-                    calculate = averageGrade;
-                    break;
-                case "qclick":
-                    qclick = averageGrade;
-                    break;
-            }
-
-            Member member = new Member(quiz, card, word, calculate, qclick);
-
+//            String key = myRef.child("/" + currentMemberId + "/game").push().getKey();
+           myRef.child("/" + currentMemberId + "/game").push();
+//            Log.i(TAG, "key: " + key);
+            Map<String, Object> postValues = toMap(gameName, averageGrade);
             Map<String, Object> childUpdates = new HashMap<>();
-            Map<String, Object> postValues = member.toMapScore();
-
-            childUpdates.put("/" + currentMemberId + "/game", postValues);
+            childUpdates.put("/" + currentMemberId + "/game" + gameName, postValues);
             myRef.updateChildren(childUpdates);
 
-
-            Toast.makeText(context, "db 성공1212121212", Toast.LENGTH_SHORT).show();
-            getGameScoreFromFirebase();
-
+            Toast.makeText(context, "성공1212121212", Toast.LENGTH_SHORT).show();
         }else {
             Toast.makeText(context, "기록을 저장하려면 로그인이 필요합니다", Toast.LENGTH_SHORT).show();
         }
 
+    } // end sendToFirebase()
 
-} // end sendToFirebase()
+    // 게임 점수 저장하기 위한 Map
+    @Exclude
+    public Map<String, Object> toMap(String gameName, int averageGrade){
+        HashMap<String, Object> result = new HashMap<>();
+        result.put(gameName, averageGrade);
+        return result;
+    } // end toMap()
 
-//
-//    // 게임 점수 저장하기 위한 Map
-//    @Exclude
-//    public Map<String, Object> toMap(String gameName, int averageGrade){
-//        HashMap<String, Object> result = new HashMap<>();
-//
-//        result.put(gameName, averageGrade);
-//        return result;
-//    } // end toMap()
-//
 
 
 
@@ -384,19 +343,21 @@ public class GameDao {
             myRef = database.getReference("Member/"+currentMemberId+"/game");
             Log.i(TAG, myRef.toString());
 
+
+
             myRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                         String key = snapshot.getKey().toString();
-                        Log.i(TAG,"key: " + key);
                         String score = snapshot.getValue().toString();
-                        Log.i(TAG, "score : " + score);
                         Log.i(TAG,"1");
                         HashMap<String, Object> result = new HashMap<>();
 
                         result.put(key, score);
-
+                        Log.i(TAG,"5.key: " + key);
+                        Log.i(TAG,"6.score: " + score);
+                        gameScoreList  = new ArrayList<>();
                         gameScoreList.add(result);
                         Log.i(TAG,"gameScore : " + gameScoreList.toString());
 
@@ -406,10 +367,6 @@ public class GameDao {
                         }
                     }
                     // TODO 차트 그리는 메소드 호출
-
-
-                    //TODO 데이터 베이스에 추가하는 메소드 호출
-
 
                 }
 
