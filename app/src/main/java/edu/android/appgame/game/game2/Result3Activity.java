@@ -16,7 +16,7 @@ public class Result3Activity extends AppCompatActivity {
     private TextView textResult;
     private Button btnRetry;
     SharedPreferences spf = null;
-    private String scoreData;
+    private String scoreData; // 최종 점수
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
