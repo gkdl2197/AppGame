@@ -12,7 +12,7 @@ public class Explain2Dementia extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test2_explain);
+        setContentView(R.layout.activity_test2_dementia);
     }
 
     public void btnStart(View view) {

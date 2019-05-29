@@ -8,7 +8,7 @@
     tools:context=".test.test1.test1Fragment">
 
     <TextView
-        android:id="@+id/textSurvey2"
+        android:id="@+id/textSurvey3"
         android:layout_width="351dp"
         android:layout_height="251dp"
         android:layout_marginStart="8dp"
@@ -29,10 +29,10 @@
         android:layout_marginEnd="8dp"
         android:src="@drawable/report"
         android:text="다음으로"
-        app:layout_constraintEnd_toEndOf="@+id/textSurvey2"
+        app:layout_constraintEnd_toEndOf="@+id/textSurvey3"
         app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="@+id/textSurvey2"
-        app:layout_constraintTop_toTopOf="@+id/textSurvey2"
+        app:layout_constraintStart_toStartOf="@+id/textSurvey3"
+        app:layout_constraintTop_toTopOf="@+id/textSurvey3"
         app:srcCompat="@drawable/report" />
 
     <Button
@@ -78,10 +78,10 @@
         android:text="없다"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textSurvey2" />
+        app:layout_constraintTop_toBottomOf="@+id/textSurvey3" />
 
     <RadioButton
-        android:id="@+id/radioYes"
+        android:id="@+id/radioNever"
         android:layout_width="123dp"
         android:layout_height="42dp"
         android:layout_marginStart="8dp"
@@ -102,10 +102,10 @@
         android:layout_marginEnd="8dp"
         android:text="자주있다"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/radioYes"
+        app:layout_constraintBottom_toBottomOf="@+id/radioNever"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/radioYes"
-        app:layout_constraintTop_toTopOf="@+id/radioYes"
+        app:layout_constraintStart_toEndOf="@+id/radioNever"
+        app:layout_constraintTop_toTopOf="@+id/radioNever"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -117,10 +117,10 @@
         android:gravity="center"
         android:text="TextView"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textSurvey2"
-        app:layout_constraintEnd_toEndOf="@+id/textSurvey2"
+        app:layout_constraintBottom_toBottomOf="@+id/textSurvey3"
+        app:layout_constraintEnd_toEndOf="@+id/textSurvey3"
         app:layout_constraintHorizontal_bias="0.525"
-        app:layout_constraintStart_toStartOf="@+id/textSurvey2"
+        app:layout_constraintStart_toStartOf="@+id/textSurvey3"
         app:layout_constraintTop_toBottomOf="@+id/Image"
         app:layout_constraintVertical_bias="0.487" />
 </android.support.constraint.ConstraintLayout>

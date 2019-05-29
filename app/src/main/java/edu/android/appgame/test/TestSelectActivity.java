@@ -35,7 +35,7 @@ public class TestSelectActivity extends AppCompatActivity {
     }
 
     public void onClickGloomy(View view) {
-        Intent intext = new Intent (this, Explain3Dementia.class);
-        startActivity(intext);
+        Intent intent2 = new Intent (this, Explain3Dementia.class);
+        startActivity(intent2);
     }
 }

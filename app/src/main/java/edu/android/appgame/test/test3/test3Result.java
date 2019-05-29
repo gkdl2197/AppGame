@@ -17,7 +17,7 @@ public class test3Result extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test3_result);
 
-        textScore3 = findViewById(R.id.textScore);
+        textScore3 = findViewById(R.id.textScore3);
         textGuide3 = findViewById(R.id.textGuide3);
 
         total = getIntent().getIntExtra(TOTAL_SCORE, 0);
@@ -25,16 +25,14 @@ public class test3Result extends AppCompatActivity {
         if (total >= 0 && total <= 10) {
             textScore3.setText("우울증 점수: " + total);
             textGuide3.setText("당신은 우울증과 거리가 멉니다. 지금처럼 즐기세요!");
-        } else if (total > 10 && total <= 14) {
+        }else  if (total > 10 && total <= 14) {
             textScore3.setText("우울증 점수: " + total);
             textGuide3.setText("우울증에 가깝습니다. 상담 혹은 병원에 찾아가시길 권장합니다.");
-        } else if (total > 14 && total <= 30) {
+        }else if (total > 14 && total <= 30) {
             textScore3.setText("우울증 점수: " + total);
             textGuide3.setText("당신은 분명한 우울증입니다. 반드시 조치를 취하셔야 합니다!");
 
-
         }
-
     }
 
 }

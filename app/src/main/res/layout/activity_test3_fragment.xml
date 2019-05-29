@@ -8,11 +8,11 @@
     tools:context=".test.test3.test3Fragment">
 
     <TextView
-        android:id="@+id/textSurvey2"
+        android:id="@+id/textSurvey3"
         android:layout_width="351dp"
         android:layout_height="251dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="104dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/round_backgound"
         android:gravity="center"
@@ -57,7 +57,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioButton
-        android:id="@+id/radioNever"
+        android:id="@+id/radioYes"
         android:layout_width="89dp"
         android:layout_height="39dp"
         android:layout_marginStart="92dp"
@@ -66,19 +66,19 @@
         android:text="예"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textSurvey2" />
+        app:layout_constraintTop_toBottomOf="@+id/textSurvey3" />
 
     <RadioButton
-        android:id="@+id/radioYes"
+        android:id="@+id/radioNever"
         android:layout_width="136dp"
         android:layout_height="42dp"
         android:layout_marginEnd="72dp"
         android:layout_weight="1"
         android:text="아니요"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="@+id/radioNever"
+        app:layout_constraintBottom_toBottomOf="@+id/radioYes"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/radioNever"
+        app:layout_constraintTop_toTopOf="@+id/radioYes"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
@@ -87,14 +87,25 @@
         android:layout_height="75dp"
         android:layout_marginTop="8dp"
         android:src="@drawable/grandparents"
-        app:layout_constraintEnd_toEndOf="@+id/textSurvey2"
+        app:layout_constraintEnd_toEndOf="@+id/textSurvey3"
         app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="@+id/textSurvey2"
-        app:layout_constraintTop_toTopOf="@+id/textSurvey2"
+        app:layout_constraintStart_toStartOf="@+id/textSurvey3"
+        app:layout_constraintTop_toTopOf="@+id/textSurvey3"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="다음으로"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.031" />
 
+    <TextView
+        android:id="@+id/textWeek"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toTopOf="@+id/textSurvey3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

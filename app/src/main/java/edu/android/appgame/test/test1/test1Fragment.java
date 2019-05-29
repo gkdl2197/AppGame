@@ -56,7 +56,7 @@ public class test1Fragment extends Fragment {
         View view= inflater.inflate(R.layout.activity_test1_fragment,container2,false);
         textSurvey3= view.findViewById(R.id.textSurvey1);
         radioNever= view.findViewById(R.id.radioNever);
-        radioSomtimes=  view.findViewById(R.id.radioYes);
+        radioSomtimes=  view.findViewById(R.id.radioNever);
         radioOften = view.findViewById(R.id.radioOften);
         btnNext = view.findViewById(R.id.btnNext);
 
