@@ -1,6 +1,7 @@
 package edu.android.appgame.game.game5;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -23,6 +24,8 @@ public class Game5ScoreActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game5_score);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorDarkBlue)));
+        getWindow().setStatusBarColor(getResources().getColor(R.color.colorDarkBlue));
 
         score = getIntent().getIntExtra(CORRECT_SCORE,0);
         total = getIntent().getIntExtra(TOTAL_Q,0);
