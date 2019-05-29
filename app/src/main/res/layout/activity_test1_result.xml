@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EFF5B7"
     tools:context=".test.test1.test1Result">
 
     <TextView
@@ -15,8 +16,10 @@
         android:layout_marginEnd="8dp"
         android:gravity="center"
         android:text="검사 결과창"
-        android:textSize="24sp"
+        android:textColor="#F5F5F5"
+        android:textSize="30sp"
         android:textStyle="bold"
+        android:background="#44AF48"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +47,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="136dp"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,4 +55,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView32"
         app:layout_constraintVertical_bias="0.117" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="40dp"
+        android:background="#44AF48"
+        android:text="홈으로"
+        android:textColor="#F5F5F5"
+        android:textSize="24sp"
+        android:onClick="btnGoBackToHome"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintHorizontal_bias="0.803"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textGuide1"
+        app:layout_constraintVertical_bias="0.525" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="8dp"
+        android:background="#44AF48"
+        android:text="검사 선택"
+        android:textColor="#F5F5F5"
+        android:textSize="24sp"
+        android:onClick="btnGoBackToTest"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textGuide1"
+        app:layout_constraintVertical_bias="0.291" />
 </android.support.constraint.ConstraintLayout>

@@ -34,7 +34,8 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/round_backgound1"
         android:gravity="center"
-        android:text="치매선별검사지 SIRQD는 노인에 대해 잘알고 있는 가족이나 친지가 노인의 치매 여부를 쉽게 확인해 봏 수 있도록 서울대학교 병원 치매,노화성 인지감퇴중 클리닉(02-2072-2451)에서 개발한 검사입니다"
+        android:text="총15개의 문항으로 구성되어 있으며, 각 문항은 일상생활 중에 나타나는 능력이 어떻게 변했는지 묻게 됩니다.
+합계가 7점 이상이면 치매를 의심할 수 있으므로 치매조기검진 신청을 해주시기 바랍니다."
         android:textAlignment="center"
         android:textColor="#070307"
         android:textSize="16sp"
@@ -51,10 +52,10 @@
         android:layout_marginTop="28dp"
         android:layout_marginEnd="8dp"
         android:background="#44AF48"
-        android:onClick="btnStart"
         android:text="START"
         android:textColor="#F5F5F5"
         android:textSize="24sp"
+        android:onClick="btnStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
