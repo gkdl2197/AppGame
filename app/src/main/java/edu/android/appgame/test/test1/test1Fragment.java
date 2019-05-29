@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,7 +44,7 @@ public class test1Fragment extends Fragment {
     private int currentIndex = 0;
     private  static  final  String KEY_INDEX="current_index";
     private TextView textSurvey3;
-    private RadioButton btnNo, btnSometimes, btnOften;
+    private RadioButton radioNever,radioSomtimes, radioOften;
     private Button btnNext;
     private int testScore=0;
 
@@ -56,9 +55,9 @@ public class test1Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container2, Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.activity_test1_fragment,container2,false);
         textSurvey3= view.findViewById(R.id.textSurvey3);
-        btnNo= view.findViewById(R.id.btnNo);
-        btnSometimes=  view.findViewById(R.id.btnSometimes);
-        btnOften = view.findViewById(R.id.btnOften);
+        radioNever= view.findViewById(R.id.radioNever);
+        radioSomtimes=  view.findViewById(R.id.radioSometimes);
+        radioOften = view.findViewById(R.id.radioOften);
         btnNext = view.findViewById(R.id.btnNext);
 
         if(savedInstanceState != null){
@@ -81,15 +80,13 @@ public class test1Fragment extends Fragment {
         if(currentIndex<SURVEY_TEXT.length-1){
             currentIndex++;
             changeText();
-            if(btnNo.isChecked()){
-                btnOften.setChecked(false);
-                btnSometimes.setChecked(false);
-            } if(btnSometimes.isChecked()){
-                btnNo.setChecked(false);
-                btnOften.setChecked(false);
-            } if (btnOften.isChecked()) {
-                btnNo.setChecked(false);
-                btnSometimes.setChecked(false);
+            if(radioNever.isChecked()){
+                radioNever.setChecked(false);
+            } if(radioSomtimes.isChecked()){
+                radioSomtimes.setChecked(false);
+               } if (radioOften.isChecked()) {
+                radioOften.setChecked(false);
+
             }
         }else{
             btnNext.setEnabled(false);
@@ -120,16 +117,16 @@ public class test1Fragment extends Fragment {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(btnNo.isChecked()){
+                if(radioNever.isChecked()){
                     testScore += 0;
-                }else if(btnSometimes.isChecked()){
+                }else if(radioSomtimes.isChecked()){
                     testScore += 1;
-                } else if (btnOften.isChecked()) {
+                } else if (radioOften.isChecked()) {
                     testScore += 2;
                 }
-                if( btnNo.isChecked() == false && btnSometimes.isChecked() == false && btnOften.isChecked() == false){
+                if( radioNever.isChecked() == false && radioSomtimes.isChecked() == false && radioOften.isChecked() == false){
                     Toast.makeText(getActivity(), "체크를 하신 후 다음문제로 넘어가실 수 있습니다.", Toast.LENGTH_SHORT).show();
-                } else if (btnNo.isChecked() || btnSometimes.isChecked() || btnOften.isChecked()){
+                } else if (radioNever.isChecked() || radioSomtimes.isChecked() || radioOften.isChecked()){
                     showNextText();
                 }
             }
