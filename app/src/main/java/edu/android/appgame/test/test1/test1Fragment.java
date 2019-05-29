@@ -43,8 +43,8 @@ public class test1Fragment extends Fragment {
     public static final String TOTAL_SCORE = "total_score";
     private int currentIndex = 0;
     private  static  final  String KEY_INDEX="current_index";
-    private TextView textSurvey3;
-    private RadioButton radioNever,radioSomtimes, radioOften;
+    private TextView textSurvey1;
+    private RadioButton radioNever,radioSometimes, radioOften;
     private Button btnNext;
     private int testScore=0;
 
@@ -54,9 +54,9 @@ public class test1Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container2, Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.activity_test1_fragment,container2,false);
-        textSurvey3= view.findViewById(R.id.textSurvey1);
+        textSurvey1= view.findViewById(R.id.textSurvey1);
         radioNever= view.findViewById(R.id.radioNever);
-        radioSomtimes=  view.findViewById(R.id.radioNever);
+        radioSometimes=  view.findViewById(R.id.radioSometimes);
         radioOften = view.findViewById(R.id.radioOften);
         btnNext = view.findViewById(R.id.btnNext);
 
@@ -65,7 +65,7 @@ public class test1Fragment extends Fragment {
             changeText();
         }
 
-        textSurvey3.setText(SURVEY_TEXT[0]);
+        textSurvey1.setText(SURVEY_TEXT[0]);
         return  view;
     }
     @Override
@@ -82,8 +82,8 @@ public class test1Fragment extends Fragment {
             changeText();
             if(radioNever.isChecked()){
                 radioNever.setChecked(false);
-            } if(radioSomtimes.isChecked()){
-                radioSomtimes.setChecked(false);
+            } if(radioSometimes.isChecked()){
+                radioSometimes.setChecked(false);
                } if (radioOften.isChecked()) {
                 radioOften.setChecked(false);
 
@@ -108,7 +108,7 @@ public class test1Fragment extends Fragment {
     }
 
     private void changeText() {
-        textSurvey3.setText(SURVEY_TEXT[currentIndex]);
+        textSurvey1.setText(SURVEY_TEXT[currentIndex]);
     }
     @Override
     public void onStart() {
@@ -119,14 +119,14 @@ public class test1Fragment extends Fragment {
             public void onClick(View v) {
                 if(radioNever.isChecked()){
                     testScore += 0;
-                }else if(radioSomtimes.isChecked()){
+                }else if(radioSometimes.isChecked()){
                     testScore += 1;
                 } else if (radioOften.isChecked()) {
                     testScore += 2;
                 }
-                if( radioNever.isChecked() == false && radioSomtimes.isChecked() == false && radioOften.isChecked() == false){
+                if( radioNever.isChecked() == false && radioSometimes.isChecked() == false && radioOften.isChecked() == false){
                     Toast.makeText(getActivity(), "체크를 하신 후 다음문제로 넘어가실 수 있습니다.", Toast.LENGTH_SHORT).show();
-                } else if (radioNever.isChecked() || radioSomtimes.isChecked() || radioOften.isChecked()){
+                } else if (radioNever.isChecked() || radioSometimes.isChecked() || radioOften.isChecked()){
                     showNextText();
                 }
             }
