@@ -69,14 +69,8 @@ public class test3Fragment extends Fragment {
         textSurvey3= view.findViewById(R.id.textSurvey1);
         btnNext=  view.findViewById(R.id.btnNext);
         radioYes = view.findViewById(R.id.radioYes);
-        radioNo =  view.findViewById(R.id.radioYes);
+        radioNo =  view.findViewById(R.id.radioNo);
         textSurvey3= view.findViewById(R.id.textSurvey2);
-        btnNext=  view.findViewById(R.id.btnNext);
-        radioYes = view.findViewById(R.id.radioNever);
-        radioNo =  view.findViewById(R.id.radioSometimes);
-        textWeek = view.findViewById(R.id.textWeek);
-        textWeek.setText("최근 일주일 동안의 기분에 대한 질문입니다. 가장 잘 일치하는 답을 한 가지만 골라주세요.");
-        radioNo =  view.findViewById(R.id.radioYes);
         if(savedInstanceState != null){
             currentIndex =savedInstanceState.getInt(KEY_INDEX);
             chageText();
