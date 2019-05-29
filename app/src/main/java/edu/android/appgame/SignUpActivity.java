@@ -87,13 +87,21 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void saveNewMember(String id, String email, String pw, String pw2, String name, String sex, String birth){
+
         Member member = new Member(ID, email, pw, pw2, name, this.sex, birth);
+        Member member1 = new Member(0,0,0,0,0);
 
         Map<String, Object> childUpdates = new HashMap<>();
         Map<String, Object> postValues = member.toMap();
 
         childUpdates.put("/" + ID + "/", postValues);
         myRef.updateChildren(childUpdates);
+
+        Map<String, Object> childUpdatesScore = new HashMap<>();
+        Map<String, Object> postValuesScore = member1.toMapScore();
+
+        childUpdatesScore.put("/" + ID + "/game", postValuesScore);
+        myRef.updateChildren(childUpdatesScore);
 
         createAccount(email, pw);
 

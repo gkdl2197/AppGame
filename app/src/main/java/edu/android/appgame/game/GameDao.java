@@ -16,7 +16,6 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -30,6 +29,7 @@ import java.util.Map;
 import static edu.android.appgame.MainActivity.currentMemberId;
 import static edu.android.appgame.MainActivity.isLogin;
 
+import edu.android.appgame.Member;
 import edu.android.appgame.R;
 
 public class GameDao {
@@ -306,32 +306,54 @@ public class GameDao {
 
     // 평균 점수 Firebase에 올리기
     private void sendToFirebase(String gameName, int averageGrade){
-
+        int quiz =0, card=0, word=0, calculate=0,qclick=0;
         if(isLogin){
 
             database = FirebaseDatabase.getInstance();
             myRef = database.getReference("Member");
+            switch (gameName) {
+                case "quiz":
+                    quiz = averageGrade;
+                    break;
+                case "card":
+                    card = averageGrade;
+                    break;
+                case "word":
+                    word = averageGrade;
+                    break;
+                case "calculate" :
+                    calculate = averageGrade;
+                    break;
+                case "qclick":
+                    qclick = averageGrade;
+                    break;
+            }
 
-            HashMap<String, Object> result = new HashMap<>();
+            Member member = new Member(quiz, card, word, calculate, qclick);
 
             Map<String, Object> childUpdates = new HashMap<>();
-            Map<String, Object> postValues = toMap(gameName, averageGrade);
+            Map<String, Object> postValues = member.toMapScore();
 
-            childUpdates.put("/" + currentMemberId + "/game/", postValues );
+            childUpdates.put("/" + currentMemberId + "/game", postValues);
             myRef.updateChildren(childUpdates);
 
-            Toast.makeText(context, "성공1212121212", Toast.LENGTH_SHORT).show();
+
+            Toast.makeText(context, "db 성공1212121212", Toast.LENGTH_SHORT).show();
+            getGameScoreFromFirebase();
 
         }else {
             Toast.makeText(context, "기록을 저장하려면 로그인이 필요합니다", Toast.LENGTH_SHORT).show();
         }
 
-    } // end sendToFirebase()
+
+} // end sendToFirebase()
+
 
     // 게임 점수 저장하기 위한 Map
     @Exclude
     public Map<String, Object> toMap(String gameName, int averageGrade){
         HashMap<String, Object> result = new HashMap<>();
+
         result.put(gameName, averageGrade);
         return result;
     } // end toMap()
@@ -356,7 +378,9 @@ public class GameDao {
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                         String key = snapshot.getKey().toString();
+                        Log.i(TAG,"key: " + key);
                         String score = snapshot.getValue().toString();
+                        Log.i(TAG, "score : " + score);
                         Log.i(TAG,"1");
                         HashMap<String, Object> result = new HashMap<>();
 
@@ -371,6 +395,10 @@ public class GameDao {
                         }
                     }
                     // TODO 차트 그리는 메소드 호출
+
+
+                    //TODO 데이터 베이스에 추가하는 메소드 호출
+
 
                 }
 
