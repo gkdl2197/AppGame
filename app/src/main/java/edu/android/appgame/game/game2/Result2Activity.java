@@ -34,16 +34,16 @@ public class Result2Activity extends AppCompatActivity {
 
         String time = "걸린 시간: " + score + "초\n\n";
         if (score > 0 && score <= 10) {
-            textResult.setText(time + "기억력 점수: " + "A -\n" + "기억력이 매우 뛰어나십니다!");
+            textResult.setText(time + "기억력 점수: " + "A \n" + "기억력이 매우 뛰어나십니다!");
             scoreData = "A";
         } if (score > 10 && score <= 20) {
-            textResult.setText(time + "기억력 점수: " + "B -\n" + "준수한 기억력을 가지고 계시군요!");
+            textResult.setText(time + "기억력 점수: " + "B \n" + "준수한 기억력을 가지고 계시군요!");
             scoreData = "B";
         } if (score > 20 && score <= 29) {
-            textResult.setText(time + "기억력 점수: " + "C -\n" + "오락가락하실 때가 많으시군요. 신경쓰세요!");
+            textResult.setText(time + "기억력 점수: " + "C \n" + "오락가락하실 때가 많으시군요. 신경쓰세요!");
             scoreData = "C";
         } if (score >= 30) {
-            textResult.setText(time + "기억력 점수: " + "D -\n" + "당장 병원으로 가세요!");
+            textResult.setText(time + "기억력 점수: " + "D \n" + "당장 병원으로 가세요!");
             scoreData = "D";
         }
 

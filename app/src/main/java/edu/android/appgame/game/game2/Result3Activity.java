@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import edu.android.appgame.GameActivity;
 import edu.android.appgame.R;
 import static edu.android.appgame.game.game2.Main3Activity.SCORE_CHO;
 
@@ -32,16 +34,16 @@ public class Result3Activity extends AppCompatActivity {
 
         String time = "걸린 시간: " + score + "초\n\n";
         if (score > 0 && score <= 20) {
-            textResult.setText(time + "기억력 점수: " + "A -\n" + "기억력이 매우 뛰어나십니다!");
+            textResult.setText(time + "기억력 점수: " + "A \n" + "기억력이 매우 뛰어나십니다!");
             scoreData = "A";
         } if (score > 20 && score <= 40) {
-            textResult.setText(time + "기억력 점수: " + "B -\n" + "준수한 기억력을 가지고 계시군요!");
+            textResult.setText(time + "기억력 점수: " + "B \n" + "준수한 기억력을 가지고 계시군요!");
             scoreData = "B";
         } if (score > 40 && score <= 59) {
-            textResult.setText(time + "기억력 점수: " + "C -\n" + "오락가락하실 때가 많으시군요. 신경쓰세요!");
+            textResult.setText(time + "기억력 점수: " + "C \n" + "오락가락하실 때가 많으시군요. 신경쓰세요!");
             scoreData = "C";
         } if (score >= 60) {
-            textResult.setText(time + "기억력 점수: " + "D -\n" + "당장 병원으로 가세요!");
+            textResult.setText(time + "기억력 점수: " + "D \n" + "당장 병원으로 가세요!");
             scoreData = "D";
         }
 
@@ -63,6 +65,9 @@ public class Result3Activity extends AppCompatActivity {
     }
 
     public void btnHome(View view) {
+        Intent intent = new Intent(this, GameActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     public void onClickGoToFirst(View view) {
