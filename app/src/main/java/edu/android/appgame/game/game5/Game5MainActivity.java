@@ -359,7 +359,7 @@ public class Game5MainActivity extends AppCompatActivity {
         intent.putExtra(CORRECT_SCORE, count);
         intent.putExtra(TOTAL_Q, total);
         startActivity(intent);
-        finish();
+        this.finish();
     }
 
 

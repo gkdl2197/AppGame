@@ -55,7 +55,7 @@ public class GameDetailActivity extends AppCompatActivity {
                     finish();
                     break;
 
-                case 6:
+                case 5:
                     Intent intent6 = new Intent(this, MainActivityGame7.class);
                     startActivity(intent6);
                     finish();

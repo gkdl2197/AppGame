@@ -67,7 +67,8 @@ public class Game5ScoreActivity extends AppCompatActivity {
     }
 
     public void onClickbtnGoHome(View view) {
-        Intent intent = new Intent (this, Game5MainActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent (this, Game5StartImage.class);
+//        startActivity(intent);
+        this.finish();
     }
 }
