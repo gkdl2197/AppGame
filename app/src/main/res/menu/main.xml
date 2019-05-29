@@ -11,4 +11,10 @@
         android:orderInCategory="100"
         android:title="결과보기"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_map"
+        android:orderInCategory="100"
+        android:title="지도보기"
+        app:showAsAction="never" />
 </menu>
