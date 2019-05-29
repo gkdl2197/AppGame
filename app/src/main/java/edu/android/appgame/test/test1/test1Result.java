@@ -27,7 +27,7 @@ public class test1Result extends AppCompatActivity {
         textGuide = findViewById(R.id.textGuide1);
         total = getIntent().getIntExtra(TOTAL_SCORE, 0);
 
-        if (total > 0 && total < 7) {
+        if (total >= 0 && total < 7) {
             textScore.setText("점수: " + total);
             textGuide.setText("치매가 아닌 것으로 보입니다. 그래도 늘 신경쓰세요! \n" +
                     "다음 10가지 내용을 잘 지키도록 하시면 치매 예방에 도움이 됩니다.\n" +
@@ -54,12 +54,6 @@ public class test1Result extends AppCompatActivity {
                     "\n" +
                     "치매에 대한 전문적인 교육을 받은 간호사가 치매가 의심될 때 어떻게 해야 하는지 친절히 상담해드리고, 치매와 관련된 다양하고 유용한 정보를 제공해드립니다.");
         }
-    }
-
-    public void btnGoBackToHome(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
     }
 
     public void btnGoBackToTest(View view) {
