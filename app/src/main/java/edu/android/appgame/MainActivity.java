@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public static boolean isLogin;    // 현재 로그인 되어있는지 여부
 
     private ImageButton btnLoginMain;
+    private DrawerLayout drawer;
 
 
     @Override
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         .setAction("Action", null).show();
             }
         });
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -131,8 +132,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_home) {
             // Handle the camera action
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
+//            Intent intent = new Intent(this, MainActivity.class);
+//            startActivity(intent);
+            drawer.closeDrawer(GravityCompat.START);
         } else if (id == R.id.nav_test) {
             Intent intent = new Intent(this, TestActivity.class);
             startActivity(intent);
@@ -143,8 +145,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent intent= new Intent(this, PreventionMainActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
 
         }
 

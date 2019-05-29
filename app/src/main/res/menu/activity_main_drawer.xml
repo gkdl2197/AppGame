@@ -6,19 +6,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_menu_home"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_test"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_menu_test"
             android:title="@string/menu_test" />
         <item
             android:id="@+id/nav_game"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_menu_game"
             android:title="@string/menu_game" />
         <item
             android:id="@+id/nav_prevention"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_menu_prevent"
             android:title="@string/menu_tools"
             />
     </group>
@@ -28,12 +28,29 @@
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_result" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
+                android:title="@string/menu_result" >
+            </item>
+
         </menu>
     </item>
+
+    <group android:checkableBehavior="single">
+        <item android:title="Facility">
+            <menu>
+                <item
+                    android:id="@+id/nav_map"
+                    android:icon="@drawable/ic_menu_map"
+                    android:title="지도로 시설보기"/>
+                <item
+                    android:id="@+id/nav_list"
+                    android:icon="@drawable/ic_menu_list"
+                    android:title="리스트로 시설보기"
+                    />
+
+            </menu>
+
+        </item>
+
+    </group>
 
 </menu>
