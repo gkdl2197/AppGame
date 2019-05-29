@@ -14,7 +14,7 @@ public class test3MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test3_main);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorDarkBlue)));
-        getWindow().setStatusBarColor(getResources().getColor(R.color.colorDarkBlue));
+        getWindow().setStatusBarColor(getResources().getColor(R.color.lightBlue900));
 
         View view= findViewById(R.id.container2);
         if(view != null){

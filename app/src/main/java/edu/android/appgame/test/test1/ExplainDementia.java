@@ -14,8 +14,8 @@ public class ExplainDementia extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_explain_dementia);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorGreen)));
-        getWindow().setStatusBarColor(getResources().getColor(R.color.colorDarkBlue));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorForest)));
+        getWindow().setStatusBarColor(getResources().getColor(R.color.colorGreen));
     }
 
     public void btnStart(View view) {

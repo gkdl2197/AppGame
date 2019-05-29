@@ -1,10 +1,14 @@
 package edu.android.appgame.test.test2;
 
+import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import edu.android.appgame.R;
+import edu.android.appgame.test.TestSelectActivity;
 
 import static edu.android.appgame.test.test2.test2Fragment.TOTAL_SCORE;
 
@@ -17,9 +21,12 @@ public class test2Result extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test2_result);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPink)));
+        getWindow().setStatusBarColor(getResources().getColor(R.color.colorSoftPink));
+
 
         textScore2 = findViewById(R.id.textScore2);
-        textGuide2 = findViewById(R.id.textGuide1);
+        textGuide2 = findViewById(R.id.textGuide2);
         total = getIntent().getIntExtra(TOTAL_SCORE, 0);
 
         if (total <= 6) {
@@ -36,4 +43,9 @@ public class test2Result extends AppCompatActivity {
 
     }
 
+    public void btnGoBackToTest(View view) {
+        Intent intent = new Intent(this, TestSelectActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }

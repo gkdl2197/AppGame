@@ -4,21 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#CFEAF1"
     tools:context=".test.test3.test3Result">
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="186dp"
-        android:layout_height="50dp"
+        android:layout_width="246dp"
+        android:layout_height="51dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/game3_button_background"
         android:gravity="center"
-        android:text="검사 결과창"
+        android:text="검사 결과"
+        android:textColor="#FAFAFA"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,13 +29,16 @@
         android:id="@+id/textView32"
         android:layout_width="65dp"
         android:layout_height="42dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginBottom="48dp"
+        android:background="#62A1CC"
         android:gravity="center"
         android:text="점수"
+        android:textColor="#F5F5F5"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textGuide3"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textScore3"
@@ -40,16 +46,37 @@
         android:layout_height="42dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="128dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/textGuide1"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textGuide3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.797"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.024"
+        app:layout_constraintStart_toEndOf="@+id/textView32"
         app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:layout_constraintVertical_bias="0.461" />
+        app:layout_constraintVertical_bias="0.466" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="226dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#63A2CC"
+        android:text="다른 검사하러가기"
+        android:textColor="#F5F5F5"
+        android:onClick="btnTestGo"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textGuide1"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textGuide3"

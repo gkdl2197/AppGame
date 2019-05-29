@@ -52,8 +52,8 @@ public class test2Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container2, Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.activity_test2_fragment,container2,false);
         textSurvey = view.findViewById(R.id.textSurvey1);
-        radioYes= view.findViewById(R.id.radioNever);
-        radioNo=  view.findViewById(R.id.radioNever);
+        radioYes= view.findViewById(R.id.radioYes);
+        radioNo=  view.findViewById(R.id.radioNo);
         btnNext=  view.findViewById(R.id.btnNext);
 
         if(savedInstanceState != null){
