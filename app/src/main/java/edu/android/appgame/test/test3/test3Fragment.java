@@ -55,7 +55,7 @@ public class test3Fragment extends Fragment {
     public static final String TOTAL_SCORE="total_score";
     private int currentIndex = 0;
     private  static  final  String KEY_INDEX="current_index";
-    private TextView textSurvey3, textresult, textWeek;
+    private TextView textSurvey3;
     private RadioButton radioYes,radioNo;
     private Button btnNext;
     private int testScore=0;
@@ -66,12 +66,17 @@ public class test3Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container2, Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.activity_test3_fragment,container2,false);
+        textSurvey3= view.findViewById(R.id.textSurvey1);
+        btnNext=  view.findViewById(R.id.btnNext);
+        radioYes = view.findViewById(R.id.radioYes);
+        radioNo =  view.findViewById(R.id.radioYes);
         textSurvey3= view.findViewById(R.id.textSurvey2);
         btnNext=  view.findViewById(R.id.btnNext);
         radioYes = view.findViewById(R.id.radioNever);
         radioNo =  view.findViewById(R.id.radioSometimes);
         textWeek = view.findViewById(R.id.textWeek);
         textWeek.setText("최근 일주일 동안의 기분에 대한 질문입니다. 가장 잘 일치하는 답을 한 가지만 골라주세요.");
+        radioNo =  view.findViewById(R.id.radioYes);
         if(savedInstanceState != null){
             currentIndex =savedInstanceState.getInt(KEY_INDEX);
             chageText();

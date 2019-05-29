@@ -18,6 +18,7 @@ import android.widget.Toast;
 import edu.android.appgame.R;
 
 
+
 public class test2Fragment extends Fragment {
 
     private static final String[] Memory =
@@ -39,7 +40,7 @@ public class test2Fragment extends Fragment {
     public static final String TOTAL_SCORE="total_score";
     private int currentIndex = 0;
     private  static  final  String KEY_INDEX="current_index";
-    private TextView textSurvey3,textresult;
+    private TextView textSurvey,textresult;
     private RadioButton radioYes,radioNo;
     private Button btnNext;
     private int testScore=0;
@@ -50,10 +51,9 @@ public class test2Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container2, Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.activity_test2_fragment,container2,false);
-        textSurvey3= view.findViewById(R.id.textSurvey2);
-        //   textresult=view.findViewById(R.id.textresult);
+        textSurvey = view.findViewById(R.id.textSurvey1);
         radioYes= view.findViewById(R.id.radioNever);
-        radioNo=  view.findViewById(R.id.radioSometimes);
+        radioNo=  view.findViewById(R.id.radioYes);
         btnNext=  view.findViewById(R.id.btnNext);
 
         if(savedInstanceState != null){
@@ -61,7 +61,7 @@ public class test2Fragment extends Fragment {
             chageText();
         }
 
-        textSurvey3.setText(Memory[0]);
+        textSurvey.setText(Memory[0]);
         return  view;
     }
     @Override
@@ -101,7 +101,7 @@ public class test2Fragment extends Fragment {
         }
     }
     private void chageText() {
-        textSurvey3.setText(Memory[currentIndex]);
+        textSurvey.setText(Memory[currentIndex]);
     }
     @Override
     public void onStart() {

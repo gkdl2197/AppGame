@@ -69,7 +69,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textSurvey2" />
 
     <RadioButton
-        android:id="@+id/radioSometimes"
+        android:id="@+id/radioYes"
         android:layout_width="136dp"
         android:layout_height="42dp"
         android:layout_marginEnd="72dp"
@@ -95,7 +95,6 @@
         android:layout_marginBottom="8dp"
         android:text="다음으로"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
         app:layout_constraintVertical_bias="0.031" />
 
     <TextView

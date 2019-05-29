@@ -10,12 +10,8 @@ import static edu.android.appgame.game.game1.Main0Animal.TEXT_SCORE;
 
 public class Main0Result extends AppCompatActivity {
 
-    public static final String TEXT_SCORE = "text_score";
-    public static final String TEXT_BEST = "text_best";
 
     private TextView textAML, textKr, textItw;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

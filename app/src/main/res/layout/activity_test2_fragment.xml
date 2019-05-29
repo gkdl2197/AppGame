@@ -4,52 +4,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CFEAF1"
+    android:background="#EBCED7"
     tools:context=".test.test2.test2Fragment">
 
     <TextView
-        android:id="@+id/textSurvey2"
+        android:id="@+id/textSurvey1"
         android:layout_width="351dp"
         android:layout_height="251dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/round_backgound"
+        android:background="#EEB0C4"
         android:gravity="center"
-        android:text="예시입니다"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView43" />
+
+    <ImageView
+        android:id="@+id/Image"
+        android:layout_width="124dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/photo"
+        android:text="다음으로"
+        app:layout_constraintEnd_toEndOf="@+id/textSurvey1"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="@+id/textSurvey1"
+        app:layout_constraintTop_toTopOf="@+id/textSurvey1"
+        app:srcCompat="@drawable/photo" />
 
     <Button
         android:id="@+id/btnNext"
         android:layout_width="234dp"
         android:layout_height="48dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/game4_button_background"
+        android:layout_marginBottom="8dp"
+        android:background="#86EC1359"
         android:text="다음으로"
-        android:textColor="#F5F5F5"
+        android:textColor="#DFD1D1"
         android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioNever" />
+        app:layout_constraintTop_toBottomOf="@+id/radioYes"
+        app:layout_constraintVertical_bias="0.32999998" />
 
     <TextView
         android:id="@+id/textView43"
-        android:layout_width="285dp"
-        android:layout_height="69dp"
+        android:layout_width="303dp"
+        android:layout_height="64dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="8dp"
-        android:background="#268EDD"
+        android:background="#E992AC"
         android:gravity="center"
-        android:text="기억감퇴자각도검사"
+        android:text="기억감퇴 자각도 검사"
         android:textColor="#F5F5F5"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -58,46 +74,40 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioButton
-        android:id="@+id/radioNever"
-        android:layout_width="89dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="88dp"
+        android:id="@+id/radioYes"
+        android:layout_width="90dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="20dp"
         android:layout_weight="1"
         android:text="예"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textSurvey2" />
+        app:layout_constraintTop_toBottomOf="@+id/textSurvey1" />
 
     <RadioButton
-        android:id="@+id/radioSometimes"
+        android:id="@+id/radioNo"
         android:layout_width="136dp"
-        android:layout_height="42dp"
-        android:layout_marginEnd="72dp"
-        android:layout_weight="1"
-        android:text="아니요"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="68dp"
+        android:text="아니오"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="@+id/radioNever"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/radioNever"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textSurvey1" />
 
-    <ImageView
-        android:id="@+id/Image"
-        android:layout_width="107dp"
-        android:layout_height="75dp"
+    <TextView
+        android:id="@+id/textSurvey4"
+        android:layout_width="302dp"
+        android:layout_height="136dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/grandparents"
-        app:layout_constraintEnd_toEndOf="@+id/textSurvey2"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="@+id/textSurvey2"
-        app:layout_constraintTop_toTopOf="@+id/textSurvey2"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="다음으로"
-        app:layout_constraintBottom_toBottomOf="parent"
-
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
-        app:layout_constraintVertical_bias="0.031" />
-
+        android:gravity="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textSurvey1"
+        app:layout_constraintEnd_toEndOf="@+id/textSurvey1"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/textSurvey1"
+        app:layout_constraintTop_toBottomOf="@+id/Image"
+        app:layout_constraintVertical_bias="1.0" />
 </android.support.constraint.ConstraintLayout>

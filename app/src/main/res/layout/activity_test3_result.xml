@@ -23,6 +23,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/textView32"
+        android:layout_width="65dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="28dp"
+        android:gravity="center"
+        android:text="점수"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <TextView
+        android:id="@+id/textScore3"
         android:id="@+id/textScore"
         android:layout_width="73dp"
         android:layout_height="42dp"
@@ -40,7 +53,7 @@
         app:layout_constraintVertical_bias="0.461" />
 
     <TextView
-        android:id="@+id/textGuide1"
+        android:id="@+id/textGuide3"
         android:layout_width="360dp"
         android:layout_height="447dp"
         android:layout_marginStart="8dp"

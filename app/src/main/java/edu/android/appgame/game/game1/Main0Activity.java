@@ -7,8 +7,8 @@ import android.view.View;
 
 import edu.android.appgame.R;
 
-import static edu.android.appgame.game.game1.Main0Result.TEXT_BEST;
-import static edu.android.appgame.game.game1.Main0Result.TEXT_SCORE;
+import static edu.android.appgame.game.game1.Main0Animal.TEXT_BEST;
+import static edu.android.appgame.game.game1.Main0Animal.TEXT_SCORE;
 
 public class Main0Activity extends AppCompatActivity {
 

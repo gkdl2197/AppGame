@@ -8,6 +8,7 @@ import android.view.View;
 import edu.android.appgame.R;
 import edu.android.appgame.test.test2.Explain2Dementia;
 import edu.android.appgame.test.test1.ExplainDementia;
+import edu.android.appgame.test.test3.Explain3Dementia;
 import edu.android.appgame.test.test3.test3MainActivity;
 
 
@@ -34,7 +35,7 @@ public class TestSelectActivity extends AppCompatActivity {
     }
 
     public void onClickGloomy(View view) {
-        Intent intext = new Intent (this, test3MainActivity.class);
+        Intent intext = new Intent (this, Explain3Dementia.class);
         startActivity(intext);
     }
 }

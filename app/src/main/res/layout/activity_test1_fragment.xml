@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EFF5B7"
-    tools:context=".test.test3.test3Fragment">
+    tools:context=".test.test1.test1Fragment">
 
     <TextView
         android:id="@+id/textSurvey2"
@@ -81,7 +81,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textSurvey2" />
 
     <RadioButton
-        android:id="@+id/radioSometimes"
+        android:id="@+id/radioYes"
         android:layout_width="123dp"
         android:layout_height="42dp"
         android:layout_marginStart="8dp"
@@ -102,14 +102,14 @@
         android:layout_marginEnd="8dp"
         android:text="자주있다"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/radioSometimes"
+        app:layout_constraintBottom_toBottomOf="@+id/radioYes"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/radioSometimes"
-        app:layout_constraintTop_toTopOf="@+id/radioSometimes"
+        app:layout_constraintStart_toEndOf="@+id/radioYes"
+        app:layout_constraintTop_toTopOf="@+id/radioYes"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textSurvey3"
+        android:id="@+id/textSurvey1"
         android:layout_width="302dp"
         android:layout_height="136dp"
         android:layout_marginTop="8dp"
