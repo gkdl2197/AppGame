@@ -16,7 +16,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".test.test2.test2Result"></activity>
         <activity android:name=".test.test2.test2MainActivity" />
         <activity android:name=".test.test3.test3Result" />
@@ -57,6 +58,15 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".game.game2.Result3Activity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".game.game5.Game5MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".game.game5.Game5ScoreActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".game.game5.Game5StartImage"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".game.game7.MainActivityGame7"

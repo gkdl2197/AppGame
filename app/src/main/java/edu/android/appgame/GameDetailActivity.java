@@ -9,6 +9,7 @@ import edu.android.appgame.game.game1.Main0Activity;
 import edu.android.appgame.game.game2.MainActivity;
 import edu.android.appgame.game.game3.Main2Game3Activity;
 import edu.android.appgame.game.game4.MainGame4Activity;
+import edu.android.appgame.game.game5.Game5MainActivity;
 import edu.android.appgame.game.game7.MainActivityGame7;
 
 import static edu.android.appgame.GameActivity.KEY_GAME_INDEX;
@@ -47,6 +48,11 @@ public class GameDetailActivity extends AppCompatActivity {
                     startActivity(intent3);
                     finish();
                     break;
+                case 5:
+                    Intent intent5= new Intent(this, Game5MainActivity.class);
+                    startActivity(intent5);
+                    finish();
+
                 case 6:
                     Intent intent6 = new Intent(this, MainActivityGame7.class);
                     startActivity(intent6);
