@@ -201,13 +201,16 @@ public class GameDao {
         String fileName = AVERAGE_FILE_NAME.split("\\.")[0];
 
         isInFile(fileName);
+
         StringBuilder initBuilder = new StringBuilder();
         initBuilder.append("quiz,").append(0).append("\n")
                 .append("card,").append(0).append("\n")
                 .append("word,").append(0).append("\n")
                 .append("calculate,").append(0).append("\n")
                 .append("qclick,").append(0);
+
         addScoreToPrevFile(initBuilder, AVERAGE_FILE_NAME);
+
         List<String> oldData =readContentsFromTxtFile(AVERAGE_FILE_NAME);
 
         String quiz = oldData.get(0);
@@ -215,6 +218,7 @@ public class GameDao {
         String word = oldData.get(2);
         String calculate = oldData.get(3);
         String qclick = oldData.get(4);
+
         switch (gameName) {
             case "quiz" :
                 quiz = String.format("%s,%s\n", gameName, averageGrade);

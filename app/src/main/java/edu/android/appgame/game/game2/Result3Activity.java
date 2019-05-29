@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import edu.android.appgame.R;
+import edu.android.appgame.game.GameDao;
+
 import static edu.android.appgame.game.game2.Main3Activity.SCORE_CHO;
 
 
@@ -17,6 +19,8 @@ public class Result3Activity extends AppCompatActivity {
     private Button btnRetry;
     SharedPreferences spf = null;
     private String scoreData; // 최종 점수
+    private static final String GAME2_NAME = "card";
+    private GameDao dao = GameDao.getInstance(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +49,8 @@ public class Result3Activity extends AppCompatActivity {
             scoreData = "D";
         }
 
+
+        dao.saveScoreToFileByGames(GAME2_NAME, scoreData);
 
 //        if(spf.getInt("spfscore",0) < score){ //내점수가 저번 점수보다 크면
 //            spf.edit().putInt("spfscore",score).commit(); //반영의 commit(). 현재상태 저장
