@@ -86,6 +86,7 @@ public class Game5MainActivity extends AppCompatActivity {
 
     // x1, y1, z1 숫자 랜덤 돌리기
     public void randomNumber() {
+        total++;
         Random rnd = new Random();
         int x1 = rnd.nextInt(9) + 1;
         textNum1.setText(String.valueOf(x1));
@@ -309,11 +310,10 @@ public class Game5MainActivity extends AppCompatActivity {
                             new DialogInterface.OnClickListener() {
                                 public void onClick(
                                         DialogInterface dialog, int id) {
-
+                                    // TODO
                                 }
                             });
             alertDialog.create();
-            Dialog dialog = new Dialog(this);
             alertDialog.show();
         } else {
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
@@ -334,11 +334,10 @@ public class Game5MainActivity extends AppCompatActivity {
                             new DialogInterface.OnClickListener() {
                                 public void onClick(
                                         DialogInterface dialog, int id) {
-
+                                    // TODO
                                 }
                             });
             alertDialog.create();
-            Dialog dialog = new Dialog(this);
             alertDialog.show();
         }
 

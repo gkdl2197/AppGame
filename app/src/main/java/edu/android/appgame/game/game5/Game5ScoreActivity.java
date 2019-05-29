@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import edu.android.appgame.R;
+import edu.android.appgame.game.GameDao;
 
 import static edu.android.appgame.game.game5.Game5MainActivity.CORRECT_SCORE;
 import static edu.android.appgame.game.game5.Game5MainActivity.TOTAL_Q;
@@ -19,6 +20,8 @@ public class Game5ScoreActivity extends AppCompatActivity {
 
     private int grade;
     private String stringGrade;
+    private static final String GAME5_NAME = "calculate";
+    private GameDao dao = GameDao.getInstance(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,19 +37,32 @@ public class Game5ScoreActivity extends AppCompatActivity {
         textScore=findViewById(R.id.textScore);
         textCount.setText(score+"");
         textTotal.setText(total+"");
+
+        calScore();
     }
+
+
     public void calScore(){
         grade = (score/total)*100;
 
         if(grade == 100) {
             textScore.setText("A");
+            stringGrade = "A";
         } else if(grade <=99 && grade > 80){
             textScore.setText("B");
+            stringGrade = "B";
         } else if(grade <= 80 && grade >60){
             textScore.setText("C");
+            stringGrade = "C";
         } else {
             textScore.setText("D");
+            stringGrade = "D";
         }
+
+        dao.saveScoreToFileByGames(GAME5_NAME, stringGrade);
+
+
+
 
     }
 
