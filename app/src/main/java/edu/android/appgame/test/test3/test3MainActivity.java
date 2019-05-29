@@ -17,7 +17,7 @@ public class test3MainActivity extends AppCompatActivity {
             if(savedInstanceState != null){
 
             }else{
-                test3Fragment fragment= new test3Fragment();
+                test3Fragment fragment = new test3Fragment();
                 getSupportFragmentManager().beginTransaction().add(R.id.container2, fragment).commit();
             }
     }

@@ -106,16 +106,12 @@ public class test3Fragment extends Fragment {
                     .setCancelable(false)
                     .setPositiveButton("예",
                             new DialogInterface.OnClickListener() {
-                                public void onClick(
-                                        DialogInterface dialog, int id) {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    Intent intent = new Intent(getActivity(), test3Result.class);
+                                    intent.putExtra(TOTAL_SCORE,testScore);
+                                    startActivity(intent);
+                                }
 
-                                }
-                            })
-                    .setNegativeButton("아니오",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(
-                                        DialogInterface dialog, int id) {
-                                }
                             });
             alertDialog.create();
             alertDialog.show();
@@ -135,9 +131,10 @@ public class test3Fragment extends Fragment {
                     testScore += 0;
                 }else if(radioNo.isChecked()){
                     testScore +=0;
-                }  textresult.setText(testScore+ "");
+                }
+                //textresult.setText(testScore+ "");
                 if( radioYes.isChecked() == false && radioNo.isChecked() == false){
-                    Toast.makeText(getActivity(), "체크를 하셔야지 다음문제로 넘어가 실수 있습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "체크를 하신 후 다음문제로 넘어가실 수 있습니다.", Toast.LENGTH_SHORT).show();
                 } else if (radioNo.isChecked() || radioYes.isChecked()){
                     showNextText();
                 }

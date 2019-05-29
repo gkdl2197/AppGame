@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import edu.android.appgame.R;
-import static edu.android.appgame.test.test3.test3Fragment.TOTAL_SCORE;
+import static edu.android.appgame.test.test1.test1Fragment.TOTAL_SCORE;
 
 public class test1Result extends AppCompatActivity {
 
@@ -19,7 +19,7 @@ public class test1Result extends AppCompatActivity {
         setContentView(R.layout.activity_test1_result);
 
         textScore = findViewById(R.id.textScore);
-        textGuide = findViewById(R.id.textGuide);
+        textGuide = findViewById(R.id.textGuide1);
         total = getIntent().getIntExtra(TOTAL_SCORE, 0);
 
         if (total > 0 && total < 7) {

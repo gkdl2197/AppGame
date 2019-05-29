@@ -7,16 +7,16 @@ import android.view.View;
 
 import edu.android.appgame.R;
 
-public class ExplainMemory extends AppCompatActivity {
+public class Explain2Dementia extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_explain_memory);
+        setContentView(R.layout.activity_test2_explain);
     }
 
     public void btnStart(View view) {
-        Intent intent = new Intent(this, MemoryButton.class);
+        Intent intent = new Intent(this, test2MainActivity.class);
         startActivity(intent);
         finish();
 

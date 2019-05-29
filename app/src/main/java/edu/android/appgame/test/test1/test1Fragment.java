@@ -128,7 +128,7 @@ public class test1Fragment extends Fragment {
                     testScore += 2;
                 }
                 if( btnNo.isChecked() == false && btnSometimes.isChecked() == false && btnOften.isChecked() == false){
-                    Toast.makeText(getActivity(), "체크를 하셔야지 다음문제로 넘어가 실수 있습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "체크를 하신 후 다음문제로 넘어가실 수 있습니다.", Toast.LENGTH_SHORT).show();
                 } else if (btnNo.isChecked() || btnSometimes.isChecked() || btnOften.isChecked()){
                     showNextText();
                 }

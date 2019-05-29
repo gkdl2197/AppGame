@@ -19,7 +19,7 @@ public class test3Result extends AppCompatActivity {
         setContentView(R.layout.activity_test3_result);
 
         textScore = findViewById(R.id.textScore);
-        textGuide = findViewById(R.id.textGuide);
+        textGuide = findViewById(R.id.textGuide1);
         total = getIntent().getIntExtra(TOTAL_SCORE, 0);
 
         if (total > 0 && total <= 10) {
