@@ -399,6 +399,7 @@ public class MainActivityGame7 extends AppCompatActivity implements View.OnClick
 
     private String recordResult(String score) {
         textBest = findViewById(R.id.textBest);
+        selectLevel = findViewById(R.id.textSelectLevel);
         String[] bestScore = textBest.getText().toString().split(":");
         bestMinute = Integer.parseInt(bestScore[0]);
         bestSecond = Integer.parseInt(bestScore[1]);
