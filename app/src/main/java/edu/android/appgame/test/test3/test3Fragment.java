@@ -71,7 +71,7 @@ public class test3Fragment extends Fragment {
         radioYes = view.findViewById(R.id.radioNever);
         radioNo =  view.findViewById(R.id.radioSometimes);
         textWeek = view.findViewById(R.id.textWeek);
-        textWeek.setText("최근 일주일 동안의 기분에 대한 질문입니다./n가장 잘 일치하는 답을 한 가지만 골라주세요.");
+        textWeek.setText("최근 일주일 동안의 기분에 대한 질문입니다. 가장 잘 일치하는 답을 한 가지만 골라주세요.");
         if(savedInstanceState != null){
             currentIndex =savedInstanceState.getInt(KEY_INDEX);
             chageText();
@@ -106,7 +106,7 @@ public class test3Fragment extends Fragment {
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
                                     Intent intent = new Intent(getActivity(), test3Result.class);
-                                    intent.putExtra(TOTAL_SCORE,testScore);
+                                    intent.putExtra(TOTAL_SCORE, testScore);
                                     startActivity(intent);
                                 }
 
@@ -128,7 +128,7 @@ public class test3Fragment extends Fragment {
                 if(radioYes.isChecked()){
                     testScore += 0;
                 }else if(radioNo.isChecked()){
-                    testScore +=0;
+                    testScore += 1;
                 }
                 //textresult.setText(testScore+ "");
                 if( radioYes.isChecked() == false && radioNo.isChecked() == false){

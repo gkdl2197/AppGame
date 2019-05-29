@@ -1,5 +1,6 @@
 package edu.android.appgame.test.test1;
 
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,8 @@ public class test1MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test1_main);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorGreen)));
+        getWindow().setStatusBarColor(getResources().getColor(R.color.colorDarkBlue));
 
 
         View view= findViewById(R.id.container2);

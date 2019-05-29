@@ -22,7 +22,7 @@ public class test3Result extends AppCompatActivity {
         textGuide = findViewById(R.id.textGuide1);
         total = getIntent().getIntExtra(TOTAL_SCORE, 0);
 
-        if (total > 0 && total <= 10) {
+        if (total >= 0 && total <= 10) {
             textScore.setText("우울증 점수: " + total);
             textGuide.setText("당신은 우울증과 거리가 멉니다. 인생 지금처럼 즐기세요!");
         }

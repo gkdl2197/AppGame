@@ -21,24 +21,20 @@ public class TestSelectActivity extends AppCompatActivity {
 
 
     public void onClickDementia(View view) {
-        finish();
 //        Intent intent = new Intent(this, ExplainDementia.class);
 //        startActivity(intent);
 //        finish();
         Intent intent = new Intent(this, ExplainDementia.class);
        startActivity(intent);
-       finish();
     }
 
     public void onClickMemory(View view) {
         Intent intent1 = new Intent(this, Explain2Dementia.class);
         startActivity(intent1);
-        finish();
     }
 
     public void onClickGloomy(View view) {
         Intent intext = new Intent (this, test3MainActivity.class);
         startActivity(intext);
-        finish();
     }
 }

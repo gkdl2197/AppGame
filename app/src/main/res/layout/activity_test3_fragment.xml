@@ -12,7 +12,7 @@
         android:layout_width="351dp"
         android:layout_height="251dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="104dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/round_backgound"
         android:gravity="center"
@@ -20,7 +20,6 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView43" />
 
@@ -36,7 +35,7 @@
         android:textColor="#F5F5F5"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioNever" />
 
@@ -61,8 +60,8 @@
         android:id="@+id/radioNever"
         android:layout_width="89dp"
         android:layout_height="39dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="16dp"
         android:layout_weight="1"
         android:text="예"
         android:textSize="30sp"
@@ -105,7 +104,7 @@
         android:layout_height="48dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="28dp"
         app:layout_constraintBottom_toTopOf="@+id/textSurvey2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
