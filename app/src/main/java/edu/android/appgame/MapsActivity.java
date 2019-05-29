@@ -1,5 +1,4 @@
 package edu.android.appgame;
-import android.graphics.BitmapFactory;
 import android.os.StrictMode;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -12,22 +11,31 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
+    private static final String TAG = "map_tag";
     private GoogleMap mMap;
 
     private Double latitude;
     private Double longitude;
-    private List<String> lon = new ArrayList<>();
     private List<String> lat = new ArrayList<>();
+    private List<String> lon = new ArrayList<>();
+    private List<String[]> facilityList = new ArrayList<>();
+    private List<String> centerName = new ArrayList<>();
+    private List<String> centerAddr = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -36,47 +44,50 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         latitude = 37.4995367;
         longitude = 127.0293196;
 
-        lon.add("37.4010515");
-        lon.add("37.8757747");
-        lon.add("37.3152792");
-        lon.add("35.1769037");
-        lon.add("35.858426");
-        lon.add("35.1390306");
-        lon.add("35.9566936");
-        lon.add("36.31695");
-        lon.add("35.1199772");
-        lon.add("37.5753937");
-        lon.add("36.6072128");
-        lon.add("35.553459");
-        lon.add("37.4510442");
-        lon.add("34.9647111");
-        lon.add("35.8458973");
-        lon.add("33.4672038");
-        lon.add("36.8405945");
-        lon.add("36.6254650");
-
-        lat.add("127.1069018");
-        lat.add("127.7434086");
-        lat.add("126.9872424");
-        lat.add("128.096124");
-        lat.add("129.1926408");
-        lat.add("126.925715");
-        lat.add("128.5621854");
-        lat.add("127.4135268");
-        lat.add("129.0153713");
-        lat.add("126.9996372");
-        lat.add("127.297771");
-        lat.add("129.2998882");
-        lat.add("126.7071661");
-        lat.add("127.543154");
-        lat.add("127.152679");
-        lat.add("126.545580");
-        lat.add("127.174167");
-        lat.add("127.463801");
-
         StrictMode.enableDefaults();
 
+        getLatLonFromFile();
+
     }
+
+    public void getLatLonFromFile() {
+        InputStream in = null;
+        InputStreamReader reader = null;
+        BufferedReader br = null;
+        try {
+            in = getAssets().open("facility_list.txt");
+            reader = new InputStreamReader(in, "UTF-8");
+            br = new BufferedReader(reader);
+
+            String line = br.readLine();
+            while (line != null) {
+                String[] list = line.split(",");
+                facilityList.add(list);
+                line = br.readLine();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                br.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        setLatLon();
+    } // end getLatLonFromFile()
+
+    public void setLatLon(){
+        for(int i = 0; i < facilityList.size(); i++){
+            centerName.add(facilityList.get(i)[1]);
+            centerAddr.add(facilityList.get(i)[2]);
+            lat.add(facilityList.get(i)[4]);
+            lon.add(facilityList.get(i)[5]);
+        }
+
+//        facilityList.get(i)[0]
+    } // end setLatLon()
 
 
     /**
@@ -92,14 +103,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
+
         LatLng myLocation = new LatLng(latitude, longitude);
         mMap.addMarker(new MarkerOptions().position(myLocation).title("내 위치")).showInfoWindow();
 
+
         for (int i = 0; i < lat.size(); i++) {
-            mMap.addMarker(new MarkerOptions().position(new LatLng(Double.parseDouble(lat.get(i)), Double.parseDouble(lon.get(i)))));
+
+            LatLng centerLocation = new LatLng(Double.parseDouble(lat.get(i)), Double.parseDouble(lon.get(i)));
+
+            mMap.addMarker(new MarkerOptions().position(centerLocation).title(centerName.get(i)).snippet(centerAddr.get(i)).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))).showInfoWindow();
+
         }
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 16));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 10));
 
     }
 }
