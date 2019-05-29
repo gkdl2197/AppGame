@@ -50,11 +50,11 @@ public class test2Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container2, Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.activity_test2_fragment,container2,false);
-        textSurvey3= view.findViewById(R.id.textSurvey3);
+        textSurvey3= view.findViewById(R.id.textSurvey2);
         //   textresult=view.findViewById(R.id.textresult);
-        radioYes= view.findViewById(R.id.radioYes);
-        radioNo=  view.findViewById(R.id.radioNo);
-        btnNext=  view.findViewById(R.id.buttonNext);
+        radioYes= view.findViewById(R.id.radioNever);
+        radioNo=  view.findViewById(R.id.radioSometimes);
+        btnNext=  view.findViewById(R.id.btnNext);
 
         if(savedInstanceState != null){
             currentIndex =savedInstanceState.getInt(KEY_INDEX);

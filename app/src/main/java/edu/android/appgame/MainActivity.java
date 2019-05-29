@@ -20,7 +20,6 @@ import android.view.Menu;
 import android.widget.ImageButton;
 
 import edu.android.appgame.Prevention.PreventionMainActivity;
-import edu.android.appgame.test.TestActivity;
 import edu.android.appgame.test.TestSelectActivity;
 import static edu.android.appgame.LoginActivity.LOGIN;
 import static edu.android.appgame.LoginActivity.LOGIN_ID;
@@ -133,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_home) {
             drawer.closeDrawer(GravityCompat.START);
         } else if (id == R.id.nav_test) {
-            Intent intent = new Intent(this, TestActivity.class);
+            Intent intent = new Intent(this, TestSelectActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_game) {
             Intent intent = new Intent (this, GameActivity.class);
