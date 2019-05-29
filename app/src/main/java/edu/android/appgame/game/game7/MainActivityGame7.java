@@ -25,6 +25,7 @@ import java.util.Random;
 
 import edu.android.appgame.GameActivity;
 import edu.android.appgame.R;
+import edu.android.appgame.game.GameDao;
 
 public class MainActivityGame7 extends AppCompatActivity implements View.OnClickListener{
 
@@ -43,6 +44,7 @@ public class MainActivityGame7 extends AppCompatActivity implements View.OnClick
     private TableLayout tableLayout;
     private TableRow tableRow;
     private HashSet set;
+    private GameDao dao = GameDao.getInstance(this);
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -66,6 +68,12 @@ public class MainActivityGame7 extends AppCompatActivity implements View.OnClick
             return false;
         }
     };
+    private int bestMinute;
+    private int bestSecond;
+    private int currentMinute;
+    private int currentSecond;
+    private int minute;
+    private int second;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -332,7 +340,9 @@ public class MainActivityGame7 extends AppCompatActivity implements View.OnClick
 //                    Log.i(TAG, "clickCount-36 = " + clickCount);
                     stopTimer();
 //                    Log.i(TAG, "time = " + chronometer.getText().toString());
-                    recordResult(chronometer.getText().toString());  // To send with score
+                    String gameGrade = recordResult(chronometer.getText().toString());  // To send with score
+                    dao.saveScoreToFileByGames("qclick", gameGrade);
+
                     buttonsEnabled(true);
 
                     TableLayout fr = findViewById(R.id.tableBase);
@@ -388,10 +398,83 @@ public class MainActivityGame7 extends AppCompatActivity implements View.OnClick
     }
 
     private String recordResult(String score) {
-        String result = null;
+        textBest = findViewById(R.id.textBest);
+        String[] bestScore = textBest.getText().toString().split(":");
+        bestMinute = Integer.parseInt(bestScore[0]);
+        bestSecond = Integer.parseInt(bestScore[1]);
+        String[] times = score.split(":");
+        currentMinute = Integer.parseInt(times[0]);
+        currentSecond = Integer.parseInt(times[1]);
+        String level = selectLevel.getText().toString();
+        String type = selectType.getText().toString();
+        Boolean isHighScore = false;
+        String gameGrade = "D";
+        if (level.equals("EASY")) {
+            if (type.equals("1234")) {
+                isHighScore = compareScore(level, type);
+                gameGrade = isHighScore ? "B" : "C";
+            } else if (type.equals("ABCD")) {
+                isHighScore = compareScore(level, type);
+                gameGrade = isHighScore ? "B" : "C";
+            } else {
+                isHighScore = compareScore(level, type);
+                gameGrade = isHighScore ? "B" : "C";
+            }
+        } else if (level.equals("NORMAL")) {
+            if (type.equals("1234")) {
+                isHighScore = compareScore(level, type);
+                gameGrade = isHighScore ? "A" : "B";
+            } else if (type.equals("ABCD")) {
+                isHighScore = compareScore(level, type);
+                gameGrade = isHighScore ? "A" : "B";
+            } else {
+                isHighScore = compareScore(level, type);
+                gameGrade = isHighScore ? "A" : "B";
+            }
+        } else {
+            if (type.equals("1234")) {
+                isHighScore = compareScore(level, type);
+                gameGrade = isHighScore ? "A" : "B";
+            } else if (type.equals("ABCD")) {
+                isHighScore = compareScore(level, type);
+                gameGrade = isHighScore ? "A" : "A";
+            } else {
+                isHighScore = compareScore(level, type);
+                gameGrade = isHighScore ? "A" : "A";
+            }
+        }
 
+        return gameGrade;
+    }
 
-        return result;
+    private Boolean compareScore(String level, String type) {
+        Boolean isChangeBestScore = false;
+        if (currentMinute != 0) {
+            if (currentMinute > bestMinute) {
+                minute = currentMinute; second = currentSecond;
+                isChangeBestScore = true;
+            } else if (currentMinute < bestMinute) {
+                minute = bestMinute; second = bestSecond;
+            } else {
+                if (currentSecond > bestSecond) {
+                    minute = currentMinute; second = currentSecond;
+                    isChangeBestScore = true;
+                } else {
+                    minute = bestMinute; second =bestSecond;
+                }
+            }
+        } else {
+            if (currentSecond > bestSecond) {
+                minute = currentMinute; second = currentSecond;
+                isChangeBestScore = true;
+            } else {
+                minute = bestMinute; second = bestSecond;
+            }
+        }
+
+        String best = String.format("%02d:%02d", minute, second);
+        textBest.setText(best);
+        return isChangeBestScore;
     }
 
 }
