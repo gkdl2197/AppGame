@@ -1,7 +1,6 @@
 package edu.android.appgame.game;
 
 import android.content.Context;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
@@ -15,6 +14,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -78,6 +80,7 @@ public class GameDao {
 
     // 각 게임에서 넘어온 게임 점수 각 게임 파일로 (회차,점수) 저장하기 위한 파일 내용 읽어오기 + 추가
     public void saveScoreToFileByGames(String gameName, String gameGrade) {
+        isInFile(gameName);
         StringBuilder builder = new StringBuilder();
         String fileName = gameName + ".txt";
 
@@ -110,7 +113,7 @@ public class GameDao {
             calculateTotalAverageGameScore(gameName);
 
 
-        } catch (Exception e) {
+        }  catch (Exception e) {
             e.printStackTrace();
         } finally {
             try {
@@ -122,6 +125,19 @@ public class GameDao {
         addScoreToPrevFile(builder, fileName);
 
     }// end saveScoreToFileByGames()
+
+    private void isInFile(String gameName) {
+        try {
+            context.openFileInput(gameName + ".txt");
+        } catch (FileNotFoundException e) {
+            try {
+                FileOutputStream f = context.openFileOutput(gameName + ".txt", Context.MODE_PRIVATE);
+                f.close();
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        }
+    }
 
 
     // 각 게임에서 넘어온 게임 점수 각 게임 파일로 (회차,점수) 저장 - 파일에 쓰기
@@ -181,9 +197,48 @@ public class GameDao {
         averageGrade = (int) (totalGrade/gradeList.size());
         Log.i(TAG, "averageGrade : " + averageGrade);
 
-        // 평균 파일에 (게임이름, 평균 점수) 로 넣기
+        // TODO 평균 파일에 (게임이름, 평균 점수) 로 넣기
+        String fileName = AVERAGE_FILE_NAME.split("\\.")[0];
 
-        String insert = gameName + "," + averageGrade;
+        isInFile(fileName);
+        StringBuilder initBuilder = new StringBuilder();
+        initBuilder.append("quiz,").append(0).append("\n")
+                .append("card,").append(0).append("\n")
+                .append("word,").append(0).append("\n")
+                .append("calculate,").append(0).append("\n")
+                .append("qclick,").append(0);
+        addScoreToPrevFile(initBuilder, AVERAGE_FILE_NAME);
+        List<String> oldData =readContentsFromTxtFile(AVERAGE_FILE_NAME);
+
+        String quiz = oldData.get(0);
+        String card = oldData.get(1);
+        String word = oldData.get(2);
+        String calculate = oldData.get(3);
+        String qclick = oldData.get(4);
+        switch (gameName) {
+            case "quiz" :
+                quiz = String.format("%s,%s\n", gameName, averageGrade);
+                oldData.set(0, quiz);
+                break;
+            case "card" :
+                card = String.format("%s,%s\n", gameName, averageGrade);
+                oldData.set(1, card);
+                break;
+            case "word" :
+                word = String.format("%s,%s\n", gameName, averageGrade);
+                oldData.set(2, word);
+                break;
+            case "calculate" :
+                calculate = String.format("%s,%s\n", gameName, averageGrade);
+                oldData.set(3, calculate);
+                break;
+            case "qclick" :
+                qclick = String.format("%s,%s\n", gameName, averageGrade);
+                oldData.set(4, qclick);
+                break;
+        }
+        String insert = String.format("%s\n%s\n%s\n%s\n%s",
+                oldData.get(0), oldData.get(1), oldData.get(2), oldData.get(3), oldData.get(4));
 
         OutputStream out = null;
         OutputStreamWriter writer = null;
@@ -206,6 +261,37 @@ public class GameDao {
 
         sendToFirebase(gameName, averageGrade);
     } // end calculateTotalAverageGameScore()
+
+    private List<String> readContentsFromTxtFile(String fileName) {
+        List<String> contents = new ArrayList<>();
+        StringBuilder builder = new StringBuilder();
+        InputStream in = null;
+        InputStreamReader reader = null;
+        BufferedReader br = null;
+
+        try {
+            in = context.openFileInput(fileName);
+            reader = new InputStreamReader(in, "UTF-8");
+            br = new BufferedReader(reader);
+
+            String line = br.readLine();
+            while (line != null) {
+//                builder.append(line).append("\n");
+//                contents.add(builder.toString());
+                contents.add(line);
+                line = br.readLine();
+            }
+        }  catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                br.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return contents;
+    }
 
 
     // 평균 점수 Firebase에 올리기
