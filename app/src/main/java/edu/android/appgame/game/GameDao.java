@@ -295,5 +295,4 @@ public class GameDao {
     } // end getGameScoreFromFirebase()
 
 
-
 } // end class GameDao
