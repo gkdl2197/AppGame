@@ -131,9 +131,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
-//            Intent intent = new Intent(this, MainActivity.class);
-//            startActivity(intent);
             drawer.closeDrawer(GravityCompat.START);
         } else if (id == R.id.nav_test) {
             Intent intent = new Intent(this, TestActivity.class);
@@ -144,8 +141,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_prevention) {
             Intent intent= new Intent(this, PreventionMainActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_share) {
-
+        } else if (id == R.id.nav_chart){
+            Intent intent = new Intent(this, ChartMainActivity.class);
+            startActivity(intent);
+        }else if (id == R.id.nav_map) {
+            Intent intent = new Intent(this, MapsActivity.class);
+            startActivity(intent);
+        }else if (id == R.id.nav_list) {
+            Intent intent = new Intent(this, FacilityInfoActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

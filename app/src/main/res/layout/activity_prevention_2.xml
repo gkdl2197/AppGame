@@ -24,7 +24,7 @@
 
                 <ImageView
                     android:id="@+id/imageView16"
-                    android:layout_width="87dp"
+                    android:layout_width="85dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/couple" />
@@ -85,15 +85,27 @@
                 android:text="범세계적인 고령화로 인해 치매환자 수도 급격히 증가하고 있습니다. Alzheimer's Disease International(이하 ADI)에 따르면, 2018년 현재 전 세계 치매환자는 약 5,000만 명으로, 이는 2015년(치매환자수 4,678만 명)에 비해 1.06배 증가한 수치입니다. 치매환자 수는 2030년에는 약 7,500만 명, 2050년에는 약 13,150만 명에 이를 것으로 예상되며, 이는 2015년의 2.81배에 달하는 수치입니다. 국내 치매환자 수도 빠르게 증가하고 있습니다. 2016년 치매유병률조사'에 따르면, 2018년 우리나라 65세 이상 노인인구 중 약 75만 명이 치매를 앓고 있는 것으로 추정되었습니다. 치매환자 수는 향후 17년마다 두 배씩 증가하여 2024년에는 100만, 2039년에는 200만을 넘어설 것으로 예상되었는데, 이는 ‘2012년 치매유병률’ 조사 당시 200만을 예측했던 2041년보다 2년이 앞당겨져 치매환자 증가 속도보다 더 가팔라진 수치입니다.  65세 이상 노인의 치매 유병률은 2018년 10.2%, 2020년 10.3%, 2030년 10.6%, 2040년 12.7%, 2050년 16.1%로 갈수록 급증할 것으로 추정됩니다. 또한 2016년 치매역학조사 결과, 2008년에 비해 70세 미만 초기 노령기 치매 유병률은 감소한 반면, 80세 이상 후기 노령기 치매 유병률은 증가하여 80세 이상에서 치매 유병률이 더 높게 증가하는 선진국형 경향을 보였습니다. 2016년 70세 미만 초기 노령기 치매 유병률은 2008년 치매역학조사 결과를 토대로 추정한 2016년 초기 노령기 치매 유병률보다 낮았던 반면, 80세 이상의 후기 노령기 치매 유병률은 2008년 결과를 토대로 추정한 2016년 후기 노령기 치매 유병률보다 높았습니다.  2016년 치매 역학조사 결과 2018년 현재 65~69세에서 약 1%, 70~74세에서 4%, 75~79세 12%, 80~84세 21%, 85세 이상에서 40% 정도의 유병률을 보여, 연령별 유병률은 대략 연령이 5세 증가할수록 유병률도 2배 가량 증가하는 추세를 보이고 있습니다."
                 android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/textView21"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="치매 인식 현황"
-                android:textColor="#21349E"
-                android:textSize="28sp"
-                android:textStyle="bold" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView25"
+                    android:layout_width="85dp"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/prevent_diagram" />
+
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:text="치매 인식 현황"
+                    android:textColor="#21349E"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/textView22"

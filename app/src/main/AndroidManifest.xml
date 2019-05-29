@@ -18,16 +18,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".test.test2.test2Result"></activity>
-        <activity android:name=".test.test2.test2MainActivity" />
-        <activity android:name=".test.test3.test3Result" />
-
-        <activity android:name=".test.test1.test1Result"></activity>
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+
+        <activity android:name=".test.test2.test2Result"></activity>
+        <activity android:name=".test.test2.test2MainActivity" />
+        <activity android:name=".test.test3.test3Result" />
+        <activity android:name=".test.test1.test1Result"></activity>
 
         <activity android:name=".MapsActivity"></activity>
         <activity android:name=".test.test1.ExplainDementia"></activity>
@@ -38,7 +37,7 @@
         <activity android:name=".Prevention.Prevention_4" />
         <activity android:name=".Prevention.Prevention_3" />
         <activity android:name=".Prevention.Prevention_2" />
-        <activity android:name=".FacilityInfoActivity" /> <!-- <activity android:name=".test.test1.ToolbarFragment" /> -->
+        <activity android:name=".FacilityInfoActivity" />
         <activity android:name=".Prevention.Prevention_1" />
 
         <activity
@@ -59,26 +58,32 @@
         <activity
             android:name=".game.game2.Result3Activity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+
         <activity
             android:name=".game.game5.Game5MainActivity" />
         <activity
             android:name=".game.game5.Game5ScoreActivity" />
         <activity
             android:name=".game.game5.Game5StartImage" />
+
         <activity
             android:name=".game.game7.MainActivityGame7"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+
         <activity android:name=".game.game3.MainGame3Activity" />
         <activity android:name=".game.game3.Main2Game3Activity" />
         <activity android:name=".game.game3.ResultGame3Activity" />
+
         <activity android:name=".Prevention.PreventionDetail" />
         <activity android:name=".Prevention.PreventionMainActivity" />
+
         <activity android:name=".game.game4.MainGame4Activity" />
         <activity android:name=".game.game4.OneActivity" />
         <activity android:name=".test.TestSelectActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".GameDetailActivity" />
         <activity android:name=".GameActivity" />
+        <activity android:name=".ChartMainActivity"/>
         <activity android:name=".LoginActivity" />
         <activity
             android:name=".GameActivity"

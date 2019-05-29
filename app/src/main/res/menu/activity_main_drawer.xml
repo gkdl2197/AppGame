@@ -19,14 +19,14 @@
         <item
             android:id="@+id/nav_prevention"
             android:icon="@drawable/ic_menu_prevent"
-            android:title="@string/menu_tools"
+            android:title="@string/menu_prevent"
             />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Report">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_chart"
                 android:icon="@drawable/ic_menu_share"
                 android:title="@string/menu_result" >
             </item>
@@ -40,11 +40,11 @@
                 <item
                     android:id="@+id/nav_map"
                     android:icon="@drawable/ic_menu_map"
-                    android:title="지도로 시설보기"/>
+                    android:title="@string/menu_map"/>
                 <item
                     android:id="@+id/nav_list"
                     android:icon="@drawable/ic_menu_list"
-                    android:title="리스트로 시설보기"
+                    android:title="@string/menu_list"
                     />
 
             </menu>
