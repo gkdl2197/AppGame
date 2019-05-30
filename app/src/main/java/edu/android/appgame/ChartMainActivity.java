@@ -2,6 +2,7 @@ package edu.android.appgame;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -20,6 +21,8 @@ import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import edu.android.appgame.game.GameDao;
 
 import static edu.android.appgame.MainActivity.isLogin;
@@ -31,8 +34,13 @@ public class ChartMainActivity extends AppCompatActivity implements ChartFriendD
     public static final int NB_QUALITIES = 5;
     private static final String TAG = "file_tag";
 
+    private List<String> myScore;
+    private List<String> buddyScore;
+
+    private String buddyId;
+    private static final String MY_ID = currentMemberId;
     private com.github.mikephil.charting.charts.RadarChart radarChart;
-    private ArrayList<RadarEntry> radarEntries1, radarEntries2;
+    private ArrayList<RadarEntry> radarEntries1 = new ArrayList<>(), radarEntries2 = new ArrayList<>();
     private RadarDataSet radarDataSet1, radarDataSet2;
     private RadarData radarData;
     private GameDao dao = GameDao.getInstance(this);
@@ -40,11 +48,13 @@ public class ChartMainActivity extends AppCompatActivity implements ChartFriendD
     private String[] lables = {
             "기억력", "수리능력", "집중력", "언어능력", "인지능력"
     };
+    private String userId;
 
     @Override
     public void getFriendId(String id) {
         Log.i(TAG, "id??????????" + id);
-
+        buddyId = id;
+        onClickGetDBdata(buddyId);
     }
 
     @Override
@@ -52,17 +62,14 @@ public class ChartMainActivity extends AppCompatActivity implements ChartFriendD
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chart_activity_main);
 
-//        onClickGetDBdata(currentMemberId);
         radarChart = findViewById(R.id.radarChart);
-        setData();
-        radarChartDecoration();
-        coordinateLabelsDecoration();
-        legendIndexDecoration();
+        onClickGetDBdata(currentMemberId);
+        Log.i(TAG, "memberID: " + currentMemberId);
     }
 
     private void setData() {
-        radarEntries1 = dataValues1();
-        radarEntries2 = dataValues2();
+//        radarEntries1 = dataValues1();
+//        radarEntries2 = dataValues2();
 
         radarDataSet1 = new RadarDataSet(radarEntries1, "My Scores");
         radarDataSet2 = new RadarDataSet(radarEntries2, "Friend Scores");
@@ -84,6 +91,7 @@ public class ChartMainActivity extends AppCompatActivity implements ChartFriendD
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.addBuddy:
+                radarChart.invalidate();
                 // TODO - dao.method()
 
                     ChartFriendDialog dlg = new ChartFriendDialog();
@@ -130,11 +138,6 @@ public class ChartMainActivity extends AppCompatActivity implements ChartFriendD
     private void radarChartDecoration() {
         radarChart.setBackgroundColor(Color.rgb(50, 55, 62));
         radarChart.getDescription().setEnabled(false);
-//        radarChart.setWebLineWidth(1f);
-//        radarChart.setWebColor(Color.WHITE);
-//        radarChart.setWebLineWidth(1f);
-//        radarChart.setWebColorInner(Color.WHITE);
-//        radarChart.setWebAlpha(100);
         radarDataSet1.setFillColor(ColorTemplate.colorWithAlpha(Color.RED, 120));
         radarDataSet2.setFillColor(ColorTemplate.colorWithAlpha(Color.GREEN, 120));
         radarDataSet1.setColor(Color.RED);
@@ -149,55 +152,61 @@ public class ChartMainActivity extends AppCompatActivity implements ChartFriendD
         radarDataSet2.setValueTextSize(13f);
         radarDataSet1.setDrawHighlightIndicators(false);
         radarDataSet1.setDrawHighlightCircleEnabled(true);
-//        radarDataSet1.setColors(ColorTemplate.PASTEL_COLORS);
-//        radarDataSet2.setColors(ColorTemplate.COLORFUL_COLORS);
         radarChart.animateXY(1400,1400, Easing.EaseInOutQuad, Easing.EaseInOutQuad);
     }
 
     private ArrayList<RadarEntry> dataValues1() {
-        radarEntries1 = new ArrayList<>();
-        radarEntries1.add(new RadarEntry(85)); // get first data -> put here
-        radarEntries1.add(new RadarEntry(40));
-        radarEntries1.add(new RadarEntry(70));
-        radarEntries1.add(new RadarEntry(90));
-        radarEntries1.add(new RadarEntry(100));
+//        radarEntries1 = new ArrayList<>();
+        radarEntries1.add(new RadarEntry(Integer.parseInt(myScore.get(0)))); // get first data -> put here
+        radarEntries1.add(new RadarEntry(Integer.parseInt(myScore.get(1))));
+        radarEntries1.add(new RadarEntry(Integer.parseInt(myScore.get(2))));
+        radarEntries1.add(new RadarEntry(Integer.parseInt(myScore.get(3))));
+        radarEntries1.add(new RadarEntry(Integer.parseInt(myScore.get(4))));
         return radarEntries1;
     }
 
     private ArrayList<RadarEntry> dataValues2() {
-        radarEntries2 = new ArrayList<>();
-//        radarEntries2.add(new RadarEntry(3)); // get second data -> put here
-//        radarEntries2.add(new RadarEntry(2));
-//        radarEntries2.add(new RadarEntry(1));
-//        radarEntries2.add(new RadarEntry(3));
-//        radarEntries2.add(new RadarEntry(4));
+//        radarEntries2 = new ArrayList<>();
+//        radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(0)))); // get second data -> put here
+//        radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(1))));
+//        radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(2))));
+//        radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(3))));
+//        radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(4))));
         return radarEntries2;
     }
 
-//    @Override
-//    public void notifyFriendList() {
-//        // 친구 선택하면 넘어오는 ~
-//    }
+    public void onClickGetDBdata(final String currentMemberId) {
+        userId = currentMemberId;
 
-//    public void onClickGetDBdata(String currentMemberId) {
-//        final String userId = currentMemberId;
-//
-//        dao.setOnReceivedFirebaseData(new GameDao.GetFirebaseData() {
-//              @Override
-//              public void onReceivedEvent() {
-//                  if (isLogin) {
-//                      Log.i(TAG, "11111111" + dao.gameScoreList.toString());
-//                      // calculate: 수리능력, card: 기억력, qclick: 집중력, quiz: 언어능력, word: 인지능력
-//                      radarEntries1 = new ArrayList<>();
-//                      radarEntries1.add(new RadarEntry(Integer.parseInt(dao.gameScoreList.get(0)))); // get first data -> put here
-//                      radarEntries1.add(new RadarEntry(Integer.parseInt(dao.gameScoreList.get(1))));
-//                      radarEntries1.add(new RadarEntry(Integer.parseInt(dao.gameScoreList.get(2))));
-//                      radarEntries1.add(new RadarEntry(Integer.parseInt(dao.gameScoreList.get(3))));
-//                      radarEntries1.add(new RadarEntry(Integer.parseInt(dao.gameScoreList.get(4))));
-//                  } else {
-//                      Toast.makeText(ChartMainActivity.this, "로그인 후 재실행 하세요!", Toast.LENGTH_SHORT).show();
-//                  }
-//              }
-//          }, userId);
-//    }
+        dao.setOnReceivedFirebaseData(new GameDao.GetFirebaseData() {
+              @Override
+              public void onReceivedEvent(String id) {
+                      Log.i(TAG, "id: " + id);
+                  if (isLogin) {
+                      // calculate: 수리능력, card: 기억력, qclick: 집중력, quiz: 언어능력, word: 인지능력
+                      if (MY_ID.equals(id)) {
+                          myScore = dao.gameScoreList;
+                          Log.i(TAG, "my: " + myScore);
+                          Log.i(TAG, "MY_ID: " + MY_ID);
+                          dataValues1();
+                      } else {
+                          buddyScore = dao.gameScoreList;
+                          Log.i(TAG, "buddy: " + buddyScore);
+//                          dataValues2();
+                          radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(0)))); // get second data -> put here
+                          radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(1))));
+                          radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(2))));
+                          radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(3))));
+                          radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(4))));
+                      }
+                      setData();
+                      radarChartDecoration();
+                      coordinateLabelsDecoration();
+                      legendIndexDecoration();
+                  } else {
+                      Toast.makeText(ChartMainActivity.this, "로그인 후 재실행 하세요!", Toast.LENGTH_SHORT).show();
+                  }
+              }
+          }, userId);
+    }
 }

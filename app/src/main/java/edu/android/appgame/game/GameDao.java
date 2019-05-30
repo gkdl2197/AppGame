@@ -48,20 +48,22 @@ public class GameDao  {
     private Context context;
     private List<String> gradeList = new ArrayList<>(); // 등급들 저장할 리스트
     private int averageGrade; // 평균 등급
-    public List<String> gameScoreList = new ArrayList<>();
+    public List<String> gameScoreList;
     private Map<String, Object> childUpdates;
     private Map<String, Object> postValues;
+    private String userId;
 
 
 
     public interface GetFirebaseData {
-        void onReceivedEvent();
+        void onReceivedEvent(String userId);
     }
 
     private GetFirebaseData myGetFirebaseData;
 
     public void setOnReceivedFirebaseData(GetFirebaseData listener, String userId){
         Log.i(TAG, "No.2");
+        this.userId = userId;
         myGetFirebaseData = listener;
         getGameScoreFromFirebase(userId);
     }
@@ -356,8 +358,10 @@ public class GameDao  {
 
 
     // 회원가입된 Member의 게임점수를 가져옴 - 그래프 띄우기
-    public List<String> getGameScoreFromFirebase(String userId) {
+    public List<String> getGameScoreFromFirebase(final String userId) {
+        this.userId = userId;
         if(isLogin){
+            gameScoreList = new ArrayList<>();
             database = FirebaseDatabase.getInstance();
             myRef = database.getReference("Member/"+ userId +"/");
 
@@ -397,9 +401,10 @@ public class GameDao  {
                                 break;
                         }
                     }
-
+                    Log.i(TAG,"gameScoreList: " + gameScoreList);
+                    Log.i(TAG,"userId: " + userId);
                     // TODO 차트 그리는 메소드 호출
-                    myGetFirebaseData.onReceivedEvent();
+                    myGetFirebaseData.onReceivedEvent(userId);
                 }
 
                 @Override
