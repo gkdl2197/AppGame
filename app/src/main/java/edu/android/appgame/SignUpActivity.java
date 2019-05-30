@@ -97,11 +97,11 @@ public class SignUpActivity extends AppCompatActivity {
         childUpdates.put("/" + ID + "/", postValues);
         myRef.updateChildren(childUpdates);
 
-        Map<String, Object> childUpdatesScore = new HashMap<>();
-        Map<String, Object> postValuesScore = member1.toMapScore();
-
-        childUpdatesScore.put("/" + ID + "/game", postValuesScore);
-        myRef.updateChildren(childUpdatesScore);
+//        Map<String, Object> childUpdatesScore = new HashMap<>();
+//        Map<String, Object> postValuesScore = member1.toMapScore();
+//
+//        childUpdatesScore.put("/" + ID + "/", postValuesScore);
+//        myRef.updateChildren(childUpdatesScore);
 
         createAccount(email, pw);
 

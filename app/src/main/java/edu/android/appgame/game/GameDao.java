@@ -1,7 +1,6 @@
 package edu.android.appgame.game;
 
 import android.content.Context;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
@@ -17,7 +16,6 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -27,12 +25,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.ConsoleHandler;
 
 import static edu.android.appgame.MainActivity.currentMemberId;
 import static edu.android.appgame.MainActivity.isLogin;
 
-import edu.android.appgame.Member;
 import edu.android.appgame.R;
 
 public class GameDao {
@@ -46,9 +42,22 @@ public class GameDao {
     private Context context;
     private List<String> gradeList = new ArrayList<>(); // 등급들 저장할 리스트
     private int averageGrade; // 평균 등급
-    private List<Map<String,Object>> gameScoreList;
+    public List<String> gameScoreList = new ArrayList<>();
     private Map<String, Object> childUpdates;
     private Map<String, Object> postValues;
+
+    public interface GetFirebaseData {
+        void onReceivedEvent();
+    }
+
+    private GetFirebaseData myGetFirebaseData;
+
+    public void setOnReceivedFirebaseData(GetFirebaseData listener, String userId){
+        Log.i(TAG, "No.2");
+        myGetFirebaseData = listener;
+        getGameScoreFromFirebase(userId);
+    }
+
 
 
     public static GameDao getInstance(Context context) {
@@ -308,14 +317,14 @@ public class GameDao {
             database = FirebaseDatabase.getInstance();
             myRef = database.getReference("Member");
 //            String key = myRef.child("/" + currentMemberId + "/game").push().getKey();
-           myRef.child("/" + currentMemberId + "/game").push();
+           myRef.child("/" + currentMemberId + "/" + gameName).push();
 //            Log.i(TAG, "key: " + key);
             Map<String, Object> postValues = toMap(gameName, averageGrade);
             Map<String, Object> childUpdates = new HashMap<>();
-            childUpdates.put("/" + currentMemberId + "/game" + gameName, postValues);
+            childUpdates.put("/" + currentMemberId + "/" + gameName, postValues.get(gameName));
             myRef.updateChildren(childUpdates);
 
-            Toast.makeText(context, "성공1212121212", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Done DB Upload~", Toast.LENGTH_SHORT).show();
         }else {
             Toast.makeText(context, "기록을 저장하려면 로그인이 필요합니다", Toast.LENGTH_SHORT).show();
         }
@@ -333,41 +342,51 @@ public class GameDao {
 
 
 
-    // 로그인 되어있는 Member의 게임점수를 가져옴 - 그래프 띄우기
-    public void getGameScoreFromFirebase(){
-
-        final Map<String, String> gameScore = new HashMap<>();
+    // 회원가입된 Member의 게임점수를 가져옴 - 그래프 띄우기
+    public List<String> getGameScoreFromFirebase(String userId) {
         if(isLogin){
-
             database = FirebaseDatabase.getInstance();
-            myRef = database.getReference("Member/"+currentMemberId+"/game");
-            Log.i(TAG, myRef.toString());
-
-
+            myRef = database.getReference("Member/"+ userId +"/");
 
             myRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                        String score = null;
                         String key = snapshot.getKey().toString();
-                        String score = snapshot.getValue().toString();
-                        Log.i(TAG,"1");
-                        HashMap<String, Object> result = new HashMap<>();
-
-                        result.put(key, score);
-                        Log.i(TAG,"5.key: " + key);
-                        Log.i(TAG,"6.score: " + score);
-                        gameScoreList  = new ArrayList<>();
-                        gameScoreList.add(result);
-                        Log.i(TAG,"gameScore : " + gameScoreList.toString());
-
-                        for (int i = 0; i < gameScoreList.size(); i++){
-                            Log.i(TAG,"gameScoreList" + gameScoreList.get(i));
-
+                        switch (key) {
+                            case "quiz" :
+                                score = snapshot.getValue().toString();
+                                gameScoreList.add(score);
+                                Log.i(TAG,"quiz: " + score);
+                                break;
+                            case "card" :
+                                score = snapshot.getValue().toString();
+                                gameScoreList.add(score);
+                                Log.i(TAG,"card: " + score);
+                                break;
+                            case "word" :
+                                score = snapshot.getValue().toString();
+                                gameScoreList.add(score);
+                                Log.i(TAG,"word: " + score);
+                                break;
+                            case "calculate" :
+                                score = snapshot.getValue().toString();
+                                gameScoreList.add(score);
+                                Log.i(TAG,"calculate: " + score);
+                                break;
+                            case "qclick" :
+                                score = snapshot.getValue().toString();
+                                gameScoreList.add(score);
+                                Log.i(TAG,"qclick: " + score);
+                                break;
+                            default:
+                                break;
                         }
                     }
-                    // TODO 차트 그리는 메소드 호출
 
+                    // TODO 차트 그리는 메소드 호출
+                    myGetFirebaseData.onReceivedEvent();
                 }
 
                 @Override
@@ -375,15 +394,11 @@ public class GameDao {
                     Log.i(TAG, "Failed to read value", databaseError.toException());
                 }
             });
-
-
         } else {
-
             Toast.makeText(context, "그래프를 확인하려면 로그인이 필요합니다", Toast.LENGTH_SHORT).show();
-
         }
-
-
+//        myRef.removeEventListener();
+        return gameScoreList;
     } // end getGameScoreFromFirebase()
 
 
