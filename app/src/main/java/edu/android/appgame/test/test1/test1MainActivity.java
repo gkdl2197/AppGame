@@ -16,7 +16,6 @@ public class test1MainActivity extends AppCompatActivity {
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorForest)));
         getWindow().setStatusBarColor(getResources().getColor(R.color.colorGreen));
 
-
         View view= findViewById(R.id.container2);
         if(view != null){
             if(savedInstanceState != null){

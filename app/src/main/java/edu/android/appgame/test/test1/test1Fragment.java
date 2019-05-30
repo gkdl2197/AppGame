@@ -3,21 +3,28 @@ package edu.android.appgame.test.test1;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.speech.tts.TextToSpeech;
+import android.speech.tts.TextToSpeechService;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 import edu.android.appgame.R;
 
-public class test1Fragment extends Fragment {
+public class test1Fragment extends Fragment implements View.OnClickListener, TextToSpeech.OnInitListener {
 
     private static final String[]  SURVEY_TEXT= {
             "1. 오늘이 몇 월이고, 무슨 요일인지 잘 모른다",
@@ -41,30 +48,38 @@ public class test1Fragment extends Fragment {
 
     };
     public static final String TOTAL_SCORE = "total_score";
-    private int currentIndex = 0;
     private  static  final  String KEY_INDEX="current_index";
+    private static final String TAG = "TextToSpeechDemo";
+    private static final int MY_DATA_CHECK_CODE = 1234;
+    private int currentIndex = 0;
     private TextView textSurvey1;
     private RadioButton radioNever,radioSometimes, radioOften;
-    private Button btnNext;
+    private Button btnNext, btnVoice;
     private int testScore=0;
+    private TextToSpeech myTTS;
 
     public test1Fragment() {
 
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container2, Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.activity_test1_fragment,container2,false);
-        textSurvey1= view.findViewById(R.id.textSurvey1);
-        radioNever= view.findViewById(R.id.radioNever);
-        radioSometimes=  view.findViewById(R.id.radioSometimes);
+        View view = inflater.inflate(R.layout.activity_test1_fragment, container2, false);
+        textSurvey1 = view.findViewById(R.id.textSurvey1);
+        radioNever = view.findViewById(R.id.radioNever);
+        radioSometimes = view.findViewById(R.id.radioSometimes);
         radioOften = view.findViewById(R.id.radioOften);
         btnNext = view.findViewById(R.id.btnNext);
+        btnVoice = view.findViewById(R.id.btnVoice);
+        btnVoice.setOnClickListener(this);
+        myTTS = new TextToSpeech(getActivity(), this);
+        Intent checkIntent = new Intent();
+        checkIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
+        startActivityForResult(checkIntent, MY_DATA_CHECK_CODE);
 
         if(savedInstanceState != null){
             currentIndex =savedInstanceState.getInt(KEY_INDEX);
             changeText();
         }
-
         textSurvey1.setText(SURVEY_TEXT[0]);
         return  view;
     }
@@ -133,4 +148,43 @@ public class test1Fragment extends Fragment {
         });
     }
 
+    @Override
+    public void onInit(int status) {
+        if (status == TextToSpeech.SUCCESS) {
+            int result = myTTS.setLanguage(Locale.KOREA);
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Log.e("TTS", "Language is not supported");
+            } else {
+            }
+        } else {
+            Log.e("TTS", "Initilization Failed");
+        }
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()) {
+            case R.id.btnVoice:
+                speakOut();
+                break;
+        }
+    }
+
+    private void speakOut() {
+
+        String text = textSurvey1.getText().toString();
+        myTTS.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+    }
+
+
+    @Override
+    public void onDestroy() {
+        if (myTTS != null) {
+            myTTS.stop();
+            myTTS.shutdown();
+        }
+        super.onDestroy();
+    }
 }
