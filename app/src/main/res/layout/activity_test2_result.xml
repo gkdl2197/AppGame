@@ -65,7 +65,7 @@
         android:layout_marginBottom="8dp"
         android:background="#86EC1359"
         android:onClick="btnGoBackToTest"
-        android:text="검사 선택"
+        android:text="다른 검사하기"
         android:textColor="#F5F5F5"
         android:textSize="24sp"
         android:textStyle="bold"
