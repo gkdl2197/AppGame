@@ -46,7 +46,7 @@ public class ChartMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chart_activity_main);
 
-        onClickGetDBdata(currentMemberId);
+//        onClickGetDBdata(currentMemberId);
         radarChart = findViewById(R.id.radarChart);
         setData();
         radarChartDecoration();
@@ -79,6 +79,9 @@ public class ChartMainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.addBuddy:
                 // TODO - dao.method()
+                ChartFriendDialog dlg = new ChartFriendDialog(this);
+
+              dlg.show();
                 break;
             case R.id.toggleValues:
                 for (IDataSet<?> set : radarChart.getData().getDataSets()) {
@@ -164,25 +167,30 @@ public class ChartMainActivity extends AppCompatActivity {
         return radarEntries2;
     }
 
-    public void onClickGetDBdata(String currentMemberId) {
-        final String userId = currentMemberId;
+//    @Override
+//    public void notifyFriendList() {
+//        // 친구 선택하면 넘어오는 ~
+//    }
 
-        dao.setOnReceivedFirebaseData(new GameDao.GetFirebaseData() {
-              @Override
-              public void onReceivedEvent() {
-                  if (isLogin) {
-                      Log.i(TAG, "11111111" + dao.gameScoreList.toString());
-                      // calculate: 수리능력, card: 기억력, qclick: 집중력, quiz: 언어능력, word: 인지능력
-                      radarEntries1 = new ArrayList<>();
-                      radarEntries1.add(new RadarEntry(Integer.parseInt(dao.gameScoreList.get(0)))); // get first data -> put here
-                      radarEntries1.add(new RadarEntry(Integer.parseInt(dao.gameScoreList.get(1))));
-                      radarEntries1.add(new RadarEntry(Integer.parseInt(dao.gameScoreList.get(2))));
-                      radarEntries1.add(new RadarEntry(Integer.parseInt(dao.gameScoreList.get(3))));
-                      radarEntries1.add(new RadarEntry(Integer.parseInt(dao.gameScoreList.get(4))));
-                  } else {
-                      Toast.makeText(ChartMainActivity.this, "로그인 후 재실행 하세요!", Toast.LENGTH_SHORT).show();
-                  }
-              }
-          }, userId);
-    }
+//    public void onClickGetDBdata(String currentMemberId) {
+//        final String userId = currentMemberId;
+//
+//        dao.setOnReceivedFirebaseData(new GameDao.GetFirebaseData() {
+//              @Override
+//              public void onReceivedEvent() {
+//                  if (isLogin) {
+//                      Log.i(TAG, "11111111" + dao.gameScoreList.toString());
+//                      // calculate: 수리능력, card: 기억력, qclick: 집중력, quiz: 언어능력, word: 인지능력
+//                      radarEntries1 = new ArrayList<>();
+//                      radarEntries1.add(new RadarEntry(Integer.parseInt(dao.gameScoreList.get(0)))); // get first data -> put here
+//                      radarEntries1.add(new RadarEntry(Integer.parseInt(dao.gameScoreList.get(1))));
+//                      radarEntries1.add(new RadarEntry(Integer.parseInt(dao.gameScoreList.get(2))));
+//                      radarEntries1.add(new RadarEntry(Integer.parseInt(dao.gameScoreList.get(3))));
+//                      radarEntries1.add(new RadarEntry(Integer.parseInt(dao.gameScoreList.get(4))));
+//                  } else {
+//                      Toast.makeText(ChartMainActivity.this, "로그인 후 재실행 하세요!", Toast.LENGTH_SHORT).show();
+//                  }
+//              }
+//          }, userId);
+//    }
 }

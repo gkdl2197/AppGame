@@ -1,6 +1,7 @@
 package edu.android.appgame.game;
 
 import android.content.Context;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
@@ -16,6 +17,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -25,10 +27,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.ConsoleHandler;
 
 import static edu.android.appgame.MainActivity.currentMemberId;
 import static edu.android.appgame.MainActivity.isLogin;
 
+import edu.android.appgame.Member;
 import edu.android.appgame.R;
 
 public class GameDao {
@@ -93,6 +97,11 @@ public class GameDao {
 
     // 각 게임에서 넘어온 게임 점수 각 게임 파일로 (회차,점수) 저장하기 위한 파일 내용 읽어오기 + 추가
     public void saveScoreToFileByGames(String gameName, String gameGrade) {
+
+        if(!isLogin) {
+            return;
+        }
+
         isInFile(gameName);
         StringBuilder builder = new StringBuilder();
         String fileName = gameName + ".txt";

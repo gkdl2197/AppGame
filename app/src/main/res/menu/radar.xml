@@ -6,7 +6,7 @@
         android:id="@+id/addBuddy"/>
     <item android:title="결과 값 토글"
         android:id="@+id/toggleValues"/>
-    <item android:title="DB검색 테스트"
-        android:id="@+id/getFirebaseData"
-        android:onClick="onClickGetDBdata"/>
+    <!--<item android:title="DB검색 테스트"-->
+        <!--android:id="@+id/getFirebaseData"-->
+        <!--android:onClick="onClickGetDBdata"/>-->
 </menu>

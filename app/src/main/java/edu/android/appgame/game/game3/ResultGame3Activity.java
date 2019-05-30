@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -71,6 +72,7 @@ public class ResultGame3Activity extends AppCompatActivity {
 
     public void calScore(){
         grade = (score/total)*100;
+        Log.i(TAG, "grade : " + grade);
 
         if(grade == 100) {
             imageGrade.setImageResource(R.drawable.game3_alphabet_a);
@@ -81,16 +83,14 @@ public class ResultGame3Activity extends AppCompatActivity {
         } else if(grade <= 80 && grade >60){
             imageGrade.setImageResource(R.drawable.game3_alphabet_c);
             stringGrade = "C";
-        } else {
+        } else if (grade <= 60){
             imageGrade.setImageResource(R.drawable.game3_alphabet_d);
             stringGrade = "D";
         }
 
-        try {
-            dao.saveScoreToFileByGames(GAME_NAME, stringGrade);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
+        dao.saveScoreToFileByGames(GAME_NAME, stringGrade);
+
 
     } // end calScore()
 

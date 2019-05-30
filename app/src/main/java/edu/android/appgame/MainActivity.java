@@ -18,6 +18,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import edu.android.appgame.Prevention.PreventionMainActivity;
 import edu.android.appgame.test.TestSelectActivity;
@@ -33,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private ImageButton btnLoginMain;
     private DrawerLayout drawer;
+    private TextView textDoLogin;
+
 
 
     @Override
@@ -74,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if(isLogin){
             // 받아온 로그인 여부가 true 이면, 로그인 버튼 비활성화
-            btnLoginMain.setEnabled(false);
+//            btnLoginMain.setEnabled(false);
         } // end if
     } // end onCreate()
 
@@ -98,30 +102,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            Intent intent = new Intent(this, FacilityInfoActivity.class);
-//            startActivity(intent);
-//            return true;
-//        } else if(id == R.id.action_chart) {
-//            Intent intent = new Intent(this, ChartMainActivity.class);
-//            startActivity(intent);
-//            return true;
-//        } else if( id == R.id.action_map){
-//            Intent intent = new Intent(this, MapsActivity.class);
-//            startActivity(intent);
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, FacilityInfoActivity.class);
+            startActivity(intent);
+            return true;
+        } else if(id == R.id.action_chart) {
+            Intent intent = new Intent(this, ChartMainActivity.class);
+            startActivity(intent);
+            return true;
+        } else if( id == R.id.action_map){
+            Intent intent = new Intent(this, MapsActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -195,8 +199,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     } // end onClickBtnGame
 
     public void onClickBtnLogin(View view) {
-        Intent intent = new Intent (this, LoginActivity.class);
-        startActivity(intent);
+        if(isLogin){
+            Toast.makeText(context, "이미 로그인 되어 있습니다.", Toast.LENGTH_SHORT).show();
+        }else {
+
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
     }
 
     public void onClickBtnHome(View view) {

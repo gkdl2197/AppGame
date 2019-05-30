@@ -2,6 +2,7 @@ package edu.android.appgame;
 import android.os.StrictMode;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -84,6 +85,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             centerAddr.add(facilityList.get(i)[2]);
             lat.add(facilityList.get(i)[4]);
             lon.add(facilityList.get(i)[5]);
+            Log.i(TAG,"이름: " + facilityList.get(i)[1] + "주소" + facilityList.get(i)[2]);
+            Log.i(TAG, "lat: " +facilityList.get(i)[4] + "lon: " +facilityList.get(i)[5] );
         }
 
 //        facilityList.get(i)[0]

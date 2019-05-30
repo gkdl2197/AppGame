@@ -26,7 +26,7 @@ public class MainGame3Activity extends AppCompatActivity {
                 R.color.colorGreen, R.color.colorYellow, R.color.colorPurple, R.color.colorOrange};
     private String[] string_array;
 
-    private int count = 0; // 맞힌 갯수
+    private int count= 0; // 맞힌 갯수
     private int total = 0; // 전체 문제 수
     private int gameCount = 0;
 
@@ -57,6 +57,8 @@ public class MainGame3Activity extends AppCompatActivity {
 
         textCorrect.setText(count+"");
         textTotal.setText(total+"");
+
+
     } // end setScore()
 
     public void onClickYes(View view) {
@@ -269,6 +271,7 @@ public class MainGame3Activity extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             public void onClick(
                                     DialogInterface dialog, int id) {
+                                gameCount++;
                                 setTextQuestion();
                             }
                         })
@@ -301,6 +304,7 @@ public class MainGame3Activity extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             public void onClick(
                                     DialogInterface dialog, int id) {
+                                gameCount++;
                                 setTextQuestion();
                             }
                         })

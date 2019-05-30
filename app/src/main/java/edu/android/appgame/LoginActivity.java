@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     public static final String LOGIN_ID = "login_id";
 
     private EditText editId, editPassword;
+    private TextView textDoLogin;
     private FirebaseAuth mAuth;
 
 
@@ -62,8 +64,9 @@ public class LoginActivity extends AppCompatActivity {
                                 // Sign in success, update UI with the signed-in user's information
                                 Log.d(TAG, "signInWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
-                                Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, email.split("@")[0] + "님, 환영합니다", Toast.LENGTH_SHORT).show();
 
+                                Log.i(TAG, "getEmail " +mAuth.getCurrentUser().getEmail());
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 intent.putExtra(LOGIN, true);
                                 intent.putExtra(LOGIN_ID, email.split("@")[0]);
