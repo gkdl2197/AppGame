@@ -106,6 +106,7 @@ public class SignUpActivity extends AppCompatActivity {
         createAccount(email, pw);
 
         Toast.makeText(this, "성공", Toast.LENGTH_SHORT).show();
+        this.finish();
 
 
     } // end saveNewMember()
@@ -118,15 +119,20 @@ public class SignUpActivity extends AppCompatActivity {
         String name = editName.getText().toString();
         String birth = editBirthNo.getText().toString();
 
-
-        if (password.equals(password2)) {
-            // 저장 메소드 호출
-            saveNewMember(ID, email, password, password2, name, sex, birth);
-
+        if(ID.equals("") || email.equals("") || password.equals("") || password2.equals("") || name.equals("") || birth.equals("")){
+            Toast.makeText(this, "빈칸을 모두 채우세요", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "비밀번호가 다릅니다", Toast.LENGTH_SHORT).show();
-            editPass.setText("");
-            editPassTest.setText("");
+
+
+            if (password.equals(password2)) {
+                // 저장 메소드 호출
+                saveNewMember(ID, email, password, password2, name, sex, birth);
+
+            } else {
+                Toast.makeText(this, "비밀번호가 다릅니다", Toast.LENGTH_SHORT).show();
+                editPass.setText("");
+                editPassTest.setText("");
+            }
         }
     } // end onClickSignUp()
 
