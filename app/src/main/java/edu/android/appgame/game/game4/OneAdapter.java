@@ -71,7 +71,7 @@ class OneAdapter extends RecyclerView.Adapter<OneAdapter.ViewHolder> {
     }
 
     void change(int oldPos, int newPos) {
-//6, 9
+
         One oldOne = mOne.get(oldPos);
         One newOne = mOne.get(newPos);
         mOne.remove(newPos);

@@ -27,19 +27,19 @@ public class Main0Itwill extends AppCompatActivity {
     private int index =0;
     private TextView textQuiz, textHint;
 
-    private String[] quizItwill = {"ㄹㄸ","ㅈㅅㄱ","ㄱㅅㄱ,ㅇㅈㅇ,ㄱㄴㅇ","ㄱㄴㅂㅂ","ㅋㅌㄹㅇㄷ","ㄱㅈㅊ"
+    private String[] quizItwill = {"ㅎㅅㅅ","ㅈㅈㅇ","ㅂㅋㄴ","ㄱㅅㅎ, ㄱㄴㅇ, ㅇㅈㅇ","ㄹㄸ","ㅈㅅㄱ","ㄱㅅㄱ,ㅇㅈㅇ,ㄱㄴㅇ","ㄱㄴㅂㅂ","ㅋㅌㄹㅇㄷ","ㄱㅈㅊ"
             ,"ㄱㅅㅎ"
 
 
     };
 
-    private String[] itwillHint = {"매주 토요일 오후 8시 30분이 기다려짐", "한번만 들어줘..",
+    private String[] itwillHint = {"중도포기","1강의실 최대 미스테리","재철 형이 좋아하는 것은~?","1강의실 최고 귀요미", "매주 토요일 오후 8시 30분이 기다려짐", "이제 그만 말해",
             "1강의실 수강생 3대 갓","오늘은 거기 갈까?","종화형이 한때 점심시간을 불태웠던 게임",
             "??: 내 생일 돼지갈비..기억해놔라","1강의실 최고의 빵순이"
 
     };
 
-   private String[] itwillResult = {"로또","전상근","김성겸,왕지영,김나영","강남불백","카트라이더","김재철",
+   private String[] itwillResult = {"한성수","조준일","비키니","김서희, 김나영, 왕지영", "로또","전상근","김성겸,왕지영,김나영","강남불백","카트라이더","김재철",
            "김서희"
 
     };

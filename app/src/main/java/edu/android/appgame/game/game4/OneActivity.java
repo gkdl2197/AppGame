@@ -124,7 +124,6 @@ public class OneActivity extends AppCompatActivity {
 
 
         // TODO 이것 대신 섞어주는 코드 필요
-        // 아래의 코드대로 섞으면 맞출 수 있는 확률이 50%정도
 
         Collections.shuffle(mOne);
         adapter.update(mOne);

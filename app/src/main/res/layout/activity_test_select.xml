@@ -32,7 +32,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:backgroundTint="#B73A53"
+        android:backgroundTint="#CF60E4"
         android:onClick="onClickMemory"
         android:text="기억감퇴 자각도 검사"
         android:textColor="#EEF0F0"
