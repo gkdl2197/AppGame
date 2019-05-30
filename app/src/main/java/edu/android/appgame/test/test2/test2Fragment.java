@@ -4,9 +4,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +17,13 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 import edu.android.appgame.R;
 
 
 
-public class test2Fragment extends Fragment {
+public class test2Fragment extends Fragment implements View.OnClickListener, TextToSpeech.OnInitListener {
 
     private static final String[] Memory =
             {"1. 자신의 기억력에 문제가 있다고 생각하십니까?",
@@ -40,9 +44,12 @@ public class test2Fragment extends Fragment {
     public static final String TOTAL_SCORE="total_score";
     private int currentIndex = 0;
     private  static  final  String KEY_INDEX="current_index";
+    private static final String TAG = "TextToSpeechDemo";
+    private static final int MY_DATA_CHECK_CODE = 1234;
+    private TextToSpeech myTTS;
     private TextView textSurvey;
     private RadioButton radioYes,radioNo;
-    private Button btnNext;
+    private Button btnNext, btnVoice;
     private int testScore=0;
 
     public test2Fragment() {
@@ -55,6 +62,12 @@ public class test2Fragment extends Fragment {
         radioYes= view.findViewById(R.id.radioYes);
         radioNo=  view.findViewById(R.id.radioNo);
         btnNext=  view.findViewById(R.id.btnNext);
+        btnVoice = view.findViewById(R.id.btnVoice);
+        btnVoice.setOnClickListener(this);
+        myTTS = new TextToSpeech(getActivity(), this);
+        Intent checkIntent = new Intent();
+        checkIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
+        startActivityForResult(checkIntent, MY_DATA_CHECK_CODE);
 
         if(savedInstanceState != null){
             currentIndex =savedInstanceState.getInt(KEY_INDEX);
@@ -125,5 +138,49 @@ public class test2Fragment extends Fragment {
         });
     }
 
+    @Override
+    public void onInit(int status) {
+        if (status == TextToSpeech.SUCCESS) {
+            int result = myTTS.setLanguage(Locale.KOREA);
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Log.e("TTS", "Language is not supported");
+            } else {
+                //음성 톤
+                myTTS.setPitch(1.0f);
+                //읽는 속도
+                myTTS.setSpeechRate(0.7f);
+            }
+        } else {
+            Log.e("TTS", "Initilization Failed");
+        }
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()) {
+            case R.id.btnVoice:
+                speakOut();
+                break;
+        }
+
+    }
+
+    private void speakOut() {
+
+        String text = textSurvey.getText().toString();
+        myTTS.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+    }
+
+
+    @Override
+    public void onDestroy() {
+        if (myTTS != null) {
+            myTTS.stop();
+            myTTS.shutdown();
+        }
+        super.onDestroy();
+    }
 }
 

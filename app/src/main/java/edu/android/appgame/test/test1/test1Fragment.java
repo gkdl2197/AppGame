@@ -155,6 +155,10 @@ public class test1Fragment extends Fragment implements View.OnClickListener, Tex
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                 Log.e("TTS", "Language is not supported");
             } else {
+                //음성 톤
+                myTTS.setPitch(1.0f);
+                //읽는 속도
+                myTTS.setSpeechRate(0.7f);
             }
         } else {
             Log.e("TTS", "Initilization Failed");
