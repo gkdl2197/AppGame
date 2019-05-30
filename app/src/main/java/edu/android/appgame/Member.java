@@ -148,6 +148,11 @@ public class Member {
         result.put("name", memberName);
         result.put("sex", memberSex);
         result.put("birth", memberBirth);
+        result.put("quiz", quiz);
+        result.put("card", card);
+        result.put("word", word);
+        result.put("calculate", calculate);
+        result.put("qclick", qclick);
 
         return result;
     } // end toMap()
@@ -156,11 +161,11 @@ public class Member {
     public Map<String, Object> toMapScore(){
         HashMap<String, Object> result = new HashMap<>();
 
-        result.put("quiz", quiz);
-        result.put("card", card);
-        result.put("word", word);
-        result.put("calculate", calculate);
-        result.put("qclick", qclick);
+//        result.put("quiz", quiz);
+//        result.put("card", card);
+//        result.put("word", word);
+//        result.put("calculate", calculate);
+//        result.put("qclick", qclick);
 
         return result;
     } // end toMap()

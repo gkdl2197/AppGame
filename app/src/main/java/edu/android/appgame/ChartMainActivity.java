@@ -3,8 +3,10 @@ package edu.android.appgame;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.components.Legend;
@@ -18,16 +20,22 @@ import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
+import edu.android.appgame.game.GameDao;
+
+import static edu.android.appgame.MainActivity.isLogin;
+import static edu.android.appgame.MainActivity.currentMemberId;
 
 public class ChartMainActivity extends AppCompatActivity {
 
-    public static final float MAX = 4, MIN = 0;
+    public static final int MAX = 100, MIN = 0;
     public static final int NB_QUALITIES = 5;
+    private static final String TAG = "file_tag";
 
     private com.github.mikephil.charting.charts.RadarChart radarChart;
     private ArrayList<RadarEntry> radarEntries1, radarEntries2;
     private RadarDataSet radarDataSet1, radarDataSet2;
     private RadarData radarData;
+    private GameDao dao = GameDao.getInstance(this);
 
     private String[] lables = {
             "기억력", "수리능력", "집중력", "언어능력", "인지능력"
@@ -38,6 +46,7 @@ public class ChartMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chart_activity_main);
 
+        onClickGetDBdata(currentMemberId);
         radarChart = findViewById(R.id.radarChart);
         setData();
         radarChartDecoration();
@@ -126,8 +135,8 @@ public class ChartMainActivity extends AppCompatActivity {
         radarDataSet2.setLineWidth(3f);
         radarDataSet1.setValueTextColor(Color.YELLOW);
         radarDataSet2.setValueTextColor(Color.CYAN);
-        radarDataSet1.setValueTextSize(11f);
-        radarDataSet2.setValueTextSize(11f);
+        radarDataSet1.setValueTextSize(13f);
+        radarDataSet2.setValueTextSize(13f);
         radarDataSet1.setDrawHighlightIndicators(false);
         radarDataSet1.setDrawHighlightCircleEnabled(true);
 //        radarDataSet1.setColors(ColorTemplate.PASTEL_COLORS);
@@ -137,11 +146,11 @@ public class ChartMainActivity extends AppCompatActivity {
 
     private ArrayList<RadarEntry> dataValues1() {
         radarEntries1 = new ArrayList<>();
-        radarEntries1.add(new RadarEntry(4)); // get first data -> put here
-        radarEntries1.add(new RadarEntry(4));
-        radarEntries1.add(new RadarEntry(3.5f));
-        radarEntries1.add(new RadarEntry(4));
-        radarEntries1.add(new RadarEntry(3));
+        radarEntries1.add(new RadarEntry(85)); // get first data -> put here
+        radarEntries1.add(new RadarEntry(40));
+        radarEntries1.add(new RadarEntry(70));
+        radarEntries1.add(new RadarEntry(90));
+        radarEntries1.add(new RadarEntry(100));
         return radarEntries1;
     }
 
@@ -155,4 +164,25 @@ public class ChartMainActivity extends AppCompatActivity {
         return radarEntries2;
     }
 
+    public void onClickGetDBdata(String currentMemberId) {
+        final String userId = currentMemberId;
+
+        dao.setOnReceivedFirebaseData(new GameDao.GetFirebaseData() {
+              @Override
+              public void onReceivedEvent() {
+                  if (isLogin) {
+                      Log.i(TAG, "11111111" + dao.gameScoreList.toString());
+                      // calculate: 수리능력, card: 기억력, qclick: 집중력, quiz: 언어능력, word: 인지능력
+                      radarEntries1 = new ArrayList<>();
+                      radarEntries1.add(new RadarEntry(Integer.parseInt(dao.gameScoreList.get(0)))); // get first data -> put here
+                      radarEntries1.add(new RadarEntry(Integer.parseInt(dao.gameScoreList.get(1))));
+                      radarEntries1.add(new RadarEntry(Integer.parseInt(dao.gameScoreList.get(2))));
+                      radarEntries1.add(new RadarEntry(Integer.parseInt(dao.gameScoreList.get(3))));
+                      radarEntries1.add(new RadarEntry(Integer.parseInt(dao.gameScoreList.get(4))));
+                  } else {
+                      Toast.makeText(ChartMainActivity.this, "로그인 후 재실행 하세요!", Toast.LENGTH_SHORT).show();
+                  }
+              }
+          }, userId);
+    }
 }
