@@ -25,7 +25,7 @@ import edu.android.appgame.game.GameDao;
 import static edu.android.appgame.MainActivity.isLogin;
 import static edu.android.appgame.MainActivity.currentMemberId;
 
-public class ChartMainActivity extends AppCompatActivity {
+public class ChartMainActivity extends AppCompatActivity implements ChartFriendDialog.ChartFriendCallback{
 
     public static final int MAX = 100, MIN = 0;
     public static final int NB_QUALITIES = 5;
@@ -40,6 +40,12 @@ public class ChartMainActivity extends AppCompatActivity {
     private String[] lables = {
             "기억력", "수리능력", "집중력", "언어능력", "인지능력"
     };
+
+    @Override
+    public void getFriendId(String id) {
+        Log.i(TAG, "id??????????" + id);
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,9 +85,9 @@ public class ChartMainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.addBuddy:
                 // TODO - dao.method()
-                ChartFriendDialog dlg = new ChartFriendDialog(this);
+                ChartFriendDialog dlg = new ChartFriendDialog();
 
-              dlg.show();
+              dlg.show(getSupportFragmentManager(), "TAG");
                 break;
             case R.id.toggleValues:
                 for (IDataSet<?> set : radarChart.getData().getDataSets()) {

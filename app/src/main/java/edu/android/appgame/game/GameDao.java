@@ -3,6 +3,7 @@ package edu.android.appgame.game;
 import android.content.Context;
 import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -32,10 +33,11 @@ import java.util.logging.ConsoleHandler;
 import static edu.android.appgame.MainActivity.currentMemberId;
 import static edu.android.appgame.MainActivity.isLogin;
 
+import edu.android.appgame.ChartFriendDialog;
 import edu.android.appgame.Member;
 import edu.android.appgame.R;
 
-public class GameDao {
+public class GameDao  {
 
     private static final String TAG = "file_tag";
     private static final String AVERAGE_FILE_NAME = "allaverage.txt";
@@ -49,6 +51,8 @@ public class GameDao {
     public List<String> gameScoreList = new ArrayList<>();
     private Map<String, Object> childUpdates;
     private Map<String, Object> postValues;
+
+
 
     public interface GetFirebaseData {
         void onReceivedEvent();
