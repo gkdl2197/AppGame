@@ -85,9 +85,10 @@ public class ChartMainActivity extends AppCompatActivity implements ChartFriendD
         switch (item.getItemId()) {
             case R.id.addBuddy:
                 // TODO - dao.method()
-                ChartFriendDialog dlg = new ChartFriendDialog();
 
-              dlg.show(getSupportFragmentManager(), "TAG");
+                    ChartFriendDialog dlg = new ChartFriendDialog();
+                    dlg.show(getSupportFragmentManager(), "TAG");
+
                 break;
             case R.id.toggleValues:
                 for (IDataSet<?> set : radarChart.getData().getDataSets()) {

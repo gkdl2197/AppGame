@@ -115,8 +115,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(intent);
             return true;
         } else if(id == R.id.action_chart) {
-            Intent intent = new Intent(this, ChartMainActivity.class);
-            startActivity(intent);
+
+            if(isLogin) {
+                Intent intent = new Intent(this, ChartMainActivity.class);
+                startActivity(intent);
+            } else{
+                Toast.makeText(this, "로그인 해야 사용 가능한 기능입니다", Toast.LENGTH_SHORT).show();
+            }
+
+
             return true;
         } else if( id == R.id.action_map){
             Intent intent = new Intent(this, MapsActivity.class);
@@ -145,8 +152,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent intent= new Intent(this, PreventionMainActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_chart){
-            Intent intent = new Intent(this, ChartMainActivity.class);
-            startActivity(intent);
+            if(isLogin) {
+                Intent intent = new Intent(this, ChartMainActivity.class);
+                startActivity(intent);
+            } else{
+                Toast.makeText(this, "로그인 해야 사용 가능한 기능입니다", Toast.LENGTH_SHORT).show();
+            }
         }else if (id == R.id.nav_map) {
             Intent intent = new Intent(this, MapsActivity.class);
             startActivity(intent);
