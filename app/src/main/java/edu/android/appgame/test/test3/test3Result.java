@@ -46,4 +46,6 @@ public class test3Result extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+
 }

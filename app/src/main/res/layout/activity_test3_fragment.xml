@@ -12,13 +12,9 @@
         android:layout_width="351dp"
         android:layout_height="251dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/round_backgound"
-        android:gravity="center"
-        android:text="예시입니다"
-        android:textSize="24sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView43" />
@@ -83,29 +79,28 @@
 
     <ImageView
         android:id="@+id/Image"
-        android:layout_width="107dp"
-        android:layout_height="75dp"
+        android:layout_width="108dp"
+        android:layout_height="81dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/grandparents"
-        app:layout_constraintEnd_toEndOf="@+id/textSurvey3"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="@+id/textSurvey3"
-        app:layout_constraintTop_toTopOf="@+id/textSurvey3"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:src="@drawable/grandparents"
         android:text="다음으로"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.031" />
+        app:layout_constraintEnd_toEndOf="@+id/textSurvey3"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="@+id/textSurvey3"
+        app:layout_constraintTop_toTopOf="@+id/textSurvey3" />
 
     <TextView
-        android:id="@+id/textWeek"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="28dp"
-        app:layout_constraintBottom_toTopOf="@+id/textSurvey3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:id="@+id/textSurvey"
+        android:layout_width="302dp"
+        android:layout_height="136dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textSurvey3"
+        app:layout_constraintEnd_toEndOf="@+id/textSurvey3"
+        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintStart_toStartOf="@+id/textSurvey3" />
+
 </android.support.constraint.ConstraintLayout>

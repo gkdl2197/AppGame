@@ -26,13 +26,14 @@
 
     <TextView
         android:id="@+id/textScore2"
-        android:layout_width="76dp"
+        android:layout_width="162dp"
         android:layout_height="42dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:gravity="center"
-        android:textSize="18sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,16 +41,17 @@
 
     <TextView
         android:id="@+id/textGuide2"
-        android:layout_width="399dp"
-        android:layout_height="411dp"
+        android:layout_width="400dp"
+        android:layout_height="388dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:background="#E992AC"
         android:gravity="center"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textScore2" />
 
