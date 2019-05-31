@@ -16,6 +16,7 @@ import java.util.HashSet;
 import java.util.Random;
 
 import edu.android.appgame.R;
+import static edu.android.appgame.game.game1.Main0Result.TOTALSCORE;
 
 public class Main0Itwill extends AppCompatActivity {
 
@@ -161,6 +162,11 @@ public class Main0Itwill extends AppCompatActivity {
 
     public void onClickMainHome(View view) {
         finish();
+        int avgScore;
+        int nScore = Integer.parseInt(itwScore.getText().toString());
+        avgScore = (nScore > 5) ? 100 : 50;
+        TOTALSCORE.put(gameName, avgScore);
+        mr.calculateGrade();
         Intent intent = new Intent(this, Main0Activity.class);
         startActivity(intent);
 //        intent.putExtra(ITW_SCORE, itwScore.getText().toString());

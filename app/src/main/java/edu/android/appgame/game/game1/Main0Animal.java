@@ -16,6 +16,7 @@ import java.util.HashSet;
 import java.util.Random;
 
 import edu.android.appgame.R;
+import static edu.android.appgame.game.game1.Main0Result.TOTALSCORE;
 
 public class Main0Animal extends AppCompatActivity {
 
@@ -163,6 +164,11 @@ public class Main0Animal extends AppCompatActivity {
 
     public void onClickGoMain(View view) {
         finish();
+        int avgScore;
+        int nScore = Integer.parseInt(animalScore.getText().toString());
+        avgScore = (nScore > 5) ? 100 : 50;
+        TOTALSCORE.put(gameName, avgScore);
+        mr.calculateGrade();
         Intent intent = new Intent(this, Main0Activity.class);
 //        intent.putExtra(ANIMAL_SCORE, animalScore.getText().toString());
 //        intent.putExtra(ANIMAL_BEST, animalBest.getText().toString());

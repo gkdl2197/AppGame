@@ -16,9 +16,12 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import edu.android.appgame.R;
+import edu.android.appgame.game.GameDao;
 
 import static edu.android.appgame.MainActivity.isLogin;
 
@@ -32,6 +35,8 @@ public class Main0Result extends AppCompatActivity {
     private String gameName1 = "animal.txt";
     private String gameName2 = "korea.txt";
     private String gameName3 = "itw.txt";
+    public static Map<String, Integer> TOTALSCORE = new HashMap<>();
+    private GameDao dao = GameDao.getInstance(this);
 
     public Main0Result(){}
 
@@ -140,120 +145,32 @@ public class Main0Result extends AppCompatActivity {
         return bestScore;
     } // end readContentsFromTxtFile()
 
-
-//    // 각 게임에서 넘어온 게임 점수 각 게임 파일로 (회차,점수) 저장 - 파일에 쓰기
-//    private void addScoreToPrevFile(StringBuilder scorePlus, String fileName){
-//
-//        // scorePlus =null; // 파일 속 내용 초기화 하기 위한 코드 (일단)
-//        OutputStream out = null;
-//        OutputStreamWriter writer = null;
-//        BufferedWriter bw = null;
-//        try {
-//            out = openFileOutput(fileName, MODE_PRIVATE);
-//            writer = new OutputStreamWriter(out, "UTF-8");
-//            bw = new BufferedWriter(writer);
-//            bw.write(scorePlus.toString());
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        } finally {
-//            try {
-//                bw.close();
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    } // end addScoreToPrevFile()
-//
-//
-//    // 각 게임 총 평균 점수 계산
-//    private void calculateTotalAverageGameScore(String gameName){
-//        int totalGrade =0;
-//        averageGrade =0;
-//
-//        for(int i = 0; i< gradeList.size(); i++){
-//            String grade = gradeList.get(i).toString();
-//            Log.i(TAG,"grade:" + grade);
-//
-//            switch (grade){
-//                case "A":
-//                    totalGrade += 90;
-//                    Log.i(TAG, "totalGrade : " + totalGrade);
-//                    break;
-//                case "B":
-//                    totalGrade += 80;
-//                    Log.i(TAG, "totalGrade : " + totalGrade);
-//                    break;
-//                case "C":
-//                    totalGrade +=70;
-//                    Log.i(TAG, "totalGrade : " + totalGrade);
-//                    break;
-//                case "D":
-//                    totalGrade += 60;
-//                    Log.i(TAG, "totalGrade : " + totalGrade);
-//                    break;
-//            } // end switch()
-//        } // end for()
-//
-//        Log.i(TAG, "totalGrade : " + totalGrade);
-//        averageGrade = (int) (totalGrade/gradeList.size());
-//        Log.i(TAG, "averageGrade : " + averageGrade);
-//
-//        // TODO 평균 파일에 (게임이름, 평균 점수) 로 넣기
-//        String fileName = AVERAGE_FILE_NAME.split("\\.")[0];
-//
-//        isInFile(fileName);
-//        List<String> oldData =readContentsFromTxtFile(AVERAGE_FILE_NAME);
-//
-//        String quiz = oldData.get(0);
-//        String card = oldData.get(1);
-//        String word = oldData.get(2);
-//        String calculate = oldData.get(3);
-//        String qclick = oldData.get(4);
-//
-//        switch (gameName) {
-//            case "quiz" :
-//                quiz = String.format("%s,%s", gameName, averageGrade);
-//                oldData.set(0, quiz);
-//                break;
-//            case "card" :
-//                card = String.format("%s,%s", gameName, averageGrade);
-//                oldData.set(1, card);
-//                break;
-//            case "word" :
-//                word = String.format("%s,%s", gameName, averageGrade);
-//                oldData.set(2, word);
-//                break;
-//            case "calculate" :
-//                calculate = String.format("%s,%s", gameName, averageGrade);
-//                oldData.set(3, calculate);
-//                break;
-//            case "qclick" :
-//                qclick = String.format("%s,%s", gameName, averageGrade);
-//                oldData.set(4, qclick);
-//                break;
-//        }
-//        String insert = String.format("%s\n%s\n%s\n%s\n%s",
-//                oldData.get(0), oldData.get(1), oldData.get(2), oldData.get(3), oldData.get(4));
-//
-//        OutputStream out = null;
-//        OutputStreamWriter writer = null;
-//        BufferedWriter bw = null;
-//        try {
-//            out = openFileOutput(AVERAGE_FILE_NAME, MODE_PRIVATE);
-//            writer = new OutputStreamWriter(out, "UTF-8");
-//            bw = new BufferedWriter(writer);
-//
-//            bw.write(insert);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        } finally {
-//            try {
-//                bw.close();
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    } // end calculateTotalAverageGameScore()
-//
+    public void calculateGrade() {
+        int score1 = 0;
+        int score2 = 0;
+        int score3 = 0;
+        int avgScore = 0;
+        String gameGrade;
+        try {
+            score1 = TOTALSCORE.get("animal");
+            score2 = TOTALSCORE.get("krScore");
+            score3 = TOTALSCORE.get("itwScore");
+        } catch (Exception e) {
+            Log.i("tag", "error score!");
+        } finally {
+            Log.i("tag", "finally~~~~~~~~~~~");
+            avgScore = (score1 + score2 + score3) / 3;
+            if (avgScore > 90) {
+                gameGrade = "A";
+            } else if (avgScore > 70 && avgScore <= 90) {
+                gameGrade = "B";
+            } else if (avgScore > 50 && avgScore <= 70) {
+                gameGrade = "C";
+            } else {
+                gameGrade = "D";
+            }
+            dao.saveScoreToFileByGames("quiz", gameGrade);
+        }
+    }
 
 }

@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.Random;
 
 import edu.android.appgame.R;
-
+import static edu.android.appgame.game.game1.Main0Result.TOTALSCORE;
 public class Main0Korea extends AppCompatActivity {
 
 
@@ -164,9 +164,12 @@ public class Main0Korea extends AppCompatActivity {
 
     public void onClickMainGo(View view) {
         finish();
+        int avgScore;
+        int nScore = Integer.parseInt(krScore.getText().toString());
+        avgScore = (nScore > 5) ? 100 : 50;
+        TOTALSCORE.put(gameName, avgScore);
+        mr.calculateGrade();
         Intent intent = new Intent(this, Main0Activity.class);
-//        intent.putExtra(KOREA_SCORE, krScore.getText().toString());
-//        intent.putExtra(KOREA_BEST, krbest.getText().toString());
         startActivity(intent);
         finish();
     }
