@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.LegendEntry;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.RadarData;
@@ -24,6 +25,7 @@ import java.util.List;
 
 import edu.android.appgame.game.GameDao;
 
+import static com.github.mikephil.charting.utils.ColorTemplate.VORDIPLOM_COLORS;
 import static edu.android.appgame.MainActivity.isLogin;
 import static edu.android.appgame.MainActivity.currentMemberId;
 
@@ -91,11 +93,8 @@ public class ChartMainActivity extends AppCompatActivity implements ChartFriendD
         switch (item.getItemId()) {
             case R.id.addBuddy:
                 radarChart.invalidate();
-                // TODO - dao.method()
-
                     ChartFriendDialog dlg = new ChartFriendDialog();
                     dlg.show(getSupportFragmentManager(), "TAG");
-
                 break;
             case R.id.toggleValues:
                 for (IDataSet<?> set : radarChart.getData().getDataSets()) {
@@ -166,11 +165,11 @@ public class ChartMainActivity extends AppCompatActivity implements ChartFriendD
 
     private ArrayList<RadarEntry> dataValues2() {
 //        radarEntries2 = new ArrayList<>();
-//        radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(0)))); // get second data -> put here
-//        radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(1))));
-//        radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(2))));
-//        radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(3))));
-//        radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(4))));
+        radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(0)))); // get second data -> put here
+        radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(1))));
+        radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(2))));
+        radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(3))));
+        radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(4))));
         return radarEntries2;
     }
 
@@ -191,12 +190,7 @@ public class ChartMainActivity extends AppCompatActivity implements ChartFriendD
                       } else {
                           buddyScore = dao.gameScoreList;
                           Log.i(TAG, "buddy: " + buddyScore);
-//                          dataValues2();
-                          radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(0)))); // get second data -> put here
-                          radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(1))));
-                          radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(2))));
-                          radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(3))));
-                          radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(4))));
+                          dataValues2();
                       }
                       setData();
                       radarChartDecoration();
