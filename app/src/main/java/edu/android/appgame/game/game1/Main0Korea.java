@@ -21,8 +21,8 @@ public class Main0Korea extends AppCompatActivity {
 
 
     private static final String TAG = "tag";
-    public static final String TEXT_SCORE = "text_score";
-    public static final String TEXT_BEST = "text_best";
+    public static final String KOREA_SCORE = "korea_score";
+    public static final String KOREA_BEST = "korea_best";
 
     private HashSet set = new HashSet();
     private int index =0;
@@ -53,7 +53,7 @@ public class Main0Korea extends AppCompatActivity {
     private Button btnCheck;
     private Button btnNext;
     private EditText textResult;
-    private TextView textScore, textBest;
+    private TextView krScore, krbest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,8 +65,8 @@ public class Main0Korea extends AppCompatActivity {
         btnNext = findViewById(R.id.btnNext);
         btnCheck = findViewById(R.id.btnCorrect);
         textResult = findViewById(R.id.editInput);
-        textScore = findViewById(R.id.textScore);
-        textBest = findViewById(R.id.textBest);
+        krScore = findViewById(R.id.koreaScore);
+        krbest = findViewById(R.id.koreaBest);
 
         textQuiz.setText(quizKorea[index]);
         textHint.setText(koreaHint[index]);
@@ -134,9 +134,9 @@ public class Main0Korea extends AppCompatActivity {
             layout = inflater.inflate(R.layout.activity_game1_right, null);
             toast = new Toast(getApplicationContext());
             showToast();
-            int score = Integer.parseInt(textScore.getText().toString());
+            int score = Integer.parseInt(krScore.getText().toString());
             score++;
-            textScore.setText(String.valueOf(score));
+            krScore.setText(String.valueOf(score));
         } else {
             layout = inflater.inflate(R.layout.activity_game1_wrong, null);
             toast = new Toast(getApplicationContext());
@@ -158,8 +158,8 @@ public class Main0Korea extends AppCompatActivity {
         finish();
         Intent intent = new Intent(this, Main0Activity.class);
         startActivity(intent);
-        intent.putExtra(TEXT_SCORE, textScore.getText().toString());
-        intent.putExtra(TEXT_BEST, textBest.getText().toString());
+        intent.putExtra(KOREA_SCORE, krScore.getText().toString());
+        intent.putExtra(KOREA_BEST, krbest.getText().toString());
         finish();
     }
 } // end class Main0Animal

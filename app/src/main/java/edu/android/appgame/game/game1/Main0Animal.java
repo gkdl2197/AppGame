@@ -61,8 +61,8 @@ public class Main0Animal extends AppCompatActivity {
         btnNext = findViewById(R.id.btnNext);
         btnCheck = findViewById(R.id.btnCorrect);
         textResult = findViewById(R.id.editInput);
-        animalBest = findViewById(R.id.textBest);
-        animalScore = findViewById(R.id.)
+        animalBest = findViewById(R.id.animalBest);
+        animalScore = findViewById(R.id.animalScore);
 
         textQuiz.setText(animalQuiz[index]);
         textHint.setText(animalHint[index]);

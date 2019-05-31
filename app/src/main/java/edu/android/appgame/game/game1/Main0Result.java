@@ -1,6 +1,5 @@
 package edu.android.appgame.game.game1;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;

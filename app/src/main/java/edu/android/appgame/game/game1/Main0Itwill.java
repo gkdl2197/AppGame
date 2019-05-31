@@ -20,8 +20,8 @@ import edu.android.appgame.R;
 public class Main0Itwill extends AppCompatActivity {
 
     private static final String TAG = "tag";
-    public static final String TEXT_SCORE = "text_score";
-    public static final String TEXT_BEST = "text_best";
+    public static final String ITW_SCORE = "itw_score";
+    public static final String ITW_BEST = "itw_best";
 
     private HashSet set = new HashSet();
     private int index =0;
@@ -50,7 +50,7 @@ public class Main0Itwill extends AppCompatActivity {
     private Button btnCheck;
     private Button btnNext;
     private EditText textResult;
-    private TextView textScore, textBest;
+    private TextView itwScore,itwBest;
 
 
     @Override
@@ -63,8 +63,8 @@ public class Main0Itwill extends AppCompatActivity {
         btnNext = findViewById(R.id.btnNext);
         btnCheck = findViewById(R.id.btnCorrect);
         textResult = findViewById(R.id.editInput);
-        textScore = findViewById(R.id.textScore);
-        textBest = findViewById(R.id.textBest);
+        itwScore = findViewById(R.id.itwScore);
+        itwBest = findViewById(R.id.itwBest);
 
         textQuiz.setText(quizItwill[index]);
         textHint.setText(itwillHint[index]);
@@ -132,9 +132,9 @@ public class Main0Itwill extends AppCompatActivity {
             layout = inflater.inflate(R.layout.activity_game1_right, null);
             toast = new Toast(getApplicationContext());
             showToast();
-            int score = Integer.parseInt(textScore.getText().toString());
+            int score = Integer.parseInt(itwScore.getText().toString());
             score++;
-            textScore.setText(String.valueOf(score));
+            itwScore.setText(String.valueOf(score));
         } else {
             layout = inflater.inflate(R.layout.activity_game1_wrong, null);
             toast = new Toast(getApplicationContext());
@@ -156,8 +156,8 @@ public class Main0Itwill extends AppCompatActivity {
         finish();
         Intent intent = new Intent(this, Main0Activity.class);
         startActivity(intent);
-        intent.putExtra(TEXT_SCORE, textScore.getText().toString());
-        intent.putExtra(TEXT_BEST, textBest.getText().toString());
+        intent.putExtra(ITW_SCORE, itwScore.getText().toString());
+        intent.putExtra(ITW_BEST, itwBest.getText().toString());
         finish();
     }
 } // end class Main0Animal
