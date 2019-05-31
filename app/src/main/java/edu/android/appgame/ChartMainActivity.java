@@ -47,7 +47,7 @@ public class ChartMainActivity extends AppCompatActivity implements ChartFriendD
     private GameDao dao = GameDao.getInstance(this);
 
     private String[] lables = {
-            "기억력", "수리능력", "집중력", "언어능력", "인지능력"
+            "수리능력", "기억력", "집중력", "언어능력", "인지능력"
     };
     private String userId;
 
