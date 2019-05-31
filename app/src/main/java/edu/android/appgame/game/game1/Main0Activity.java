@@ -7,8 +7,9 @@ import android.view.View;
 
 import edu.android.appgame.R;
 
-import static edu.android.appgame.game.game1.Main0Animal.TEXT_BEST;
-import static edu.android.appgame.game.game1.Main0Animal.TEXT_SCORE;
+import static edu.android.appgame.game.game1.Main0Animal.ANIMAL_BEST;
+import static edu.android.appgame.game.game1.Main0Animal.ANIMAL_SCORE;
+
 
 public class Main0Activity extends AppCompatActivity {
 
@@ -22,8 +23,8 @@ public class Main0Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game1_main);
 
-        animal_best = getIntent().getStringExtra(TEXT_BEST);
-        animal_score = getIntent().getStringExtra(TEXT_SCORE);
+        animal_best = getIntent().getStringExtra(ANIMAL_BEST);
+        animal_score = getIntent().getStringExtra(ANIMAL_SCORE);
 
     }
 

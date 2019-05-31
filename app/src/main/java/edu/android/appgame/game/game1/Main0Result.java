@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import edu.android.appgame.R;
-import static edu.android.appgame.game.game1.Main0Animal.TEXT_SCORE;
 
 public class Main0Result extends AppCompatActivity {
 

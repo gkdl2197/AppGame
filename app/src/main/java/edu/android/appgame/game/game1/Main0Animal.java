@@ -20,8 +20,8 @@ import edu.android.appgame.R;
 public class Main0Animal extends AppCompatActivity {
 
     private static final String TAG = "tag";
-    public static final String TEXT_SCORE = "text_score";
-    public static final String TEXT_BEST = "text_best";
+    public static final String ANIMAL_SCORE = "animal_score";
+    public static final String ANIMAL_BEST = "animal_best";
 
     private HashSet set = new HashSet();
     private int index = 0;
@@ -49,7 +49,7 @@ public class Main0Animal extends AppCompatActivity {
     private Button btnCheck;
     private Button btnNext;
     private EditText textResult;
-    private TextView textScore, textBest;
+    private TextView animalScore, animalBest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +61,8 @@ public class Main0Animal extends AppCompatActivity {
         btnNext = findViewById(R.id.btnNext);
         btnCheck = findViewById(R.id.btnCorrect);
         textResult = findViewById(R.id.editInput);
-        textScore = findViewById(R.id.textScore);
-        textBest = findViewById(R.id.textBest);
+        animalBest = findViewById(R.id.textBest);
+        animalScore = findViewById(R.id.)
 
         textQuiz.setText(animalQuiz[index]);
         textHint.setText(animalHint[index]);
@@ -130,9 +130,9 @@ public class Main0Animal extends AppCompatActivity {
             layout = inflater.inflate(R.layout.activity_game1_right, null);
             toast = new Toast(getApplicationContext());
             showToast();
-            int score = Integer.parseInt(textScore.getText().toString());
+            int score = Integer.parseInt(animalScore.getText().toString());
             score++;
-            textScore.setText(String.valueOf(score));
+            animalScore.setText(String.valueOf(score));
         } else {
             layout = inflater.inflate(R.layout.activity_game1_wrong, null);
             toast = new Toast(getApplicationContext());
@@ -153,8 +153,8 @@ public class Main0Animal extends AppCompatActivity {
     public void onClickGoMain(View view) {
         finish();
         Intent intent = new Intent(this, Main0Activity.class);
-        intent.putExtra(TEXT_SCORE, textScore.getText().toString());
-        intent.putExtra(TEXT_BEST, textBest.getText().toString());
+        intent.putExtra(ANIMAL_SCORE, animalScore.getText().toString());
+        intent.putExtra(ANIMAL_BEST, animalBest.getText().toString());
         startActivity(intent);
         finish();
     }
