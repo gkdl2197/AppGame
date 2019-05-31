@@ -23,6 +23,7 @@ public class Main0Itwill extends AppCompatActivity {
     private String gameName = "itw";
     public static final String ITW_SCORE = "itw_score";
     public static final String ITW_BEST = "itw_best";
+    private Main0Result mr = Main0Result.getInstance(this);
 
     private HashSet set = new HashSet();
     private int index =0;
@@ -30,7 +31,6 @@ public class Main0Itwill extends AppCompatActivity {
 
     private String[] quizItwill = {"ㅎㅅㅅ","ㅈㅈㅇ","ㅂㅋㄴ","ㄱㅅㅎ, ㄱㄴㅇ, ㅇㅈㅇ","ㄹㄸ","ㅈㅅㄱ","ㄱㅅㄱ,ㅇㅈㅇ,ㄱㄴㅇ","ㄱㄴㅂㅂ","ㅋㅌㄹㅇㄷ","ㄱㅈㅊ"
             ,"ㄱㅅㅎ"
-
 
     };
 
@@ -52,7 +52,7 @@ public class Main0Itwill extends AppCompatActivity {
     private Button btnNext;
     private EditText textResult;
     private TextView itwScore,itwBest;
-
+    private String bestScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +69,8 @@ public class Main0Itwill extends AppCompatActivity {
 
         textQuiz.setText(quizItwill[index]);
         textHint.setText(itwillHint[index]);
+        bestScore = String.valueOf(mr.saveScoreToFileByGames(gameName, 0));
+        itwBest.setText(String.valueOf(bestScore));
 
     } // end onCreate()
 
@@ -142,6 +144,10 @@ public class Main0Itwill extends AppCompatActivity {
             showToast();
         }
 
+        int score = Integer.parseInt(itwScore.getText().toString());
+        bestScore = String.valueOf(mr.saveScoreToFileByGames(gameName, score));
+        Log.i(TAG, "bestScore: ");
+        itwBest.setText(bestScore);
     }
     public void showToast(){
         toast.setDuration(Toast.LENGTH_SHORT);
@@ -157,8 +163,8 @@ public class Main0Itwill extends AppCompatActivity {
         finish();
         Intent intent = new Intent(this, Main0Activity.class);
         startActivity(intent);
-        intent.putExtra(ITW_SCORE, itwScore.getText().toString());
-        intent.putExtra(ITW_BEST, itwBest.getText().toString());
+//        intent.putExtra(ITW_SCORE, itwScore.getText().toString());
+//        intent.putExtra(ITW_BEST, itwBest.getText().toString());
         finish();
     }
 } // end class Main0Animal
