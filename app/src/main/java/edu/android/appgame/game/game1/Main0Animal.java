@@ -78,7 +78,7 @@ public class Main0Animal extends AppCompatActivity {
         Log.i(TAG, "size : " + animalQuiz.length);
         rnd = new Random();
         int count1 = 0; // 현재 set에 있는 난수의 개수를 확인
-        int count2 = 0; // 서로 다른 난수가 생성됐을때 set에 추가된 개수를 확인
+        int count2 = 0; // 서로 다른 난수가 생성됐을때ㅣ set에 추가된 개수를 확인
         while (true) {
             count2 = set.size();
             Log.i(TAG, "count2 : " + count2);

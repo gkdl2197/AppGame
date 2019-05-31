@@ -24,6 +24,7 @@ public class Main0Korea extends AppCompatActivity {
     private String gameName = "korea";
     public static final String KOREA_SCORE = "korea_score";
     public static final String KOREA_BEST = "korea_best";
+    private Main0Result mr = Main0Result.getInstance(this);
 
     private HashSet set = new HashSet();
     private int index =0;
@@ -45,8 +46,6 @@ public class Main0Korea extends AppCompatActivity {
             "일사천리","일진일퇴","개과천선","속수무책","수수방관","양자택일","어불성설","중구난방"
             ,"천신만고","희노애락"
     };
-    
-
 
     private Random rnd;
     private Toast toast;
@@ -55,6 +54,7 @@ public class Main0Korea extends AppCompatActivity {
     private Button btnNext;
     private EditText textResult;
     private TextView krScore, krbest;
+    private String bestScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +71,8 @@ public class Main0Korea extends AppCompatActivity {
 
         textQuiz.setText(quizKorea[index]);
         textHint.setText(koreaHint[index]);
+        bestScore = String.valueOf(mr.saveScoreToFileByGames(gameName, 0));
+        krbest.setText(String.valueOf(bestScore));
 
     } // end onCreate()
 
@@ -143,6 +145,11 @@ public class Main0Korea extends AppCompatActivity {
             toast = new Toast(getApplicationContext());
             showToast();
         }
+        int score = Integer.parseInt(krScore.getText().toString());
+        bestScore = String.valueOf(mr.saveScoreToFileByGames(gameName, score));
+        Log.i(TAG, "bestScore: ");
+        krbest.setText(bestScore);
+
 
     }
     public void showToast(){
@@ -158,9 +165,9 @@ public class Main0Korea extends AppCompatActivity {
     public void onClickMainGo(View view) {
         finish();
         Intent intent = new Intent(this, Main0Activity.class);
+//        intent.putExtra(KOREA_SCORE, krScore.getText().toString());
+//        intent.putExtra(KOREA_BEST, krbest.getText().toString());
         startActivity(intent);
-        intent.putExtra(KOREA_SCORE, krScore.getText().toString());
-        intent.putExtra(KOREA_BEST, krbest.getText().toString());
         finish();
     }
 } // end class Main0Animal

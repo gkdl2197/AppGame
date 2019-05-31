@@ -66,6 +66,7 @@ public class SignUpActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+
                             clearText();
                         } else {
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
