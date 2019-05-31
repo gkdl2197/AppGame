@@ -68,9 +68,11 @@ public class LoginActivity extends AppCompatActivity {
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 intent.putExtra(LOGIN, true); // 로그인 여부 전달
                                 intent.putExtra(LOGIN_ID, email.split("@")[0]); // 로그인 아이디 @ 앞 전달
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent);
 
-                                finish();
+                                LoginActivity.this.finish();
+
                             } else {
                                 Log.w(TAG, "signInWithEmail:failure", task.getException());
                                 Toast.makeText(LoginActivity.this, "로그인 실패",

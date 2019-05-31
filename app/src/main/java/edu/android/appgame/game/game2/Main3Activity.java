@@ -347,6 +347,7 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
                     Intent intent = new Intent(Main3Activity.this, Result3Activity.class);
                     intent.putExtra(SCORE_CHO, scoreCho);
                     startActivity(intent);
+                    finish();
 
                     thread.interrupt();
                 }

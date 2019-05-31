@@ -29,7 +29,7 @@ public class ResultGame3Activity extends AppCompatActivity {
     private TextView textCount, textTotal;
     private ImageView imageGrade;
     private int grade;
-    private String stringGrade;
+//    private String stringGrade;
 
 
     private GameDao dao = GameDao.getInstance(this);
@@ -69,6 +69,7 @@ public class ResultGame3Activity extends AppCompatActivity {
     }
 
     public void calScore(){
+        String stringGrade = "";
         grade = (score/total)*100;
         Log.i(TAG, "grade : " + grade);
 

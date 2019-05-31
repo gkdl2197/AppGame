@@ -345,6 +345,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent = new Intent(MainActivity.this, ResultActivity.class);
                 intent.putExtra(SCORE_CHO, scoreCho);
                 startActivity(intent);
+                finish();
 
 
                     Log.i(TAG, "1");
