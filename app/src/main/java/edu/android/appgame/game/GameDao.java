@@ -360,6 +360,7 @@ public class GameDao  {
         this.userId = userId;
         if(isLogin){
             gameScoreList = new ArrayList<>();
+
             database = FirebaseDatabase.getInstance();
             myRef = database.getReference("Member/"+ userId +"/");
 

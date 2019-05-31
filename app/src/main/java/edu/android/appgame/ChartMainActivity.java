@@ -55,6 +55,7 @@ public class ChartMainActivity extends AppCompatActivity implements ChartFriendD
     public void getFriendId(String id) {
         Log.i(TAG, "id??????????" + id);
         buddyId = id;
+        dao.gameScoreList = new ArrayList<>();
         onClickGetDBdata(buddyId);
     }
 
@@ -164,7 +165,7 @@ public class ChartMainActivity extends AppCompatActivity implements ChartFriendD
     }
 
     private ArrayList<RadarEntry> dataValues2() {
-//        radarEntries2 = new ArrayList<>();
+        radarEntries2 = new ArrayList<>();
         radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(0)))); // get second data -> put here
         radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(1))));
         radarEntries2.add(new RadarEntry(Integer.parseInt(buddyScore.get(2))));
