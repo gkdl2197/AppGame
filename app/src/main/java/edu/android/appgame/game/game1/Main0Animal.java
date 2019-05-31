@@ -20,8 +20,10 @@ import edu.android.appgame.R;
 public class Main0Animal extends AppCompatActivity {
 
     private static final String TAG = "tag";
+    private String gameName = "animal";
     public static final String ANIMAL_SCORE = "animal_score";
     public static final String ANIMAL_BEST = "animal_best";
+    private Main0Result mr = Main0Result.getInstance(this);
 
     private HashSet set = new HashSet();
     private int index = 0;
@@ -50,6 +52,7 @@ public class Main0Animal extends AppCompatActivity {
     private Button btnNext;
     private EditText textResult;
     private TextView animalScore, animalBest;
+    private String bestScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +69,8 @@ public class Main0Animal extends AppCompatActivity {
 
         textQuiz.setText(animalQuiz[index]);
         textHint.setText(animalHint[index]);
+        bestScore = String.valueOf(mr.saveScoreToFileByGames(gameName, 0));
+        animalBest.setText(String.valueOf(bestScore));
 
     } // end onCreate()
 
@@ -126,6 +131,7 @@ public class Main0Animal extends AppCompatActivity {
 
         LayoutInflater inflater = getLayoutInflater();
 
+
         if (inputData.equals(answer)) {
             layout = inflater.inflate(R.layout.activity_game1_right, null);
             toast = new Toast(getApplicationContext());
@@ -139,7 +145,12 @@ public class Main0Animal extends AppCompatActivity {
             showToast();
         }
 
+        int score = Integer.parseInt(animalScore.getText().toString());
+        bestScore = String.valueOf(mr.saveScoreToFileByGames(gameName, score));
+        Log.i(TAG, "bestScore: ");
+        animalBest.setText(bestScore);
     }
+
     public void showToast(){
         toast.setDuration(Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL,0,130);
@@ -153,24 +164,9 @@ public class Main0Animal extends AppCompatActivity {
     public void onClickGoMain(View view) {
         finish();
         Intent intent = new Intent(this, Main0Activity.class);
-        intent.putExtra(ANIMAL_SCORE, animalScore.getText().toString());
-        intent.putExtra(ANIMAL_BEST, animalBest.getText().toString());
+//        intent.putExtra(ANIMAL_SCORE, animalScore.getText().toString());
+//        intent.putExtra(ANIMAL_BEST, animalBest.getText().toString());
         startActivity(intent);
         finish();
     }
 } // end class Main0Animal
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

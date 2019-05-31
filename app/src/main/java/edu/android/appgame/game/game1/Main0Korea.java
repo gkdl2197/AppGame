@@ -21,6 +21,7 @@ public class Main0Korea extends AppCompatActivity {
 
 
     private static final String TAG = "tag";
+    private String gameName = "korea";
     public static final String KOREA_SCORE = "korea_score";
     public static final String KOREA_BEST = "korea_best";
 

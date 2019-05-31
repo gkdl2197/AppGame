@@ -20,6 +20,7 @@ import edu.android.appgame.R;
 public class Main0Itwill extends AppCompatActivity {
 
     private static final String TAG = "tag";
+    private String gameName = "itw";
     public static final String ITW_SCORE = "itw_score";
     public static final String ITW_BEST = "itw_best";
 
