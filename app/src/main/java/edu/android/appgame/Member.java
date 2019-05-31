@@ -41,101 +41,7 @@ public class Member {
         this.qclick = qclick;
     }
 
-    public String getMemberId() {
-        return memberId;
-    }
 
-    public void setMemberId(String memberId) {
-        this.memberId = memberId;
-    }
-
-    public String getMemberEmail() {
-        return memberEmail;
-    }
-
-    public void setMemberEmail(String memberEmail) {
-        this.memberEmail = memberEmail;
-    }
-
-    public String getMemberPassword() {
-        return memberPassword;
-    }
-
-    public void setMemberPassword(String memberPassword) {
-        this.memberPassword = memberPassword;
-    }
-
-    public String getMemberPasswordCheck() {
-        return memberPasswordCheck;
-    }
-
-    public void setMemberPasswordCheck(String memberPasswordCheck) {
-        this.memberPasswordCheck = memberPasswordCheck;
-    }
-
-    public String getMemberName() {
-        return memberName;
-    }
-
-    public void setMemberName(String memberName) {
-        this.memberName = memberName;
-    }
-
-    public String getMemberSex() {
-        return memberSex;
-    }
-
-    public void setMemberSex(String memberSex) {
-        this.memberSex = memberSex;
-    }
-
-    public String getMemberBirth() {
-        return memberBirth;
-    }
-
-    public void setMemberBirth(String memberBirth) {
-        this.memberBirth = memberBirth;
-    }
-
-    public int getQuiz() {
-        return quiz;
-    }
-
-    public void setQuiz(int quiz) {
-        this.quiz = quiz;
-    }
-
-    public int getCard() {
-        return card;
-    }
-
-    public void setCard(int card) {
-        this.card = card;
-    }
-
-    public int getWord() {
-        return word;
-    }
-
-    public void setWord(int word) {
-        this.word = word;
-    }
-
-    public int getCalculate() {
-        return calculate;
-    }
-
-    public void setCalculate(int calculate) {
-        this.calculate = calculate;
-    }
-
-    public int getQclick() {
-        return qclick;
-    }
-
-    public void setQclick(int qclick) {
-        this.qclick = qclick;
-    }
 
     @Exclude
     public Map<String, Object> toMap(){
@@ -157,17 +63,5 @@ public class Member {
         return result;
     } // end toMap()
 
-    @Exclude
-    public Map<String, Object> toMapScore(){
-        HashMap<String, Object> result = new HashMap<>();
-
-//        result.put("quiz", quiz);
-//        result.put("card", card);
-//        result.put("word", word);
-//        result.put("calculate", calculate);
-//        result.put("qclick", qclick);
-
-        return result;
-    } // end toMap()
 
 } // end class Member

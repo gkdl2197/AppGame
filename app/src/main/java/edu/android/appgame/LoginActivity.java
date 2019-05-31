@@ -25,7 +25,6 @@ public class LoginActivity extends AppCompatActivity {
     public static final String LOGIN_ID = "login_id";
 
     private EditText editId, editPassword;
-    private TextView textDoLogin;
     private FirebaseAuth mAuth;
 
 
@@ -43,7 +42,6 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
     }
 
@@ -68,19 +66,17 @@ public class LoginActivity extends AppCompatActivity {
 
                                 Log.i(TAG, "getEmail " +mAuth.getCurrentUser().getEmail());
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                intent.putExtra(LOGIN, true);
-                                intent.putExtra(LOGIN_ID, email.split("@")[0]);
+                                intent.putExtra(LOGIN, true); // 로그인 여부 전달
+                                intent.putExtra(LOGIN_ID, email.split("@")[0]); // 로그인 아이디 @ 앞 전달
                                 startActivity(intent);
 
                                 finish();
                             } else {
-                                // If sign in fails, display a message to the user.
                                 Log.w(TAG, "signInWithEmail:failure", task.getException());
-                                Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                Toast.makeText(LoginActivity.this, "로그인 실패",
                                         Toast.LENGTH_SHORT).show();
                             }
 
-                            // ...
                         }
                     });
         }
@@ -93,14 +89,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onClickBtnHome(View view) {
-        Intent intent = new Intent (this, MainActivity.class);
-        startActivity(intent);
+        finish();
     }
 
-    public void onClickBtnFacility(View view) {
-        Intent intent = new Intent (this, FacilityInfoActivity.class);
-        startActivity(intent);
-    }
+
 
 
 } // end class LoginActivity

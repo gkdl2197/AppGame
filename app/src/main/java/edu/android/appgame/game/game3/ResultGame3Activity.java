@@ -65,8 +65,6 @@ public class ResultGame3Activity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // TODO 아이템 선택 되었을 때 수행 할 기능
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -88,10 +86,7 @@ public class ResultGame3Activity extends AppCompatActivity {
             stringGrade = "D";
         }
 
-
         dao.saveScoreToFileByGames(GAME_NAME, stringGrade);
-
-
     } // end calScore()
 
     public void onClickHome(View view) {

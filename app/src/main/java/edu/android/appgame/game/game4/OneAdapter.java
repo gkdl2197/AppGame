@@ -35,10 +35,7 @@ class OneAdapter extends RecyclerView.Adapter<OneAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-
-
         View itemView = LayoutInflater.from(context).inflate(R.layout.item_game4_one, parent,false);
-//        RecyclerView.ViewHolder viewHolder =null;
         ViewHolder viewHolder = new ViewHolder(itemView);
 
         return viewHolder;
@@ -91,7 +88,6 @@ class OneAdapter extends RecyclerView.Adapter<OneAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-
 
         private CardView itemCardView;
 

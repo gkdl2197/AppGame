@@ -54,7 +54,6 @@ public class GameDao  {
     private String userId;
 
 
-
     public interface GetFirebaseData {
         void onReceivedEvent(String userId);
     }
@@ -66,8 +65,7 @@ public class GameDao  {
         this.userId = userId;
         myGetFirebaseData = listener;
         getGameScoreFromFirebase(userId);
-    }
-
+    } // end setOnReceivedFirebaseData()
 
 
     public static GameDao getInstance(Context context) {
@@ -137,7 +135,6 @@ public class GameDao  {
 
             gradeList.add(gameGrade);
 
-            // TODO 각 게임 점수 평균 값 계산하는 메소드 호출
             calculateTotalAverageGameScore(gameName);
 
 
@@ -174,7 +171,7 @@ public class GameDao  {
                 e1.printStackTrace();
             }
         }
-    }
+    } // end isInFile()
 
 
     // 각 게임에서 넘어온 게임 점수 각 게임 파일로 (회차,점수) 저장 - 파일에 쓰기
@@ -322,7 +319,7 @@ public class GameDao  {
             }
         }
         return contents;
-    }
+    } // end readContentsFromTxtFile()
 
 
     // 평균 점수 Firebase에 올리기
@@ -345,6 +342,7 @@ public class GameDao  {
         }
 
     } // end sendToFirebase()
+
 
     // 게임 점수 저장하기 위한 Map
     @Exclude

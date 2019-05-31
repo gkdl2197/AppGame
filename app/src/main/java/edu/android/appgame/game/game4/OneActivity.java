@@ -122,7 +122,6 @@ public class OneActivity extends AppCompatActivity {
         }
 
 
-
         // TODO 이것 대신 섞어주는 코드 필요
 
         Collections.shuffle(mOne);

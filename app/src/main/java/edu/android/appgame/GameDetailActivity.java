@@ -24,7 +24,7 @@ public class GameDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_detail);
 
-        if(savedInstanceState == null){
+        if(savedInstanceState == null) {
             Intent intent = getIntent();
             position = intent.getIntExtra(KEY_GAME_INDEX, 0);
 
@@ -50,7 +50,7 @@ public class GameDetailActivity extends AppCompatActivity {
                     finish();
                     break;
                 case 4:
-                    Intent intent4= new Intent(this, Game5StartImage.class);
+                    Intent intent4 = new Intent(this, Game5StartImage.class);
                     startActivity(intent4);
                     finish();
                     break;
@@ -60,16 +60,8 @@ public class GameDetailActivity extends AppCompatActivity {
                     startActivity(intent6);
                     finish();
                     break;
-            }
-
-
-//            GameDetailFragment fragment = GameDetailFragment.newFragment(position);
-//
-//            getSupportFragmentManager()
-//                    .beginTransaction()
-//                    .replace(R.id.container, fragment)
-//                    .commit();
-        }
+            } // end switch
+        } // end if
 
     } // end onCreate()
 } // end class GameDetailActivity

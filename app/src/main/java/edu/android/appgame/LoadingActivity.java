@@ -22,6 +22,6 @@ public class LoadingActivity extends Activity {
 
                 finish();
             }
-        }, 2000);
+        }, 2000); // 2초
     } // end startLoading()
 } // end class LoadingActivity

@@ -26,7 +26,6 @@ public class FacilityInfoActivity  extends AppCompatActivity {
     private static final String TAG = "tag";
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,25 +81,32 @@ public class FacilityInfoActivity  extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(@NonNull FacilityAdapter.ViewHolder viewHolder, final int i) {
-                viewHolder.textCenterName.setText(facilityList.get(i)[0]);
-                viewHolder.textCenterTel.setText(facilityList.get(i)[3]);
-                viewHolder.textCenterAddr.setText(facilityList.get(i)[2]);
+            viewHolder.textCenterName.setText(facilityList.get(i)[0]);
+            viewHolder.textCenterTel.setText(facilityList.get(i)[3]);
+            viewHolder.textCenterAddr.setText(facilityList.get(i)[2]);
 
-                if(facilityList.get(i)[0].equals("경기도")){
-                    viewHolder.imageFacility.setImageResource(R.drawable.valley);
-                 }if(facilityList.get(i)[0].equals("서울특별시")){
+            if (facilityList.get(i)[0].equals("경기도")) {
+                viewHolder.imageFacility.setImageResource(R.drawable.valley);
+            }
+            if (facilityList.get(i)[0].equals("서울특별시")) {
                 viewHolder.imageFacility.setImageResource(R.drawable.cityscape);
-                 }if(facilityList.get(i)[0].equals("충청도")) {
+            }
+            if (facilityList.get(i)[0].equals("충청도")) {
                 viewHolder.imageFacility.setImageResource(R.drawable.indonesia);
-                 }if(facilityList.get(i)[0].equals("강원도")) {
+            }
+            if (facilityList.get(i)[0].equals("강원도")) {
                 viewHolder.imageFacility.setImageResource(R.drawable.river);
-                 }if(facilityList.get(i)[0].equals("경상도")) {
+            }
+            if (facilityList.get(i)[0].equals("경상도")) {
                 viewHolder.imageFacility.setImageResource(R.drawable.bridge);
-            }if(facilityList.get(i)[0].equals("제주특별자치도")) {
+            }
+            if (facilityList.get(i)[0].equals("제주특별자치도")) {
                 viewHolder.imageFacility.setImageResource(R.drawable.lemonade);
-            }if(facilityList.get(i)[0].equals("전라도")) {
+            }
+            if (facilityList.get(i)[0].equals("전라도")) {
                 viewHolder.imageFacility.setImageResource(R.drawable.sashimi);
-            }if(facilityList.get(i)[0].equals("중앙치매센터")) {
+            }
+            if (facilityList.get(i)[0].equals("중앙치매센터")) {
                 viewHolder.imageFacility.setImageResource(R.drawable.enterprise);
             }
         }

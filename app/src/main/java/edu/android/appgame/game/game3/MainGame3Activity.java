@@ -28,7 +28,7 @@ public class MainGame3Activity extends AppCompatActivity {
 
     private int count= 0; // 맞힌 갯수
     private int total = 0; // 전체 문제 수
-    private int gameCount = 0;
+    private int gameCount = 0; // 회차
 
 
 
@@ -61,6 +61,7 @@ public class MainGame3Activity extends AppCompatActivity {
 
     } // end setScore()
 
+    // O 버튼을 눌렀을 때 정답 확인
     public void onClickYes(View view) {
         String color =  textFirst.getText().toString(); // 왼쪽 textView 글자
         int color_right = textSecond.getCurrentTextColor();   // 오른쪽 textView 글자 색
@@ -142,6 +143,7 @@ public class MainGame3Activity extends AppCompatActivity {
         } // end switch(color)
     } // end onClickYes()
 
+    // X 버튼 눌렀을 때 정답 확인
     public void onClickNo(View view) {
         String color =  textFirst.getText().toString(); // 왼쪽 textView 글자
         int color_right = textSecond.getCurrentTextColor();   // 오른쪽 textView 글자 색
@@ -224,6 +226,8 @@ public class MainGame3Activity extends AppCompatActivity {
 
     } // end onClickNo()
 
+
+    // 문제 출제 위한 랜덤 돌리기
     public void setTextQuestion() {
 
         Random random = new Random();
@@ -261,6 +265,7 @@ public class MainGame3Activity extends AppCompatActivity {
         textSecond.setBackgroundColor(getResources().getColor(color_array[index_back_second]));
     } // end setTextQuestion()
 
+
     public void showAlertDialogAnswer() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
 
@@ -293,6 +298,7 @@ public class MainGame3Activity extends AppCompatActivity {
         alertDialog.create();
         alertDialog.show();
     } // end showAlertDialogAnswer()
+
 
     public void showAlertDialogWrongAnswer(){
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);

@@ -100,10 +100,8 @@ public class ChartFriendDialog extends DialogFragment {
         listFriends.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // TODO 그래프 띄우기
+               // 선택된 리스트의 친구 아이디를 보냄
                 sendMainFriendId(position);
-
-
             }
         });
         return  builder.create();

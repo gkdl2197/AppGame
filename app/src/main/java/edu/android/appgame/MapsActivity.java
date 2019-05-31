@@ -37,18 +37,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        // 아이티윌 위치 지정
         latitude = 37.4995367;
         longitude = 127.0293196;
 
         StrictMode.enableDefaults();
 
         getLatLonFromFile();
-
     }
 
     public void getLatLonFromFile() {
@@ -106,19 +105,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-
         LatLng myLocation = new LatLng(latitude, longitude);
         mMap.addMarker(new MarkerOptions().position(myLocation).title("내 위치")).showInfoWindow();
 
-
         for (int i = 0; i < lat.size(); i++) {
-
             LatLng centerLocation = new LatLng(Double.parseDouble(lat.get(i)), Double.parseDouble(lon.get(i)));
-
-            mMap.addMarker(new MarkerOptions().position(centerLocation).title(centerName.get(i)).snippet(centerAddr.get(i)).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))).showInfoWindow();
-
+            mMap.addMarker(new MarkerOptions()
+                    .position(centerLocation)
+                    .title(centerName.get(i))
+                    .snippet(centerAddr.get(i))
+                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)))
+                    .showInfoWindow();
         }
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 10));
-
-    }
-}
+    } // end onMapReady()
+} // end class MapsActivity

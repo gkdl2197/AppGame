@@ -2,7 +2,6 @@ package edu.android.appgame;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -59,7 +58,7 @@ public class ChartMainActivity extends AppCompatActivity implements ChartFriendD
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+         super.onCreate(savedInstanceState);
         setContentView(R.layout.chart_activity_main);
 
         radarChart = findViewById(R.id.radarChart);
